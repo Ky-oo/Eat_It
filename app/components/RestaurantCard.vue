@@ -13,7 +13,7 @@ defineProps<{
     >
       <div class="relative h-48 overflow-hidden">
         <img
-          :src="'https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480_1_5x/img/recipe/ras/Assets/48a49653c8716457eb0b2f7eb3c7d74c/Derivates/5f24139ace17917d2acf45266604bc0aa0a43a08.jpg'"
+          :src="'https://media-cdn.tripadvisor.com/media/photo-s/0e/1f/5c/8b/luigia-petit-saconnex.jpg'"
           :alt="restaurant.name"
           class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           onerror="this.src='https://via.placeholder.com/400x300/f3f4f6/9ca3af?text=Restaurant'"

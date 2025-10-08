@@ -26,10 +26,7 @@ if (error.value) {
     <div class="relative h-96 overflow-hidden">
       <!-- Image de fond -->
       <img
-        :src="
-          restaurant?.image ||
-          'https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480_1_5x/img/recipe/ras/Assets/48a49653c8716457eb0b2f7eb3c7d74c/Derivates/5f24139ace17917d2acf45266604bc0aa0a43a08.jpg'
-        "
+        :src="'https://labelfaitmaison.ch/wp-content/uploads/2024/04/Luigia-Lausanne.webp'"
         :alt="restaurant?.name"
         class="w-full h-full object-cover"
         onerror="this.src='https://via.placeholder.com/1200x400/f3f4f6/9ca3af?text=Restaurant'"
@@ -148,7 +145,7 @@ if (error.value) {
                 <div>
                   <p class="text-sm text-gray-500">Distance</p>
                   <p class="font-semibold text-gray-900">
-                    {{ restaurant?.distance }}m
+                    {{ restaurant?.distance }}Km
                   </p>
                 </div>
               </div>
@@ -213,10 +210,7 @@ if (error.value) {
               class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0 mr-6"
             >
               <img
-                :src="
-                  item.image ||
-                  'https://via.placeholder.com/150x150/f3f4f6/9ca3af?text=Plat'
-                "
+                :src="'https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480_1_5x/img/recipe/ras/Assets/48a49653c8716457eb0b2f7eb3c7d74c/Derivates/5f24139ace17917d2acf45266604bc0aa0a43a08.jpg'"
                 :alt="item.name"
                 class="w-full h-full object-cover"
                 onerror="this.src='https://via.placeholder.com/150x150/f3f4f6/9ca3af?text=Plat'"
