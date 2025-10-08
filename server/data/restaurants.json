@@ -1,0 +1,354 @@
+[
+  {
+    "id": 1,
+    "name": "Pizza Palace",
+    "description": "Pizzas italiennes authentiques",
+    "image": "/images/restaurants/pizza-palace.jpg",
+    "rating": 4.5,
+    "deliveryTime": "25-35 min",
+    "deliveryFee": 2.99,
+    "cuisine": "Italien",
+    "menu": [
+      {
+        "id": 1,
+        "name": "Margherita",
+        "description": "Sauce tomate, mozzarella, basilic frais",
+        "price": 12.9,
+        "image": "/images/food/margherita.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Pepperoni",
+        "description": "Sauce tomate, mozzarella, pepperoni",
+        "price": 15.9,
+        "image": "/images/food/pepperoni.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Quattro Stagioni",
+        "description": "Sauce tomate, mozzarella, jambon, champignons",
+        "price": 18.9,
+        "image": "/images/food/quattro-stagioni.jpg"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Burger House",
+    "description": "Burgers gourmets aux ingrédients premium",
+    "image": "/images/restaurants/burger-house.jpg",
+    "rating": 4.2,
+    "deliveryTime": "30-40 min",
+    "deliveryFee": 3.5,
+    "cuisine": "Américain",
+    "menu": [
+      {
+        "id": 4,
+        "name": "Classic Burger",
+        "description": "Steak, salade, tomate, oignon, sauce maison",
+        "price": 13.9,
+        "image": "/images/food/classic-burger.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Veggie Burger",
+        "description": "Steak végétal, avocat, salade, tomate",
+        "price": 14.5,
+        "image": "/images/food/veggie-burger.jpg"
+      },
+      {
+        "id": 6,
+        "name": "Frites",
+        "description": "Frites croustillantes",
+        "price": 4.5,
+        "image": "/images/food/fries.jpg"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Sushi Zen",
+    "description": "Sushis frais et cuisine japonaise",
+    "image": "/images/restaurants/sushi-zen.jpg",
+    "rating": 4.7,
+    "deliveryTime": "35-45 min",
+    "deliveryFee": 4.0,
+    "cuisine": "Japonais",
+    "menu": [
+      {
+        "id": 7,
+        "name": "Sashimi Saumon",
+        "description": "6 pièces de saumon frais",
+        "price": 16.9,
+        "image": "/images/food/salmon-sashimi.jpg"
+      },
+      {
+        "id": 8,
+        "name": "California Roll",
+        "description": "8 pièces avec crabe, avocat, concombre",
+        "price": 12.5,
+        "image": "/images/food/california-roll.jpg"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Le Petit Bistrot",
+    "description": "Cuisine française traditionnelle et raffinée",
+    "image": "/images/restaurants/le-petit-bistrot.jpg",
+    "rating": 4.6,
+    "deliveryTime": "40-50 min",
+    "deliveryFee": 4.5,
+    "cuisine": "Français",
+    "menu": [
+      {
+        "id": 9,
+        "name": "Coq au Vin",
+        "description": "Poulet mijoté au vin rouge avec légumes",
+        "price": 22.5,
+        "image": "/images/food/coq-au-vin.jpg"
+      },
+      {
+        "id": 10,
+        "name": "Ratatouille",
+        "description": "Légumes de Provence mijotés",
+        "price": 16.9,
+        "image": "/images/food/ratatouille.jpg"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Taco Loco",
+    "description": "Tacos authentiques et burritos savoureux",
+    "image": "/images/restaurants/taco-loco.jpg",
+    "rating": 4.3,
+    "deliveryTime": "20-30 min",
+    "deliveryFee": 2.5,
+    "cuisine": "Mexicain",
+    "menu": [
+      {
+        "id": 11,
+        "name": "Tacos Carnitas",
+        "description": "3 tacos au porc effiloché avec guacamole",
+        "price": 13.5,
+        "image": "/images/food/tacos-carnitas.jpg"
+      },
+      {
+        "id": 12,
+        "name": "Burrito Chicken",
+        "description": "Burrito au poulet, riz, haricots noirs",
+        "price": 11.9,
+        "image": "/images/food/burrito-chicken.jpg"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Dragon d'Or",
+    "description": "Spécialités chinoises et plats wok",
+    "image": "/images/restaurants/dragon-dor.jpg",
+    "rating": 4.1,
+    "deliveryTime": "30-40 min",
+    "deliveryFee": 3.0,
+    "cuisine": "Chinois",
+    "menu": [
+      {
+        "id": 13,
+        "name": "Canard Laqué",
+        "description": "Canard grillé avec pancakes et sauce hoisin",
+        "price": 24.9,
+        "image": "/images/food/canard-laque.jpg"
+      },
+      {
+        "id": 14,
+        "name": "Bœuf Sauté",
+        "description": "Bœuf sauté aux légumes et sauce soja",
+        "price": 15.5,
+        "image": "/images/food/boeuf-saute.jpg"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Curry Palace",
+    "description": "Cuisine indienne épicée et authentique",
+    "image": "/images/restaurants/curry-palace.jpg",
+    "rating": 4.4,
+    "deliveryTime": "35-45 min",
+    "deliveryFee": 3.5,
+    "cuisine": "Indien",
+    "menu": [
+      {
+        "id": 15,
+        "name": "Chicken Tikka Masala",
+        "description": "Poulet mariné dans une sauce crémeuse épicée",
+        "price": 17.9,
+        "image": "/images/food/chicken-tikka.jpg"
+      },
+      {
+        "id": 16,
+        "name": "Naan Fromage",
+        "description": "Pain indien garni de fromage fondu",
+        "price": 5.5,
+        "image": "/images/food/naan-fromage.jpg"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Mediterranean Delights",
+    "description": "Saveurs méditerranéennes fraîches et saines",
+    "image": "/images/restaurants/mediterranean-delights.jpg",
+    "rating": 4.8,
+    "deliveryTime": "25-35 min",
+    "deliveryFee": 2.0,
+    "cuisine": "Méditerranéen",
+    "menu": [
+      {
+        "id": 17,
+        "name": "Mezze Platter",
+        "description": "Assortiment houmous, falafel, olives, pita",
+        "price": 18.5,
+        "image": "/images/food/mezze-platter.jpg"
+      },
+      {
+        "id": 18,
+        "name": "Souvlaki Porc",
+        "description": "Brochettes de porc avec tzatziki",
+        "price": 14.9,
+        "image": "/images/food/souvlaki.jpg"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Bangkok Street",
+    "description": "Street food thaïlandaise authentique",
+    "image": "/images/restaurants/bangkok-street.jpg",
+    "rating": 4.2,
+    "deliveryTime": "30-40 min",
+    "deliveryFee": 3.0,
+    "cuisine": "Thaïlandais",
+    "menu": [
+      {
+        "id": 19,
+        "name": "Pad Thaï",
+        "description": "Nouilles sautées aux crevettes et cacahuètes",
+        "price": 13.9,
+        "image": "/images/food/pad-thai.jpg"
+      },
+      {
+        "id": 20,
+        "name": "Tom Yum",
+        "description": "Soupe épicée aux crevettes et citronnelle",
+        "price": 9.5,
+        "image": "/images/food/tom-yum.jpg"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Healthy Bowl",
+    "description": "Bowls healthy et salades fraîches",
+    "image": "/images/restaurants/healthy-bowl.jpg",
+    "rating": 4.7,
+    "deliveryTime": "15-25 min",
+    "deliveryFee": 1.5,
+    "cuisine": "Healthy",
+    "menu": [
+      {
+        "id": 21,
+        "name": "Buddha Bowl",
+        "description": "Quinoa, avocat, légumes grillés, sauce tahini",
+        "price": 14.5,
+        "image": "/images/food/buddha-bowl.jpg"
+      },
+      {
+        "id": 22,
+        "name": "Salade César Revisitée",
+        "description": "Salade verte, poulet grillé, croûtons maison",
+        "price": 12.9,
+        "image": "/images/food/caesar-salad.jpg"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "La Dolce Vita",
+    "description": "Pâtes fraîches et spécialités italiennes",
+    "image": "/images/restaurants/la-dolce-vita.jpg",
+    "rating": 4.5,
+    "deliveryTime": "25-35 min",
+    "deliveryFee": 2.5,
+    "cuisine": "Italien",
+    "menu": [
+      {
+        "id": 23,
+        "name": "Carbonara",
+        "description": "Pâtes fraîches, lardons, œuf, parmesan",
+        "price": 15.9,
+        "image": "/images/food/carbonara.jpg"
+      },
+      {
+        "id": 24,
+        "name": "Tiramisu",
+        "description": "Dessert italien traditionnel au café",
+        "price": 6.5,
+        "image": "/images/food/tiramisu.jpg"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Seoul Kitchen",
+    "description": "BBQ coréen et plats traditionnels",
+    "image": "/images/restaurants/seoul-kitchen.jpg",
+    "rating": 4.6,
+    "deliveryTime": "35-45 min",
+    "deliveryFee": 4.0,
+    "cuisine": "Coréen",
+    "menu": [
+      {
+        "id": 25,
+        "name": "Bulgogi",
+        "description": "Bœuf mariné grillé avec légumes",
+        "price": 19.9,
+        "image": "/images/food/bulgogi.jpg"
+      },
+      {
+        "id": 26,
+        "name": "Kimchi",
+        "description": "Chou fermenté épicé traditionnel",
+        "price": 4.5,
+        "image": "/images/food/kimchi.jpg"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Fish & Chips Co.",
+    "description": "Poissons frits et spécialités britanniques",
+    "image": "/images/restaurants/fish-chips.jpg",
+    "rating": 4.0,
+    "deliveryTime": "20-30 min",
+    "deliveryFee": 2.0,
+    "cuisine": "Britannique",
+    "menu": [
+      {
+        "id": 27,
+        "name": "Fish & Chips Classique",
+        "description": "Cabillaud pané avec frites et sauce tartare",
+        "price": 16.5,
+        "image": "/images/food/fish-chips.jpg"
+      },
+      {
+        "id": 28,
+        "name": "Mushy Peas",
+        "description": "Purée de petits pois à l'anglaise",
+        "price": 3.5,
+        "image": "/images/food/mushy-peas.jpg"
+      }
+    ]
+  }
+]
