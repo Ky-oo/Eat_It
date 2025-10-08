@@ -5,9 +5,10 @@
     "description": "Pizzas italiennes authentiques",
     "image": "/images/restaurants/pizza-palace.jpg",
     "rating": 4.5,
-    "deliveryTime": "25-35 min",
+    "deliveryTime": "350 min",
     "deliveryFee": 2.99,
     "cuisine": "Italien",
+    "distance": 350,
     "menu": [
       {
         "id": 1,
@@ -38,9 +39,10 @@
     "description": "Burgers gourmets aux ingrédients premium",
     "image": "/images/restaurants/burger-house.jpg",
     "rating": 4.2,
-    "deliveryTime": "30-40 min",
+    "deliveryTime": "403 min",
     "deliveryFee": 3.5,
     "cuisine": "Américain",
+    "distance": 720,
     "menu": [
       {
         "id": 4,
@@ -71,9 +73,10 @@
     "description": "Sushis frais et cuisine japonaise",
     "image": "/images/restaurants/sushi-zen.jpg",
     "rating": 4.7,
-    "deliveryTime": "35-45 min",
+    "deliveryTime": "425 min",
     "deliveryFee": 4.0,
     "cuisine": "Japonais",
+    "distance": 890,
     "menu": [
       {
         "id": 7,
@@ -97,9 +100,10 @@
     "description": "Cuisine française traditionnelle et raffinée",
     "image": "/images/restaurants/le-petit-bistrot.jpg",
     "rating": 4.6,
-    "deliveryTime": "40-50 min",
+    "deliveryTime": "500 min",
     "deliveryFee": 4.5,
     "cuisine": "Français",
+    "distance": 650,
     "menu": [
       {
         "id": 9,
@@ -123,9 +127,10 @@
     "description": "Tacos authentiques et burritos savoureux",
     "image": "/images/restaurants/taco-loco.jpg",
     "rating": 4.3,
-    "deliveryTime": "20-30 min",
+    "deliveryTime": "320 min",
     "deliveryFee": 2.5,
     "cuisine": "Mexicain",
+    "distance": 180,
     "menu": [
       {
         "id": 11,
@@ -149,9 +154,10 @@
     "description": "Spécialités chinoises et plats wok",
     "image": "/images/restaurants/dragon-dor.jpg",
     "rating": 4.1,
-    "deliveryTime": "30-40 min",
+    "deliveryTime": "420 min",
     "deliveryFee": 3.0,
     "cuisine": "Chinois",
+    "distance": 420,
     "menu": [
       {
         "id": 13,
@@ -175,9 +181,10 @@
     "description": "Cuisine indienne épicée et authentique",
     "image": "/images/restaurants/curry-palace.jpg",
     "rating": 4.4,
-    "deliveryTime": "35-45 min",
+    "deliveryTime": "345 min",
     "deliveryFee": 3.5,
     "cuisine": "Indien",
+    "distance": 560,
     "menu": [
       {
         "id": 15,
@@ -201,9 +208,10 @@
     "description": "Saveurs méditerranéennes fraîches et saines",
     "image": "/images/restaurants/mediterranean-delights.jpg",
     "rating": 4.8,
-    "deliveryTime": "25-35 min",
+    "deliveryTime": "235 min",
     "deliveryFee": 2.0,
     "cuisine": "Méditerranéen",
+    "distance": 280,
     "menu": [
       {
         "id": 17,
@@ -227,9 +235,10 @@
     "description": "Street food thaïlandaise authentique",
     "image": "/images/restaurants/bangkok-street.jpg",
     "rating": 4.2,
-    "deliveryTime": "30-40 min",
+    "deliveryTime": "340 min",
     "deliveryFee": 3.0,
     "cuisine": "Thaïlandais",
+    "distance": 780,
     "menu": [
       {
         "id": 19,
@@ -253,9 +262,10 @@
     "description": "Bowls healthy et salades fraîches",
     "image": "/images/restaurants/healthy-bowl.jpg",
     "rating": 4.7,
-    "deliveryTime": "15-25 min",
+    "deliveryTime": "125 min",
     "deliveryFee": 1.5,
     "cuisine": "Healthy",
+    "distance": 120,
     "menu": [
       {
         "id": 21,
@@ -279,9 +289,10 @@
     "description": "Pâtes fraîches et spécialités italiennes",
     "image": "/images/restaurants/la-dolce-vita.jpg",
     "rating": 4.5,
-    "deliveryTime": "25-35 min",
+    "deliveryTime": "235 min",
     "deliveryFee": 2.5,
     "cuisine": "Italien",
+    "distance": 450,
     "menu": [
       {
         "id": 23,
@@ -305,9 +316,10 @@
     "description": "BBQ coréen et plats traditionnels",
     "image": "/images/restaurants/seoul-kitchen.jpg",
     "rating": 4.6,
-    "deliveryTime": "35-45 min",
+    "deliveryTime": "3545 min",
     "deliveryFee": 4.0,
     "cuisine": "Coréen",
+    "distance": 950,
     "menu": [
       {
         "id": 25,
@@ -331,9 +343,10 @@
     "description": "Poissons frits et spécialités britanniques",
     "image": "/images/restaurants/fish-chips.jpg",
     "rating": 4.0,
-    "deliveryTime": "20-30 min",
+    "deliveryTime": "230 min",
     "deliveryFee": 2.0,
     "cuisine": "Britannique",
+    "distance": 320,
     "menu": [
       {
         "id": 27,

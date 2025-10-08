@@ -15,6 +15,7 @@ export interface Restaurant {
   deliveryTime: string;
   deliveryFee: number;
   cuisine: string;
+  distance: number;
   menu: MenuItem[];
 }
 
