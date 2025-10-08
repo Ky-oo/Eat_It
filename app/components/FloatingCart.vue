@@ -1,0 +1,151 @@
+<script setup lang="ts">
+import { useCart } from "~/stores/Cart";
+
+const cart = useCart();
+</script>
+
+<template>
+  <!-- Panier flottant global -->
+  <Transition
+    enter-active-class="transition-all duration-300 ease-out"
+    enter-from-class="opacity-0 translate-y-8 scale-75"
+    enter-to-class="opacity-100 translate-y-0 scale-100"
+    leave-active-class="transition-all duration-200 ease-in"
+    leave-from-class="opacity-100 translate-y-0 scale-100"
+    leave-to-class="opacity-0 translate-y-8 scale-75"
+  >
+    <div
+      v-if="cart.getItems.length > 0"
+      class="fixed bottom-6 right-6 z-50 group"
+    >
+      <!-- Bouton principal du panier -->
+      <div
+        @click="navigateTo('/cart')"
+        class="bg-orange-500 hover:bg-orange-600 text-white p-4 rounded-full shadow-2xl cursor-pointer transition-all duration-200 hover:scale-105 relative"
+      >
+        <!-- Icône panier avec animation -->
+        <svg
+          class="w-6 h-6 group-hover:animate-pulse"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+          />
+        </svg>
+
+        <!-- Badge de notification dynamique -->
+        <span
+          class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold animate-bounce"
+        >
+          {{ cart.getTotalItems }}
+        </span>
+      </div>
+
+      <!-- Mini aperçu du panier (hover) -->
+      <div
+        class="absolute bottom-full right-0 mb-4 bg-white rounded-xl shadow-2xl border border-gray-100 w-80 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0"
+      >
+        <!-- En-tête -->
+        <div class="p-4 border-b border-gray-100">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold text-gray-900">Votre panier</h3>
+            <span class="text-sm text-gray-500"
+              >{{ cart.getTotalItems }} article{{
+                cart.getTotalItems > 1 ? "s" : ""
+              }}</span
+            >
+          </div>
+        </div>
+
+        <!-- Liste des articles (limité à 3) -->
+        <div class="p-4 max-h-60 overflow-y-auto">
+          <div
+            v-for="(cartItem, index) in cart.getItems.slice(0, 3)"
+            :key="`${cartItem.item.id}-${index}`"
+            class="flex items-center justify-between py-2"
+            :class="{
+              'border-b border-gray-100':
+                index < Math.min(cart.getItems.length, 3) - 1,
+            }"
+          >
+            <div class="flex-1">
+              <div class="flex items-center justify-between">
+                <p class="font-medium text-gray-900 text-sm">
+                  {{ cartItem.item.name }}
+                </p>
+                <span
+                  class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full"
+                >
+                  x{{ cartItem.quantity }}
+                </span>
+              </div>
+              <p class="text-orange-600 font-semibold text-sm">
+                {{ (cartItem.item.price * cartItem.quantity).toFixed(2) }}€
+              </p>
+            </div>
+            <div class="flex items-center space-x-1 ml-2">
+              <!-- Bouton - (retirer une unité) -->
+              <button
+                @click.stop="cart.removeOneItem(cartItem.item.id)"
+                class="text-orange-500 hover:text-orange-700 w-6 h-6 rounded-full hover:bg-orange-50 transition-colors flex items-center justify-center text-sm font-bold"
+              >
+                -
+              </button>
+              <!-- Bouton X (supprimer complètement) -->
+              <button
+                @click.stop="cart.removeItem(cartItem.item.id)"
+                class="text-red-500 hover:text-red-700 p-1 rounded-full hover:bg-red-50 transition-colors"
+              >
+                <svg
+                  class="w-3 h-3"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Indicateur s'il y a plus d'articles -->
+          <div
+            v-if="cart.getItems.length > 3"
+            class="text-center py-2 text-sm text-gray-500"
+          >
+            ... et {{ cart.getItems.length - 3 }} autre{{
+              cart.getItems.length - 3 > 1 ? "s" : ""
+            }}
+            article{{ cart.getItems.length - 3 > 1 ? "s" : "" }}
+          </div>
+        </div>
+
+        <!-- Pied avec total et bouton -->
+        <div class="p-4 border-t border-gray-100 bg-gray-50 rounded-b-xl">
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-semibold text-gray-900">Total:</span>
+            <span class="font-bold text-orange-600 text-lg">
+              {{ cart.getTotalPrice.toFixed(2) }}€
+            </span>
+          </div>
+          <button
+            @click="navigateTo('/cart')"
+            class="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg font-medium transition-colors duration-200"
+          >
+            Voir le panier
+          </button>
+        </div>
+      </div>
+    </div>
+  </Transition>
+</template>

@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import FloatingCart from "~/components/FloatingCart.vue";
+</script>
+
 <template>
   <div class="bg-gray-50">
     <nav class="p-4 bg-orange-500">
@@ -8,9 +12,9 @@
     <main>
       <slot />
     </main>
+
+    <FloatingCart />
   </div>
 </template>
-
-<script setup lang="ts"></script>
 
 <style scoped></style>
