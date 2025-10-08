@@ -1,15 +1,10 @@
 <script setup lang="ts">
-// defineProps<{
-//   modelValue?: string;
-//   placeholder?: string;
-//   showAdvancedFilters?: boolean;
-// }>();
-
 defineEmits<{
-  "update:modelValue": [value: string];
   search: [query: string];
-  filter: [filters: any];
+  popularSearch: [popularSearch: any];
 }>();
+
+const query = ref("");
 </script>
 
 <template>
@@ -33,12 +28,15 @@ defineEmits<{
         </div>
 
         <input
+          v-model="query"
+          @keyup.enter="$emit('search', query)"
           type="text"
           placeholder="Rechercher un restaurant, une cuisine..."
           class="w-full pl-12 pr-32 py-4 text-lg border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent shadow-sm hover:shadow-md transition-shadow duration-200"
         />
 
         <button
+          @click="$emit('search', query)"
           class="absolute right-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-2.5 rounded-lg font-medium transition-colors duration-200 flex items-center space-x-2"
         >
           <span>Rechercher</span>
@@ -46,6 +44,8 @@ defineEmits<{
       </div>
     </div>
 
-    <PopularSearches />
+    <PopularSearches
+      @popularSearch="(popularSearch: string | null) => $emit('popularSearch', popularSearch)"
+    />
   </div>
 </template>
