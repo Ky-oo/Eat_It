@@ -7,7 +7,7 @@ const { data: restaurants } = await useAsyncData("restaurants", () =>
 const filteredRestaurants = ref();
 
 function applySearchQuery(query: string): void {
-  if (query !== null && query !== "") {
+  if (query !== undefined && query !== "" && query.length >= 2) {
     filteredRestaurants.value = restaurants.value?.filter((restaurant) =>
       restaurant.name.toLocaleLowerCase().includes(query.toLocaleLowerCase())
     );
