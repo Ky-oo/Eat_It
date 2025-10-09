@@ -56,7 +56,6 @@ defineProps<{
         </p>
 
         <div class="grid grid-cols-3 gap-2 text-sm text-gray-500 mb-4">
-          <!-- Temps de livraison -->
           <div class="flex items-center">
             <svg
               class="w-4 h-4 mr-1"
@@ -74,7 +73,6 @@ defineProps<{
             <span class="flex-nowrap">{{ restaurant.deliveryTime }}</span>
           </div>
 
-          <!-- Distance -->
           <div class="flex items-center justify-center">
             <svg
               class="w-4 h-4 mr-1"
@@ -98,7 +96,6 @@ defineProps<{
             <span>{{ restaurant.distance }}Km</span>
           </div>
 
-          <!-- Frais de livraison -->
           <div class="flex items-center justify-end">
             <svg
               class="w-4 h-4 mr-1"

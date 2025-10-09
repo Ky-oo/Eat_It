@@ -8,7 +8,6 @@ defineProps<{
 
 <template>
   <div class="relative h-96 overflow-hidden">
-    <!-- Image de fond -->
     <img
       :src="'https://labelfaitmaison.ch/wp-content/uploads/2024/04/Luigia-Lausanne.webp'"
       :alt="restaurant?.name"
@@ -16,12 +15,10 @@ defineProps<{
       onerror="this.src='https://via.placeholder.com/1200x400/f3f4f6/9ca3af?text=Restaurant'"
     />
 
-    <!-- Overlay gradient -->
     <div
       class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"
     ></div>
 
-    <!-- Bouton retour -->
     <button
       @click="$router.back()"
       class="absolute top-6 left-6 bg-white/90 backdrop-blur-sm hover:bg-white text-gray-800 p-3 rounded-full shadow-lg transition-all duration-200"

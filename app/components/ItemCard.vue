@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Restaurant, MenuItem } from "~~/modules/restaurant/types";
+import type { MenuItem } from "~~/modules/restaurant/types";
 import { useCart } from "~/stores/Cart";
 const cart = useCart();
 defineProps<{

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import PopularSearchChips from "./PopularSearchChips.vue";
+
 const emit = defineEmits<{
   popularSearch: [popularSearch: string | null];
 }>();
@@ -57,7 +59,7 @@ const data = [
     <PopularSearchChips
       v-for="data in data"
       :key="data.id"
-      :data="data"
+      :PopularSearchChips="data"
       :selected="selected"
       @selectedSearch="
         (selectedSearch) => {

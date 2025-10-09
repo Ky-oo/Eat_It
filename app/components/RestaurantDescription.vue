@@ -11,7 +11,6 @@ defineProps<{
     <div
       class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6"
     >
-      <!-- Informations principales -->
       <div class="flex-1">
         <div class="flex items-center gap-3 mb-4">
           <span
@@ -42,7 +41,6 @@ defineProps<{
           {{ restaurant?.description }}
         </p>
 
-        <!-- Informations de livraison -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div class="flex items-center p-4 bg-gray-50 rounded-xl">
             <svg

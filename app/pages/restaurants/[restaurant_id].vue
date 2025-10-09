@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import type { Restaurant } from "~~/modules/restaurant/types";
-import { useCart } from "~/stores/Cart";
 
 const route = useRoute();
-const cart = useCart();
 
 const restaurantId = route.params.restaurant_id;
 
@@ -12,7 +10,6 @@ const { data: restaurant, error } = await useAsyncData(
   () => $fetch<Restaurant>(`/api/restaurants/${restaurantId}`)
 );
 
-// Erreur 404
 if (error.value) {
   throw createError({
     statusCode: 404,
@@ -33,7 +30,6 @@ if (error.value) {
 </template>
 
 <style scoped>
-/* Animations personnalisées si nécessaire */
 .hover\:scale-105:hover {
   transform: scale(1.05);
 }

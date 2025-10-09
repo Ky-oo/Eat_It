@@ -2,20 +2,11 @@
 import { useCart } from "~/stores/Cart";
 
 const cart = useCart();
-
-// Le total est maintenant calculé dans le store
-// const total = cart.getTotalPrice;
-
-// Meta pour la page
-useHead({
-  title: "Mon Panier - Eat It",
-});
 </script>
 
 <template>
   <div class="min-h-screen bg-gray-50 py-8">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- En-tête -->
       <div class="flex items-center justify-between mb-8">
         <h1 class="text-3xl font-bold text-gray-900">Mon Panier</h1>
         <button
@@ -39,7 +30,6 @@ useHead({
         </button>
       </div>
 
-      <!-- Panier vide -->
       <div v-if="cart.getItems.length === 0" class="text-center py-12">
         <svg
           class="w-24 h-24 text-gray-300 mx-auto mb-4"
@@ -68,9 +58,7 @@ useHead({
         </NuxtLink>
       </div>
 
-      <!-- Panier avec articles -->
       <div v-else class="grid lg:grid-cols-3 gap-8">
-        <!-- Liste des articles -->
         <div class="lg:col-span-2">
           <div class="bg-white rounded-xl shadow-lg overflow-hidden">
             <div class="p-6 border-b border-gray-100">
@@ -85,7 +73,6 @@ useHead({
                 :key="`${cartItem.item.id}-${index}`"
                 class="p-6 flex items-center space-x-4"
               >
-                <!-- Image du plat -->
                 <div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
                   <img
                     :src="
@@ -97,7 +84,6 @@ useHead({
                   />
                 </div>
 
-                <!-- Informations du plat -->
                 <div class="flex-1">
                   <div class="flex items-center justify-between mb-2">
                     <h3 class="font-semibold text-gray-900">
@@ -125,9 +111,7 @@ useHead({
                   </div>
                 </div>
 
-                <!-- Contrôles de quantité -->
                 <div class="flex items-center space-x-2">
-                  <!-- Diminuer quantité -->
                   <button
                     @click="cart.removeOneItem(cartItem.item.id)"
                     class="bg-orange-100 hover:bg-orange-200 text-orange-600 w-8 h-8 rounded-full flex items-center justify-center font-bold transition-colors"
@@ -135,12 +119,10 @@ useHead({
                     -
                   </button>
 
-                  <!-- Quantité actuelle -->
-                  <span class="w-8 text-center font-semibold">{{
-                    cartItem.quantity
-                  }}</span>
+                  <span class="w-8 text-center font-semibold">
+                    {{ cartItem.quantity }}
+                  </span>
 
-                  <!-- Augmenter quantité -->
                   <button
                     @click="cart.addItem(cartItem.item, 1)"
                     class="bg-orange-100 hover:bg-orange-200 text-orange-600 w-8 h-8 rounded-full flex items-center justify-center font-bold transition-colors"
@@ -149,7 +131,6 @@ useHead({
                   </button>
                 </div>
 
-                <!-- Bouton supprimer complètement -->
                 <button
                   @click="cart.removeItem(cartItem.item.id)"
                   class="text-red-500 hover:text-red-700 p-2 rounded-full hover:bg-red-50 transition-colors"
@@ -174,7 +155,6 @@ useHead({
           </div>
         </div>
 
-        <!-- Résumé de commande -->
         <div class="lg:col-span-1">
           <div class="bg-white rounded-xl shadow-lg p-6 sticky top-6">
             <h2 class="text-xl font-semibold text-gray-900 mb-4">Résumé</h2>
