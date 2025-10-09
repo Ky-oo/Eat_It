@@ -1,9 +1,22 @@
 <script setup lang="ts">
-import type { Restaurant } from "~~/modules/restaurant/types";
+import type { Restaurant, MenuItem } from "~~/modules/restaurant/types";
 
 defineProps<{
   restaurant: Restaurant | undefined;
 }>();
+
+const selectedItem = ref<MenuItem | null>(null);
+const isModalVisible = ref(false);
+
+const showItemDetails = (item: MenuItem) => {
+  selectedItem.value = item;
+  isModalVisible.value = true;
+};
+
+const closeModal = () => {
+  isModalVisible.value = false;
+  selectedItem.value = null;
+};
 </script>
 
 <template>
@@ -29,8 +42,19 @@ defineProps<{
     </div>
 
     <div class="grid gap-6">
-      <ItemCard v-for="item in restaurant?.menu" :key="item.id" :item="item" />
+      <ItemCard
+        v-for="item in restaurant?.menu"
+        :key="item.id"
+        :item="item"
+        @show-details="showItemDetails"
+      />
     </div>
+
+    <MenuItemModal
+      :item="selectedItem"
+      :is-visible="isModalVisible"
+      @close="closeModal"
+    />
   </div>
 </template>
 

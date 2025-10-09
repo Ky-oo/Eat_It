@@ -81,32 +81,6 @@ const cart = useCart();
                 {{ (cartItem.item.price * cartItem.quantity).toFixed(2) }}€
               </p>
             </div>
-            <div class="flex items-center space-x-1 ml-2">
-              <button
-                @click.stop="cart.removeOneItem(cartItem.item.id)"
-                class="text-orange-500 hover:text-orange-700 w-6 h-6 rounded-full hover:bg-orange-50 transition-colors flex items-center justify-center text-sm font-bold"
-              >
-                -
-              </button>
-              <button
-                @click.stop="cart.removeItem(cartItem.item.id)"
-                class="text-red-500 hover:text-red-700 p-1 rounded-full hover:bg-red-50 transition-colors"
-              >
-                <svg
-                  class="w-3 h-3"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
-            </div>
           </div>
 
           <div

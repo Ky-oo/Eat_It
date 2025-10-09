@@ -9,7 +9,7 @@ defineProps<{
 <template>
   <div class="relative h-96 overflow-hidden">
     <img
-      :src="'https://labelfaitmaison.ch/wp-content/uploads/2024/04/Luigia-Lausanne.webp'"
+      :src="restaurant?.image"
       :alt="restaurant?.name"
       class="w-full h-full object-cover"
       onerror="this.src='https://via.placeholder.com/1200x400/f3f4f6/9ca3af?text=Restaurant'"
@@ -21,7 +21,7 @@ defineProps<{
 
     <button
       @click="$router.back()"
-      class="absolute top-6 left-6 bg-white/90 backdrop-blur-sm hover:bg-white text-gray-800 p-3 rounded-full shadow-lg transition-all duration-200"
+      class="absolute top-6 left-6 bg-white/90 backdrop-blur-sm hover:bg-gray-400 text-gray-800 p-3 rounded-full shadow-lg transition-all duration-200"
     >
       <svg
         class="w-6 h-6"

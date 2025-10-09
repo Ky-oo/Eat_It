@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Pizza Palace",
     "description": "Pizzas italiennes authentiques",
-    "image": "/images/restaurants/pizza-palace.jpg",
+    "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&h=400&fit=crop&crop=center",
     "rating": 4.5,
     "deliveryTime": "350 min",
     "deliveryFee": 2.99,
@@ -15,21 +15,21 @@
         "name": "Margherita",
         "description": "Sauce tomate, mozzarella, basilic frais",
         "price": 12.9,
-        "image": "/images/food/margherita.jpg"
+        "image": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=500&h=400&fit=crop&crop=center"
       },
       {
         "id": 2,
         "name": "Pepperoni",
         "description": "Sauce tomate, mozzarella, pepperoni",
         "price": 15.9,
-        "image": "/images/food/pepperoni.jpg"
+        "image": "https://images.unsplash.com/photo-1628840042765-356cda07504e?w=500&h=400&fit=crop&crop=center"
       },
       {
         "id": 3,
         "name": "Quattro Stagioni",
         "description": "Sauce tomate, mozzarella, jambon, champignons",
         "price": 18.9,
-        "image": "/images/food/quattro-stagioni.jpg"
+        "image": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=500&h=400&fit=crop&crop=center"
       }
     ]
   },
@@ -37,7 +37,7 @@
     "id": 2,
     "name": "Burger House",
     "description": "Burgers gourmets aux ingrédients premium",
-    "image": "/images/restaurants/burger-house.jpg",
+    "image": "https://images.unsplash.com/photo-1571091655789-405eb7a3a3a8?w=600&h=400&fit=crop&crop=center",
     "rating": 4.2,
     "deliveryTime": "403 min",
     "deliveryFee": 3.5,
@@ -49,21 +49,21 @@
         "name": "Classic Burger",
         "description": "Steak, salade, tomate, oignon, sauce maison",
         "price": 13.9,
-        "image": "/images/food/classic-burger.jpg"
+        "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&h=400&fit=crop&crop=center"
       },
       {
         "id": 5,
         "name": "Veggie Burger",
         "description": "Steak végétal, avocat, salade, tomate",
         "price": 14.5,
-        "image": "/images/food/veggie-burger.jpg"
+        "image": "https://images.unsplash.com/photo-1520072959219-c595dc870360?w=500&h=400&fit=crop&crop=center"
       },
       {
         "id": 6,
         "name": "Frites",
         "description": "Frites croustillantes",
         "price": 4.5,
-        "image": "/images/food/fries.jpg"
+        "image": "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=500&h=400&fit=crop&crop=center"
       }
     ]
   },
@@ -71,7 +71,7 @@
     "id": 3,
     "name": "Sushi Zen",
     "description": "Sushis frais et cuisine japonaise",
-    "image": "/images/restaurants/sushi-zen.jpg",
+    "image": "https://images.unsplash.com/photo-1553621042-f6e147245754?w=600&h=400&fit=crop&crop=center",
     "rating": 4.7,
     "deliveryTime": "425 min",
     "deliveryFee": 4.0,
@@ -83,14 +83,14 @@
         "name": "Sashimi Saumon",
         "description": "6 pièces de saumon frais",
         "price": 16.9,
-        "image": "/images/food/salmon-sashimi.jpg"
+        "image": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=500&h=400&fit=crop&crop=center"
       },
       {
         "id": 8,
         "name": "California Roll",
         "description": "8 pièces avec crabe, avocat, concombre",
         "price": 12.5,
-        "image": "/images/food/california-roll.jpg"
+        "image": "https://images.unsplash.com/photo-1611143669185-af224c5e3252?w=500&h=400&fit=crop&crop=center"
       }
     ]
   },
@@ -98,7 +98,7 @@
     "id": 4,
     "name": "Le Petit Bistrot",
     "description": "Cuisine française traditionnelle et raffinée",
-    "image": "/images/restaurants/le-petit-bistrot.jpg",
+    "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop&crop=center",
     "rating": 4.6,
     "deliveryTime": "500 min",
     "deliveryFee": 4.5,
@@ -110,14 +110,14 @@
         "name": "Coq au Vin",
         "description": "Poulet mijoté au vin rouge avec légumes",
         "price": 22.5,
-        "image": "/images/food/coq-au-vin.jpg"
+        "image": "https://images.unsplash.com/photo-1600891964092-4316c288032e?w=500&h=400&fit=crop&crop=center"
       },
       {
         "id": 10,
         "name": "Ratatouille",
         "description": "Légumes de Provence mijotés",
         "price": 16.9,
-        "image": "/images/food/ratatouille.jpg"
+        "image": "https://images.unsplash.com/photo-1580554530778-ca36943938b2?w=500&h=400&fit=crop&crop=center"
       }
     ]
   },
@@ -125,7 +125,7 @@
     "id": 5,
     "name": "Taco Loco",
     "description": "Tacos authentiques et burritos savoureux",
-    "image": "/images/restaurants/taco-loco.jpg",
+    "image": "https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?w=600&h=400&fit=crop&crop=center",
     "rating": 4.3,
     "deliveryTime": "320 min",
     "deliveryFee": 2.5,
@@ -137,14 +137,14 @@
         "name": "Tacos Carnitas",
         "description": "3 tacos au porc effiloché avec guacamole",
         "price": 13.5,
-        "image": "/images/food/tacos-carnitas.jpg"
+        "image": "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=500&h=400&fit=crop&crop=center"
       },
       {
         "id": 12,
         "name": "Burrito Chicken",
         "description": "Burrito au poulet, riz, haricots noirs",
         "price": 11.9,
-        "image": "/images/food/burrito-chicken.jpg"
+        "image": "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=500&h=400&fit=crop&crop=center"
       }
     ]
   },
@@ -152,7 +152,7 @@
     "id": 6,
     "name": "Dragon d'Or",
     "description": "Spécialités chinoises et plats wok",
-    "image": "/images/restaurants/dragon-dor.jpg",
+    "image": "https://images.unsplash.com/photo-1526318896980-cf78c088247c?w=600&h=400&fit=crop&crop=center",
     "rating": 4.1,
     "deliveryTime": "420 min",
     "deliveryFee": 3.0,
@@ -164,14 +164,14 @@
         "name": "Canard Laqué",
         "description": "Canard grillé avec pancakes et sauce hoisin",
         "price": 24.9,
-        "image": "/images/food/canard-laque.jpg"
+        "image": "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=500&h=400&fit=crop&crop=center"
       },
       {
         "id": 14,
         "name": "Bœuf Sauté",
         "description": "Bœuf sauté aux légumes et sauce soja",
         "price": 15.5,
-        "image": "/images/food/boeuf-saute.jpg"
+        "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=500&h=400&fit=crop&crop=center"
       }
     ]
   },
@@ -179,7 +179,7 @@
     "id": 7,
     "name": "Curry Palace",
     "description": "Cuisine indienne épicée et authentique",
-    "image": "/images/restaurants/curry-palace.jpg",
+    "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&h=400&fit=crop&crop=center",
     "rating": 4.4,
     "deliveryTime": "345 min",
     "deliveryFee": 3.5,
@@ -191,14 +191,14 @@
         "name": "Chicken Tikka Masala",
         "description": "Poulet mariné dans une sauce crémeuse épicée",
         "price": 17.9,
-        "image": "/images/food/chicken-tikka.jpg"
+        "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500&h=400&fit=crop&crop=center"
       },
       {
         "id": 16,
         "name": "Naan Fromage",
         "description": "Pain indien garni de fromage fondu",
         "price": 5.5,
-        "image": "/images/food/naan-fromage.jpg"
+        "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&h=400&fit=crop&crop=center"
       }
     ]
   },
@@ -206,7 +206,7 @@
     "id": 8,
     "name": "Mediterranean Delights",
     "description": "Saveurs méditerranéennes fraîches et saines",
-    "image": "/images/restaurants/mediterranean-delights.jpg",
+    "image": "https://images.unsplash.com/photo-1544148103-0773bf10d330?w=600&h=400&fit=crop&crop=center",
     "rating": 4.8,
     "deliveryTime": "235 min",
     "deliveryFee": 2.0,
@@ -218,14 +218,14 @@
         "name": "Mezze Platter",
         "description": "Assortiment houmous, falafel, olives, pita",
         "price": 18.5,
-        "image": "/images/food/mezze-platter.jpg"
+        "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=500&h=400&fit=crop&crop=center"
       },
       {
         "id": 18,
         "name": "Souvlaki Porc",
         "description": "Brochettes de porc avec tzatziki",
         "price": 14.9,
-        "image": "/images/food/souvlaki.jpg"
+        "image": "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=500&h=400&fit=crop&crop=center"
       }
     ]
   },
@@ -233,7 +233,7 @@
     "id": 9,
     "name": "Bangkok Street",
     "description": "Street food thaïlandaise authentique",
-    "image": "/images/restaurants/bangkok-street.jpg",
+    "image": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&h=400&fit=crop&crop=center",
     "rating": 4.2,
     "deliveryTime": "340 min",
     "deliveryFee": 3.0,
@@ -245,14 +245,14 @@
         "name": "Pad Thaï",
         "description": "Nouilles sautées aux crevettes et cacahuètes",
         "price": 13.9,
-        "image": "/images/food/pad-thai.jpg"
+        "image": "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=500&h=400&fit=crop&crop=center"
       },
       {
         "id": 20,
         "name": "Tom Yum",
         "description": "Soupe épicée aux crevettes et citronnelle",
         "price": 9.5,
-        "image": "/images/food/tom-yum.jpg"
+        "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=500&h=400&fit=crop&crop=center"
       }
     ]
   },
@@ -260,7 +260,7 @@
     "id": 10,
     "name": "Healthy Bowl",
     "description": "Bowls healthy et salades fraîches",
-    "image": "/images/restaurants/healthy-bowl.jpg",
+    "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&h=400&fit=crop&crop=center",
     "rating": 4.7,
     "deliveryTime": "125 min",
     "deliveryFee": 1.5,
@@ -272,14 +272,14 @@
         "name": "Buddha Bowl",
         "description": "Quinoa, avocat, légumes grillés, sauce tahini",
         "price": 14.5,
-        "image": "/images/food/buddha-bowl.jpg"
+        "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&h=400&fit=crop&crop=center"
       },
       {
         "id": 22,
         "name": "Salade César Revisitée",
         "description": "Salade verte, poulet grillé, croûtons maison",
         "price": 12.9,
-        "image": "/images/food/caesar-salad.jpg"
+        "image": "https://images.unsplash.com/photo-1546793665-c74683f339c1?w=500&h=400&fit=crop&crop=center"
       }
     ]
   },
@@ -287,7 +287,7 @@
     "id": 11,
     "name": "La Dolce Vita",
     "description": "Pâtes fraîches et spécialités italiennes",
-    "image": "/images/restaurants/la-dolce-vita.jpg",
+    "image": "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=600&h=400&fit=crop&crop=center",
     "rating": 4.5,
     "deliveryTime": "235 min",
     "deliveryFee": 2.5,
@@ -299,14 +299,14 @@
         "name": "Carbonara",
         "description": "Pâtes fraîches, lardons, œuf, parmesan",
         "price": 15.9,
-        "image": "/images/food/carbonara.jpg"
+        "image": "https://images.unsplash.com/photo-1612874742237-6526221588e3?w=500&h=400&fit=crop&crop=center"
       },
       {
         "id": 24,
         "name": "Tiramisu",
         "description": "Dessert italien traditionnel au café",
         "price": 6.5,
-        "image": "/images/food/tiramisu.jpg"
+        "image": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500&h=400&fit=crop&crop=center"
       }
     ]
   },
@@ -314,7 +314,7 @@
     "id": 12,
     "name": "Seoul Kitchen",
     "description": "BBQ coréen et plats traditionnels",
-    "image": "/images/restaurants/seoul-kitchen.jpg",
+    "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&h=400&fit=crop&crop=center",
     "rating": 4.6,
     "deliveryTime": "3545 min",
     "deliveryFee": 4.0,
@@ -326,14 +326,14 @@
         "name": "Bulgogi",
         "description": "Bœuf mariné grillé avec légumes",
         "price": 19.9,
-        "image": "/images/food/bulgogi.jpg"
+        "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=500&h=400&fit=crop&crop=center"
       },
       {
         "id": 26,
         "name": "Kimchi",
         "description": "Chou fermenté épicé traditionnel",
         "price": 4.5,
-        "image": "/images/food/kimchi.jpg"
+        "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500&h=400&fit=crop&crop=center"
       }
     ]
   },
@@ -341,7 +341,7 @@
     "id": 13,
     "name": "Fish & Chips Co.",
     "description": "Poissons frits et spécialités britanniques",
-    "image": "/images/restaurants/fish-chips.jpg",
+    "image": "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=600&h=400&fit=crop&crop=center",
     "rating": 4.0,
     "deliveryTime": "230 min",
     "deliveryFee": 2.0,
@@ -353,14 +353,14 @@
         "name": "Fish & Chips Classique",
         "description": "Cabillaud pané avec frites et sauce tartare",
         "price": 16.5,
-        "image": "/images/food/fish-chips.jpg"
+        "image": "https://images.unsplash.com/photo-1544982503-9f984c14501a?w=500&h=400&fit=crop&crop=center"
       },
       {
         "id": 28,
         "name": "Mushy Peas",
         "description": "Purée de petits pois à l'anglaise",
         "price": 3.5,
-        "image": "/images/food/mushy-peas.jpg"
+        "image": "https://images.unsplash.com/photo-1610440042657-612c34d95e9f?w=500&h=400&fit=crop&crop=center"
       }
     ]
   }
