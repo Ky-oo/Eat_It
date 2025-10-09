@@ -17,7 +17,7 @@ const quantity = ref(1);
 
 <template>
   <div
-    class="flex item?s-center bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors duration-200"
+    class="flex items-center bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors duration-200"
   >
     <div class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0 mr-6">
       <img
@@ -45,22 +45,22 @@ const quantity = ref(1);
         </div>
       </div>
 
-      <div class="flex item?s-center justify-between mt-4">
-        <div class="flex item?s-center space-x-3">
+      <div class="flex items-center justify-between mt-4">
+        <div class="flex items-center space-x-3">
           <button
             @click="if (quantity > 1) quantity--;"
-            class="w-8 h-8 rounded-full bg-orange-100 text-orange-600 hover:bg-orange-200 transition-colors duration-200 flex item?s-center justify-center font-bold"
+            class="w-8 h-8 rounded-full bg-orange-100 text-orange-600 hover:bg-orange-200 transition-colors duration-200 flex items-center justify-center font-bold"
           >
-            -
+            <MinusIcon />
           </button>
           <span class="font-medium text-gray-900 w-8 text-center">
             {{ quantity }}
           </span>
           <button
             @click="quantity++"
-            class="w-8 h-8 rounded-full bg-orange-100 text-orange-600 hover:bg-orange-200 transition-colors duration-200 flex item?s-center justify-center font-bold"
+            class="w-8 h-8 rounded-full bg-orange-100 text-orange-600 hover:bg-orange-200 transition-colors duration-200 flex items-center justify-center font-bold"
           >
-            +
+            <PlusIcon />
           </button>
         </div>
 
@@ -88,7 +88,7 @@ const quantity = ref(1);
           <button
             @click="item && cart.addItem(item, quantity)"
             :disabled="!item"
-            class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200 flex item?s-center"
+            class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center"
           >
             <svg
               class="w-4 h-4 mr-2"

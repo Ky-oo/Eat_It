@@ -35,7 +35,7 @@ watch(query, () => {
           v-model="query"
           type="text"
           placeholder="Rechercher un restaurant, une cuisine..."
-          class="w-full pl-12 pr-32 py-4 text-lg border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent shadow-sm hover:shadow-md transition-shadow duration-200"
+          class="w-full pl-12 pr-32 py-4 text-lg border border-gray-200 bg-gray-50 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent shadow-sm hover:shadow-md transition-shadow duration-200"
         />
 
         <button

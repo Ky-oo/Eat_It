@@ -161,7 +161,7 @@ onMounted(() => {
                       "
                       class="w-12 h-12 rounded-full bg-orange-100 text-orange-600 hover:bg-orange-200 transition-colors duration-200 flex items-center justify-center font-bold text-xl"
                     >
-                      -
+                      <MinusIcon size="w-6 h-6" />
                     </button>
                     <span
                       class="font-bold text-2xl text-gray-900 w-16 text-center"
@@ -172,7 +172,7 @@ onMounted(() => {
                       @click="quantity++"
                       class="w-12 h-12 rounded-full bg-orange-100 text-orange-600 hover:bg-orange-200 transition-colors duration-200 flex items-center justify-center font-bold text-xl"
                     >
-                      +
+                      <PlusIcon size="w-6 h-6" />
                     </button>
                   </div>
                 </div>

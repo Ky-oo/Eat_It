@@ -8,4 +8,10 @@ export default defineNuxtConfig({
     plugins: [tailwindcss()],
   },
   modules: ["@pinia/nuxt"],
+  components: [
+    {
+      path: "~/components",
+      pathPrefix: false,
+    },
+  ],
 });

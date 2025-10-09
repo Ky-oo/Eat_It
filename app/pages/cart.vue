@@ -116,7 +116,7 @@ const cart = useCart();
                     @click="cart.removeOneItem(cartItem.item.id)"
                     class="bg-orange-100 hover:bg-orange-200 text-orange-600 w-8 h-8 rounded-full flex items-center justify-center font-bold transition-colors"
                   >
-                    -
+                    <MinusIcon />
                   </button>
 
                   <span class="w-8 text-center font-semibold">
@@ -127,7 +127,7 @@ const cart = useCart();
                     @click="cart.addItem(cartItem.item, 1)"
                     class="bg-orange-100 hover:bg-orange-200 text-orange-600 w-8 h-8 rounded-full flex items-center justify-center font-bold transition-colors"
                   >
-                    +
+                    <PlusIcon />
                   </button>
                 </div>
 
