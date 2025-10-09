@@ -42,7 +42,7 @@ defineProps<{
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div class="flex items-center p-4 bg-gray-50 rounded-xl">
+          <div class="flex items-center p-4 bg-gray-100 rounded-xl">
             <svg
               class="w-8 h-8 text-orange-500 mr-3"
               fill="none"
