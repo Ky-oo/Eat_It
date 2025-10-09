@@ -4,10 +4,10 @@ import FloatingCart from "~/components/FloatingCart.vue";
 
 <template>
   <div class="bg-gray-50">
-    <nav class="p-4 bg-orange-500">
-      <NuxtLink to="/" class="font-bold px-4 text-lg text-white"
-        >Eat It</NuxtLink
-      >
+    <nav class="px-4 bg-orange-500">
+      <NuxtLink to="/" class="px-4">
+        <img src="/logos/logo_white.png" alt="Logo Eat It" class="h-7 w-auto" />
+      </NuxtLink>
     </nav>
     <main>
       <slot />
