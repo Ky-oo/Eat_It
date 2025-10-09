@@ -42,7 +42,7 @@ const quantity = ref(1);
       <div class="flex item?s-center justify-between mt-4">
         <div class="flex item?s-center space-x-3">
           <button
-            @click="if (quantity > 0) quantity--;"
+            @click="if (quantity > 1) quantity--;"
             class="w-8 h-8 rounded-full bg-orange-100 text-orange-600 hover:bg-orange-200 transition-colors duration-200 flex item?s-center justify-center font-bold"
           >
             -
