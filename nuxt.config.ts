@@ -10,7 +10,23 @@ export default defineNuxtConfig({
   modules: ["@pinia/nuxt"],
   components: [
     {
-      path: "~/components",
+      path: "~/components/atoms",
+      pathPrefix: false,
+    },
+    {
+      path: "~/components/molecules",
+      pathPrefix: false,
+    },
+    {
+      path: "~/components/organisms",
+      pathPrefix: false,
+    },
+    {
+      path: "~/components/templates",
+      pathPrefix: false,
+    },
+    {
+      path: "~/components/atoms/icons",
       pathPrefix: false,
     },
   ],

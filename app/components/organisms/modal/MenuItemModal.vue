@@ -153,27 +153,16 @@ onMounted(() => {
                     >Quantité :</span
                   >
                   <div class="flex items-center space-x-4">
-                    <button
-                      @click="
+                    <QuantitySelector
+                      :quantity="quantity"
+                      @increase="quantity++"
+                      @decrease="
                         if (quantity > 1) {
                           quantity--;
                         }
                       "
-                      class="w-12 h-12 rounded-full bg-orange-100 text-orange-600 hover:bg-orange-200 transition-colors duration-200 flex items-center justify-center font-bold text-xl"
-                    >
-                      <MinusIcon size="w-6 h-6" />
-                    </button>
-                    <span
-                      class="font-bold text-2xl text-gray-900 w-16 text-center"
-                    >
-                      {{ quantity }}
-                    </span>
-                    <button
-                      @click="quantity++"
-                      class="w-12 h-12 rounded-full bg-orange-100 text-orange-600 hover:bg-orange-200 transition-colors duration-200 flex items-center justify-center font-bold text-xl"
-                    >
-                      <PlusIcon size="w-6 h-6" />
-                    </button>
+                      class="scale-150"
+                    />
                   </div>
                 </div>
 

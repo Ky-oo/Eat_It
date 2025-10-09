@@ -1,6 +1,4 @@
-<script setup lang="ts">
-import FloatingCart from "~/components/FloatingCart.vue";
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="bg-orange-50">

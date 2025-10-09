@@ -135,6 +135,52 @@ L'application utilise une palette de couleurs cohérente basée sur :
 - **Background**: Gris clair (#F9FAFB) - Arrière-plans
 - **Cards**: Blanc avec ombres subtiles
 
+## 🏗️ Architecture Atomique
+
+L'application suit les principes du **Atomic Design** de Brad Frost pour une meilleure organisation des composants :
+
+### 🔬 Atoms (Atomes)
+
+Composants de base, les plus petites unités de l'interface :
+
+- `PageTitle.vue` - Titres de pages
+- `NoRestaurants.vue` - Messages d'état vide
+- `icons/PlusIcon.vue` - Icône d'ajout
+- `icons/MinusIcon.vue` - Icône de soustraction
+
+### 🧬 Molecules (Molécules)
+
+Combinaisons d'atomes qui forment des unités fonctionnelles :
+
+- `QuantitySelector.vue` - Sélecteur de quantité (utilise PlusIcon + MinusIcon)
+- `PopularSearchChips.vue` - Puces de recherche populaire
+- `RestaurantDescription.vue` - Description de restaurant
+
+### 🦠 Organisms (Organismes)
+
+Groupes de molécules formant des sections complexes :
+
+- `ItemCard.vue` - Carte d'article de menu
+- `RestaurantCard.vue` - Carte de restaurant
+- `MenuItemModal.vue` - Modal de détail d'article
+- `RestaurantGrid.vue` - Grille de restaurants
+- `RestauranMenu.vue` - Menu de restaurant complet
+- `FloatingCart.vue` - Panier flottant
+- `HeroRestaurant.vue` - En-tête de restaurant
+- `RestaurantSearchBar.vue` - Barre de recherche
+- `PopularSearches.vue` - Recherches populaires
+
+### 📄 Templates
+
+Structures de page définissant la mise en page générale (dans `layouts/`)
+
+Cette organisation améliore :
+
+- **Réutilisabilité** : Les composants atomiques peuvent être utilisés partout
+- **Maintenabilité** : Structure claire et logique
+- **Évolutivité** : Facilite l'ajout de nouvelles fonctionnalités
+- **Tests** : Chaque niveau peut être testé indépendamment
+
 ## 📊 API Endpoints
 
 ### Restaurants

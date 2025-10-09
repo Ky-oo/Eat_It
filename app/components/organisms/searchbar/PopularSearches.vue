@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import PopularSearchChips from "./PopularSearchChips.vue";
-
 const emit = defineEmits<{
   popularSearch: [popularSearch: string | null];
 }>();

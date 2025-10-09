@@ -46,23 +46,15 @@ const quantity = ref(1);
       </div>
 
       <div class="flex items-center justify-between mt-4">
-        <div class="flex items-center space-x-3">
-          <button
-            @click="if (quantity > 1) quantity--;"
-            class="w-8 h-8 rounded-full bg-orange-100 text-orange-600 hover:bg-orange-200 transition-colors duration-200 flex items-center justify-center font-bold"
-          >
-            <MinusIcon />
-          </button>
-          <span class="font-medium text-gray-900 w-8 text-center">
-            {{ quantity }}
-          </span>
-          <button
-            @click="quantity++"
-            class="w-8 h-8 rounded-full bg-orange-100 text-orange-600 hover:bg-orange-200 transition-colors duration-200 flex items-center justify-center font-bold"
-          >
-            <PlusIcon />
-          </button>
-        </div>
+        <QuantitySelector
+          :quantity="quantity"
+          @increase="quantity++"
+          @decrease="
+            if (quantity > 1) {
+              quantity--;
+            }
+          "
+        />
 
         <div class="flex space-x-3">
           <button
