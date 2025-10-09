@@ -68,7 +68,7 @@ const quantity = ref(1);
           <button
             @click="item && $emit('showDetails', item)"
             :disabled="!item"
-            class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-medium transition-colors duration-200 flex item?s-center"
+            class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center"
           >
             <svg
               class="w-4 h-4 mr-2"
