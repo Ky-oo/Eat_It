@@ -5,7 +5,7 @@ const emit = defineEmits<{
 
 const selected = ref<string | null>(null);
 
-const selectCategory = (category: string) => {
+const selectCategory = (category: string | null) => {
   if (category === selected.value) {
     selected.value = null;
     emit("popularSearch", null);
@@ -13,6 +13,39 @@ const selectCategory = (category: string) => {
   selected.value = category;
   emit("popularSearch", category);
 };
+
+const data = [
+  {
+    id: 1,
+    name: "pizza",
+    texte: "🍕 Pizza",
+  },
+  {
+    id: 2,
+    name: "burger",
+    texte: "🍔 Burger",
+  },
+  {
+    id: 3,
+    name: "sushi",
+    texte: "🍣 Sushi",
+  },
+  {
+    id: 4,
+    name: "mexicain",
+    texte: "🌮 Mexicain",
+  },
+  {
+    id: 5,
+    name: "indien",
+    texte: "🍛 Indien",
+  },
+  {
+    id: 6,
+    name: "healthy",
+    texte: "🥗 Healthy",
+  },
+];
 </script>
 
 <template>
@@ -21,77 +54,17 @@ const selectCategory = (category: string) => {
       >Recherches populaires :</span
     >
 
-    <button
-      @click="selectCategory('pizza')"
-      :class="[
-        'px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 border',
-        selected === 'pizza'
-          ? 'bg-orange-100 text-orange-600 border-orange-200 shadow-md'
-          : 'bg-gray-100 hover:bg-orange-100 hover:text-orange-600 text-gray-600 border-transparent hover:border-orange-200',
-      ]"
-    >
-      🍕 Pizza
-    </button>
-
-    <button
-      @click="selectCategory('burger')"
-      :class="[
-        'px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 border',
-        selected === 'burger'
-          ? 'bg-orange-100 text-orange-600 border-orange-200 shadow-md'
-          : 'bg-gray-100 hover:bg-orange-100 hover:text-orange-600 text-gray-600 border-transparent hover:border-orange-200',
-      ]"
-    >
-      🍔 Burger
-    </button>
-
-    <button
-      @click="selectCategory('sushi')"
-      :class="[
-        'px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 border',
-        selected === 'sushi'
-          ? 'bg-orange-100 text-orange-600 border-orange-200 shadow-md'
-          : 'bg-gray-100 hover:bg-orange-100 hover:text-orange-600 text-gray-600 border-transparent hover:border-orange-200',
-      ]"
-    >
-      🍣 Sushi
-    </button>
-
-    <button
-      @click="selectCategory('mexicain')"
-      :class="[
-        'px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 border',
-        selected === 'mexicain'
-          ? 'bg-orange-100 text-orange-600 border-orange-200 shadow-md'
-          : 'bg-gray-100 hover:bg-orange-100 hover:text-orange-600 text-gray-600 border-transparent hover:border-orange-200',
-      ]"
-    >
-      🌮 Mexicain
-    </button>
-
-    <button
-      @click="selectCategory('indien')"
-      :class="[
-        'px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 border',
-        selected === 'indien'
-          ? 'bg-orange-100 text-orange-600 border-orange-200 shadow-md'
-          : 'bg-gray-100 hover:bg-orange-100 hover:text-orange-600 text-gray-600 border-transparent hover:border-orange-200',
-      ]"
-    >
-      🍛 Indien
-    </button>
-
-    <button
-      @click="selectCategory('healthy')"
-      :class="[
-        'px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 border',
-        selected === 'healthy'
-          ? 'bg-orange-100 text-orange-600 border-orange-200 shadow-md'
-          : 'bg-gray-100 hover:bg-orange-100 hover:text-orange-600 text-gray-600 border-transparent hover:border-orange-200',
-      ]"
-    >
-      🥗 Healthy
-    </button>
+    <PopularSearchChips
+      v-for="data in data"
+      :key="data.id"
+      :data="data"
+      :selected="selected"
+      @selectedSearch="
+        (selectedSearch) => {
+          selectCategory(selectedSearch);
+        }
+      "
+    />
   </div>
 </template>
 

@@ -19,9 +19,13 @@ function applySearchQuery(query: string): void {
 function applyPopularSearch(popularSearch: string | null): void {
   if (popularSearch === null) {
     filteredRestaurants.value = restaurants.value;
+    return;
   }
   filteredRestaurants.value = restaurants.value?.filter((restaurant) => {
-    restaurant.cuisine === popularSearch;
+    return (
+      restaurant.cuisine.toLocaleLowerCase() ===
+      popularSearch?.toLocaleLowerCase()
+    );
   });
 }
 </script>
