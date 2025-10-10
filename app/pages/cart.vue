@@ -90,7 +90,7 @@ const cart = useCart();
                       {{ cartItem.item.name }}
                     </h3>
                     <span
-                      class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full"
+                      class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full flex-nowrap"
                     >
                       Quantité: {{ cartItem.quantity }}
                     </span>
