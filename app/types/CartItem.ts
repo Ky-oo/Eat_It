@@ -1,4 +1,4 @@
-import type { MenuItem } from "~~/modules/restaurant/types";
+import type { MenuItem } from "~~/app/types/Restaurant";
 
 export type CartItem = {
   item: MenuItem;

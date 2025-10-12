@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import type { MenuItem } from "~~/modules/restaurant/types";
+import type { MenuItem } from "~~/app/types/Restaurant";
 import type { CartItem } from "~~/app/types/CartItem";
 
 export const useCart = defineStore("cart", {

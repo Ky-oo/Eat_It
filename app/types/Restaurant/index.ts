@@ -1,12 +1,12 @@
-export type MenuItem {
+export type MenuItem = {
   id: number;
   name: string;
   description: string;
   price: number;
   image: string;
-}
+};
 
-export type Restaurant {
+export type Restaurant = {
   id: number;
   name: string;
   description: string;
@@ -17,8 +17,8 @@ export type Restaurant {
   cuisine: string;
   distance: number;
   menu: MenuItem[];
-}
+};
 
-export type RestaurantsData {
+export type RestaurantsData = {
   restaurants: Restaurant[];
-}
+};

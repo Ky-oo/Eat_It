@@ -8,3 +8,5 @@ export type User = {
 };
 
 export type UsersData = User[];
+
+export type UserWithoutPassword = Omit<User, "password">;

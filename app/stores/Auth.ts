@@ -1,21 +1,22 @@
 import { defineStore } from "pinia";
 import { useRouter } from "#app";
-import type { User, UsersData } from "../types/User";
+import type { User, UsersData, UserWithoutPassword } from "../types/User";
+import type { ApiError, ApiResponse } from "../types/Utils";
 
 export const useAuth = defineStore("auth", {
   state: () => ({
-    user: null as Omit<User, "password"> | null,
+    user: null as UserWithoutPassword | null,
     isLogged: false as boolean,
   }),
   getters: {
-    getUser: (state): Omit<User, "password"> | null => state.user,
+    getUser: (state): UserWithoutPassword | null => state.user,
     checkIfLogged: (state): boolean => state.isLogged,
   },
   actions: {
     async login(email: string, password: string) {
       try {
-        const usersData = await $fetch<UsersData>("/api/users");
-        const user = usersData.find(
+        const response = await $fetch<ApiResponse<User[]>>("/api/users");
+        const user = response.data.find(
           (u) => u.email === email && u.password === password
         );
         if (!user) {
@@ -27,9 +28,14 @@ export const useAuth = defineStore("auth", {
         this.user = userWithoutPassword;
         const router = useRouter();
         router.push("/");
-      } catch (error: any) {
-        console.error("Erreur lors de la connexion:", error);
-        throw new Error(error.message || "Erreur de connexion");
+      } catch (error: unknown) {
+        const apiError: ApiError = {
+          message:
+            error instanceof Error ? error.message : "Erreur de connexion",
+          status: 401,
+        };
+        console.error("Erreur lors de la connexion:", apiError);
+        throw new Error(apiError.message);
       }
     },
 

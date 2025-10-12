@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Restaurant, MenuItem } from "~~/modules/restaurant/types";
+import type { Restaurant, MenuItem } from "~~/app/types/Restaurant";
 
 defineProps<{
   restaurant: Restaurant | undefined;
