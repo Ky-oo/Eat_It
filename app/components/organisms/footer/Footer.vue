@@ -12,7 +12,8 @@
           />
           <h3 class="text-xl font-bold text-orange-400 mb-4"></h3>
           <p class="text-gray-300">
-            Votre application de livraison de nourriture préférée.
+            Votre application de livraison <br />
+            préférée.
           </p>
         </div>
 
