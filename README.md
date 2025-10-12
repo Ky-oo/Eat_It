@@ -170,17 +170,6 @@ Groupes de molécules formant des sections complexes :
 - `RestaurantSearchBar.vue` - Barre de recherche
 - `PopularSearches.vue` - Recherches populaires
 
-### 📄 Templates
-
-Structures de page définissant la mise en page générale (dans `layouts/`)
-
-Cette organisation améliore :
-
-- **Réutilisabilité** : Les composants atomiques peuvent être utilisés partout
-- **Maintenabilité** : Structure claire et logique
-- **Évolutivité** : Facilite l'ajout de nouvelles fonctionnalités
-- **Tests** : Chaque niveau peut être testé indépendamment
-
 ## 📊 API Endpoints
 
 ### Restaurants

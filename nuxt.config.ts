@@ -22,10 +22,6 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
     {
-      path: "~/components/templates",
-      pathPrefix: false,
-    },
-    {
       path: "~/components/atoms/icons",
       pathPrefix: false,
     },

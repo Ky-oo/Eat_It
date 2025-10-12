@@ -1,4 +1,4 @@
-export interface MenuItem {
+export type MenuItem {
   id: number;
   name: string;
   description: string;
@@ -6,7 +6,7 @@ export interface MenuItem {
   image: string;
 }
 
-export interface Restaurant {
+export type Restaurant {
   id: number;
   name: string;
   description: string;
@@ -19,6 +19,6 @@ export interface Restaurant {
   menu: MenuItem[];
 }
 
-export interface RestaurantsData {
+export type RestaurantsData {
   restaurants: Restaurant[];
 }

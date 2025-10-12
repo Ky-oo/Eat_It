@@ -26,9 +26,7 @@
               >
             </li>
             <li>
-              <NuxtLink
-                to="/restaurants"
-                class="hover:text-orange-400 transition-colors"
+              <NuxtLink to="/" class="hover:text-orange-400 transition-colors"
                 >Restaurants</NuxtLink
               >
             </li>

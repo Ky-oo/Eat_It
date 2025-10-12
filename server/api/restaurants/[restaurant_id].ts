@@ -1,5 +1,5 @@
 import restaurants from "../../data/restaurants.json";
-import type { Restaurant } from "~~/modules/restaurant/types";
+import type { Restaurant } from "~~/app/types/Restaurant";
 
 export default defineEventHandler((event) => {
   const params = event.context.params;

@@ -16,7 +16,6 @@ const isLoading = ref(false);
 // Fonction d'inscription (placeholder)
 const handleRegister = () => {
   isLoading.value = true;
-  // Simulation d'une requête
   setTimeout(() => {
     isLoading.value = false;
     console.log("Register attempt:", {
@@ -34,7 +33,6 @@ const handleRegister = () => {
     class="min-h-screen bg-gradient-to-br from-orange-50 to-orange-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
   >
     <div class="max-w-md w-full space-y-8">
-      <!-- Header -->
       <div class="text-center">
         <NuxtLink to="/" class="inline-block">
           <img
@@ -57,10 +55,8 @@ const handleRegister = () => {
         </p>
       </div>
 
-      <!-- Formulaire -->
       <div class="bg-white rounded-2xl shadow-xl p-8 space-y-6">
         <form @submit.prevent="handleRegister" class="space-y-6">
-          <!-- Nom et Prénom -->
           <div class="grid grid-cols-2 gap-4">
             <div>
               <label
@@ -96,7 +92,6 @@ const handleRegister = () => {
             </div>
           </div>
 
-          <!-- Email -->
           <div>
             <label
               for="email"
@@ -131,7 +126,6 @@ const handleRegister = () => {
             </div>
           </div>
 
-          <!-- Mot de passe -->
           <div>
             <label
               for="password"
@@ -169,7 +163,6 @@ const handleRegister = () => {
             </p>
           </div>
 
-          <!-- Confirmation mot de passe -->
           <div>
             <label
               for="confirmPassword"
@@ -245,7 +238,6 @@ const handleRegister = () => {
             </p>
           </div>
 
-          <!-- Conditions d'utilisation -->
           <div class="flex items-start">
             <div class="flex items-center h-5">
               <input
@@ -276,7 +268,6 @@ const handleRegister = () => {
             </div>
           </div>
 
-          <!-- Bouton d'inscription -->
           <button
             type="submit"
             :disabled="
@@ -311,7 +302,6 @@ const handleRegister = () => {
           </button>
         </form>
 
-        <!-- Divider -->
         <div class="relative">
           <div class="absolute inset-0 flex items-center">
             <div class="w-full border-t border-gray-300" />
@@ -321,7 +311,6 @@ const handleRegister = () => {
           </div>
         </div>
 
-        <!-- Connexion sociale -->
         <div class="grid grid-cols-2 gap-3">
           <button
             type="button"

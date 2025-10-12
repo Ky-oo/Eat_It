@@ -1,27 +1,21 @@
 <script setup lang="ts">
-// Mode CSR pour les pages d'authentification
-definePageMeta({
-  mode: "spa",
-});
+import type { UsersData } from "~~/app/types/User";
+import { useAuth } from "~~/app/stores/Auth";
 
-// État des champs du formulaire (visuel seulement)
+const authStore = useAuth();
+
 const email = ref("");
 const password = ref("");
 const rememberMe = ref(false);
 const isLoading = ref(false);
 
-// Fonction de connexion (placeholder)
-const handleLogin = () => {
-  isLoading.value = true;
-  // Simulation d'une requête
-  setTimeout(() => {
-    isLoading.value = false;
-    console.log("Login attempt:", {
-      email: email.value,
-      password: password.value,
-    });
-  }, 1000);
-};
+function handleLogin() {
+  try {
+    authStore.login(email.value, password.value);
+  } catch (e) {
+    console.error(e);
+  }
+}
 </script>
 
 <template>
@@ -29,7 +23,6 @@ const handleLogin = () => {
     class="min-h-screen bg-gradient-to-br from-orange-50 to-orange-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
   >
     <div class="max-w-md w-full space-y-8">
-      <!-- Header -->
       <div class="text-center">
         <NuxtLink to="/" class="inline-block">
           <img
@@ -52,10 +45,8 @@ const handleLogin = () => {
         </p>
       </div>
 
-      <!-- Formulaire -->
       <div class="bg-white rounded-2xl shadow-xl p-8 space-y-6">
         <form @submit.prevent="handleLogin" class="space-y-6">
-          <!-- Email -->
           <div>
             <label
               for="email"
@@ -67,6 +58,7 @@ const handleLogin = () => {
               <input
                 id="email"
                 v-model="email"
+                autocomplete="username"
                 type="email"
                 required
                 placeholder="votre@email.com"
@@ -90,7 +82,6 @@ const handleLogin = () => {
             </div>
           </div>
 
-          <!-- Mot de passe -->
           <div>
             <label
               for="password"
@@ -101,6 +92,7 @@ const handleLogin = () => {
             <div class="relative">
               <input
                 id="password"
+                autocomplete="current-password"
                 v-model="password"
                 type="password"
                 required
@@ -125,7 +117,6 @@ const handleLogin = () => {
             </div>
           </div>
 
-          <!-- Options -->
           <div class="flex items-center justify-between">
             <div class="flex items-center">
               <input
@@ -148,7 +139,6 @@ const handleLogin = () => {
             </div>
           </div>
 
-          <!-- Bouton de connexion -->
           <button
             type="submit"
             :disabled="isLoading"
@@ -179,7 +169,6 @@ const handleLogin = () => {
           </button>
         </form>
 
-        <!-- Divider -->
         <div class="relative">
           <div class="absolute inset-0 flex items-center">
             <div class="w-full border-t border-gray-300" />
@@ -189,7 +178,6 @@ const handleLogin = () => {
           </div>
         </div>
 
-        <!-- Connexion sociale -->
         <div class="grid grid-cols-2 gap-3">
           <button
             type="button"
@@ -234,7 +222,6 @@ const handleLogin = () => {
         </div>
       </div>
 
-      <!-- Footer -->
       <div class="text-center text-sm text-gray-600">
         En vous connectant, vous acceptez nos
         <a href="#" class="text-orange-600 hover:text-orange-500 font-medium">
@@ -250,7 +237,6 @@ const handleLogin = () => {
 </template>
 
 <style scoped>
-/* Animations personnalisées */
 .animate-spin {
   animation: spin 1s linear infinite;
 }
