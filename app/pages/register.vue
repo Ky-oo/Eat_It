@@ -274,9 +274,9 @@ const handleRegister = () => {
           <button
             type="submit"
             :disabled="
-              isLoading ||
-              !acceptTerms ||
-              (confirmPassword && password !== confirmPassword)
+              Boolean(isLoading) ||
+              !Boolean(acceptTerms) ||
+              (confirmPassword !== '' && password !== confirmPassword)
             "
             class="w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
           >

@@ -4,10 +4,14 @@ definePageMeta({
 });
 
 import type { Restaurant } from "~~/app/types/Restaurant";
+import type { ApiResponse } from "~~/app/types/Utils";
 
-const { data: restaurants, error } = await useAsyncData("all-restaurants", () =>
-  $fetch<Restaurant[]>("/api/restaurants")
+const { data: restaurantsResponse, error } = await useAsyncData(
+  "all-restaurants",
+  () => $fetch<ApiResponse<Restaurant[]>>("/api/restaurants")
 );
+
+const restaurants = computed(() => restaurantsResponse.value?.data || []);
 
 if (error.value) {
   throw createError({

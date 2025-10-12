@@ -1,3 +1,4 @@
+import { defineEventHandler } from "h3";
 import restaurants from "../../data/restaurants.json";
 import type { Restaurant } from "~~/app/types/Restaurant";
 import type { ApiResponse } from "~~/app/types/Utils";

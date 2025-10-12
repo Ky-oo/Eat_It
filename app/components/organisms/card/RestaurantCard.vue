@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Restaurant } from "~~/app/types/Restaurant";
 import { useAuth } from "#imports";
+import restaurants from "~~/server/api/restaurants";
 
 const authStore = useAuth();
 defineProps<{

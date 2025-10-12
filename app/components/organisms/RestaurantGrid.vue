@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import type { Restaurant } from "~~/app/types/Restaurant";
+import type { ApiResponse } from "~~/app/types/Utils";
 
-const { data: restaurants } = await useAsyncData("restaurants", () =>
-  $fetch<Restaurant[]>("/api/restaurants")
+const { data: restaurantsResponse } = await useAsyncData("restaurants", () =>
+  $fetch<ApiResponse<Restaurant[]>>("/api/restaurants")
 );
+
+const restaurants = computed(() => restaurantsResponse.value?.data || []);
 const filteredRestaurants = ref();
 
 function applySearchQuery(query: string): void {

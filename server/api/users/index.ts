@@ -1,3 +1,4 @@
+import { defineEventHandler } from "h3";
 import users from "../../data/users.json";
 import type { User } from "~~/app/types/User";
 import type { ApiResponse } from "~~/app/types/Utils";
