@@ -43,23 +43,20 @@ function applyPopularSearch(popularSearch: string | null): void {
     class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
   >
     <RestaurantCard
-      v-if="
-        filteredRestaurants !== undefined
-          ? filteredRestaurants.length > 0
-          : restaurants && restaurants.length > 0
-      "
       v-for="restaurant in filteredRestaurants ?? restaurants"
       :key="restaurant.id"
       :restaurant="restaurant"
     />
-    <div v-else class="text-center py-12 col-span-full">
-      <div class="text-gray-500">
-        Aucun restaurant trouvé. Essayez une autre recherche.
-      </div>
-    </div>
-  </div>
 
-  <NoRestaurants v-if="restaurants && restaurants.length === 0" />
+    <NoRestaurants
+      v-if="
+        filteredRestaurants !== undefined
+          ? filteredRestaurants.length === 0
+          : restaurants && restaurants.length === 0
+      "
+      class="flex flex-col items-center justify-center col-span-full"
+    />
+  </div>
 </template>
 
 <style scoped></style>
