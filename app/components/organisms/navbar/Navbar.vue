@@ -1,4 +1,7 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useAuth } from "../../../stores/Auth";
+const authStore = useAuth();
+</script>
 
 <template>
   <nav class="px-4 py-3 bg-orange-500 flex items-center justify-between">
@@ -11,18 +14,27 @@
     </NuxtLink>
 
     <div class="flex items-center space-x-4">
-      <NuxtLink
-        to="/login"
-        class="bg-orange-50 text-orange-500 hover:text-orange-50 px-4 py-2 hover:border rounded-2xl font-medium hover:bg-orange-500 transition-colors duration-200 cursor-pointer"
-      >
-        Connexion
-      </NuxtLink>
-      <NuxtLink
-        to="/register"
+      <div v-if="!authStore.checkIfLogged" class="flex gap-2">
+        <NuxtLink
+          to="/login"
+          class="bg-orange-50 text-orange-500 hover:text-orange-50 px-4 py-2 hover:border rounded-2xl font-medium hover:bg-orange-500 transition-colors duration-200 cursor-pointer"
+        >
+          Connexion
+        </NuxtLink>
+        <NuxtLink
+          to="/register"
+          class="text-white px-4 py-2 rounded-2xl font-medium border-orange-50 border hover:bg-orange-50 hover:text-orange-500 transition-colors duration-200 cursor-pointer"
+        >
+          Inscription
+        </NuxtLink>
+      </div>
+      <div
+        v-else
+        @click="authStore.logout"
         class="text-white px-4 py-2 rounded-2xl font-medium border-orange-50 border hover:bg-orange-50 hover:text-orange-500 transition-colors duration-200 cursor-pointer"
       >
-        Inscription
-      </NuxtLink>
+        Déconnexion
+      </div>
     </div>
   </nav>
 </template>

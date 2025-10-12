@@ -1,13 +1,17 @@
 <script setup lang="ts">
 import type { Restaurant } from "~~/app/types/Restaurant";
+import { useAuth } from "#imports";
 
+const authStore = useAuth();
 defineProps<{
   restaurant: Restaurant;
 }>();
 </script>
 
 <template>
-  <NuxtLink :to="`/restaurants/${restaurant.id}`">
+  <NuxtLink
+    :to="authStore.isLogged ? `/restaurants/${restaurant.id}` : '/login'"
+  >
     <div
       class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group cursor-pointer flex flex-col h-full"
     >

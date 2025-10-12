@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { useCart } from "~/stores/Cart";
 
+definePageMeta({
+  middleware: "auth",
+});
+
 const cart = useCart();
 </script>
 

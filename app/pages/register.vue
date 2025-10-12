@@ -1,10 +1,4 @@
 <script setup lang="ts">
-// Mode CSR pour les pages d'authentification
-definePageMeta({
-  mode: "spa",
-});
-
-// État des champs du formulaire (visuel seulement)
 const firstName = ref("");
 const lastName = ref("");
 const email = ref("");
@@ -13,9 +7,18 @@ const confirmPassword = ref("");
 const acceptTerms = ref(false);
 const isLoading = ref(false);
 
-// Fonction d'inscription (placeholder)
 const handleRegister = () => {
   isLoading.value = true;
+  const passwordRegex = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
+
+  if (!passwordRegex.test(password.value)) {
+    isLoading.value = false;
+    alert(
+      "Le mot de passe doit contenir au moins 8 caractères, une majuscule et un chiffre."
+    );
+    return;
+  }
+
   setTimeout(() => {
     isLoading.value = false;
     console.log("Register attempt:", {

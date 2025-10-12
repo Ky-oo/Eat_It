@@ -10,10 +10,13 @@ const rememberMe = ref(false);
 const isLoading = ref(false);
 
 function handleLogin() {
+  isLoading.value = true;
   try {
     authStore.login(email.value, password.value);
   } catch (e) {
     console.error(e);
+  } finally {
+    isLoading.value = false;
   }
 }
 </script>

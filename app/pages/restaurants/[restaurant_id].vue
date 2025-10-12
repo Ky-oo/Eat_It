@@ -1,4 +1,8 @@
 <script setup lang="ts">
+definePageMeta({
+  middleware: "auth",
+});
+
 import type { Restaurant } from "~~/app/types/Restaurant";
 
 const route = useRoute();

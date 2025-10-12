@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { useRouter } from "#app";
 import type { User, UsersData } from "../types/User";
 
 export const useAuth = defineStore("auth", {
@@ -8,14 +9,13 @@ export const useAuth = defineStore("auth", {
   }),
   getters: {
     getUser: (state): Omit<User, "password"> | null => state.user,
-    isLogged: (state): boolean => state.isLogged,
+    checkIfLogged: (state): boolean => state.isLogged,
   },
   actions: {
     async login(email: string, password: string) {
       try {
         const usersData = await $fetch<UsersData>("/api/users");
-
-        const user = usersData?.find(
+        const user = usersData.find(
           (u) => u.email === email && u.password === password
         );
         if (!user) {
@@ -25,8 +25,8 @@ export const useAuth = defineStore("auth", {
         this.isLogged = true;
         const { password: userPassword, ...userWithoutPassword } = user;
         this.user = userWithoutPassword;
-
-        return { success: true, user: this.user };
+        const router = useRouter();
+        router.push("/");
       } catch (error: any) {
         console.error("Erreur lors de la connexion:", error);
         throw new Error(error.message || "Erreur de connexion");

@@ -7,6 +7,4 @@ export type User = {
   roles: string[];
 };
 
-export type UsersData = {
-  users: User[];
-};
+export type UsersData = User[];
