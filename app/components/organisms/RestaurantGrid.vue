@@ -1,35 +1,40 @@
 <script setup lang="ts">
 import type { Restaurant } from "~~/app/types/Restaurant";
-import type { ApiResponse } from "~~/app/types/Utils";
 
-const { data: restaurantsResponse } = await useAsyncData("restaurants", () =>
-  $fetch<ApiResponse<Restaurant[]>>("/api/restaurants")
-);
+interface Props {
+  restaurants: Restaurant[];
+}
 
-const restaurants = computed(() => restaurantsResponse.value?.data || []);
+const props = withDefaults(defineProps<Props>(), {
+  restaurants: () => [],
+});
+
 const filteredRestaurants = ref();
 
 function applySearchQuery(query: string): void {
   if (query !== undefined && query !== "" && query.length >= 2) {
-    filteredRestaurants.value = restaurants.value?.filter((restaurant) =>
-      restaurant.name.toLocaleLowerCase().includes(query.toLocaleLowerCase())
+    filteredRestaurants.value = props.restaurants?.filter(
+      (restaurant: Restaurant) =>
+        restaurant.name.toLocaleLowerCase().includes(query.toLocaleLowerCase())
     );
   } else {
-    filteredRestaurants.value = restaurants.value;
+    filteredRestaurants.value = props.restaurants;
   }
 }
 
 function applyPopularSearch(popularSearch: string | null): void {
   if (popularSearch === null) {
-    filteredRestaurants.value = restaurants.value;
+    filteredRestaurants.value = props.restaurants;
     return;
   }
-  filteredRestaurants.value = restaurants.value?.filter((restaurant) => {
-    return (
-      restaurant.cuisine.toLocaleLowerCase() ===
-      popularSearch?.toLocaleLowerCase()
-    );
-  });
+  filteredRestaurants.value = props.restaurants?.filter(
+    (restaurant: Restaurant) => {
+      return (
+        restaurant.cuisine.toLocaleLowerCase() ===
+        popularSearch?.toLocaleLowerCase()
+      );
+    }
+  );
 }
 </script>
 
@@ -43,7 +48,7 @@ function applyPopularSearch(popularSearch: string | null): void {
     class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
   >
     <RestaurantCard
-      v-for="restaurant in filteredRestaurants ?? restaurants"
+      v-for="restaurant in filteredRestaurants ?? props.restaurants"
       :key="restaurant.id"
       :restaurant="restaurant"
     />
@@ -52,7 +57,7 @@ function applyPopularSearch(popularSearch: string | null): void {
       v-if="
         filteredRestaurants !== undefined
           ? filteredRestaurants.length === 0
-          : restaurants && restaurants.length === 0
+          : props.restaurants && props.restaurants.length === 0
       "
       class="flex flex-col items-center justify-center col-span-full"
     />

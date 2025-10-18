@@ -4,10 +4,52 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
+
+  // Configuration SSR/ISR
+  ssr: true,
+
+  // Configuration du rendu
+  nitro: {
+    prerender: {
+      // Prérendu des pages statiques
+      routes: ["/"],
+    },
+    // Configuration ISR pour les pages de restaurants
+    routeRules: {
+      // Page d'accueil - SSR avec cache
+      "/": {
+        ssr: true,
+        headers: { "Cache-Control": "s-maxage=60" },
+      },
+      // Liste des restaurants - SSR avec cache
+      "/restaurants": {
+        ssr: true,
+        headers: { "Cache-Control": "s-maxage=300" }, // 5 minutes
+      },
+      // Détail restaurant - ISR avec revalidation
+      "/restaurants/**": {
+        ssr: true,
+        isr: true,
+        headers: { "Cache-Control": "s-maxage=3600" }, // 1 heure
+      },
+      // Pages d'authentification - Client-side uniquement
+      "/login": { ssr: false },
+      "/register": { ssr: false },
+      "/cart": { ssr: false },
+    },
+  },
+
   vite: {
     plugins: [tailwindcss()],
   },
+
   modules: ["@pinia/nuxt"],
+
+  // Configuration Pinia pour la persistance
+  pinia: {
+    storesDirs: ["./stores/**"],
+  },
+
   components: [
     {
       path: "~/components/atoms",

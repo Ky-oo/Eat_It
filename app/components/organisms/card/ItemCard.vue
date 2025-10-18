@@ -1,10 +1,14 @@
 <script setup lang="ts">
-import type { MenuItem } from "~~/modules/restaurant/types";
+import type { MenuItem } from "~/types/Restaurant";
 import { useCart } from "~/stores/Cart";
+import { useAuth } from "~/stores/Auth";
 
+// Utilisation des stores et composables (useRouter auto-importé par Nuxt 3)
 const cart = useCart();
+const authStore = useAuth(); // Nom cohérent (camelCase)
+const router = useRouter(); // Auto-importé par Nuxt 3
 
-defineProps<{
+const props = defineProps<{
   item: MenuItem | undefined;
 }>();
 
@@ -13,6 +17,19 @@ defineEmits<{
 }>();
 
 const quantity = ref(1);
+
+const handleAddToCart = () => {
+  if (!props.item) return;
+
+  if (!authStore.isLogged) {
+    router.push("/login");
+    return;
+  }
+
+  cart.addItem(props.item, quantity.value);
+
+  quantity.value = 1;
+};
 </script>
 
 <template>
@@ -78,7 +95,7 @@ const quantity = ref(1);
             Détails
           </button>
           <button
-            @click="item && cart.addItem(item, quantity)"
+            @click="handleAddToCart"
             :disabled="!item"
             class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center"
           >
@@ -95,7 +112,11 @@ const quantity = ref(1);
                 d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
               />
             </svg>
-            Ajouter
+            {{
+              authStore.isLogged
+                ? "Ajouter au panier"
+                : "Se connecter pour commander"
+            }}
           </button>
         </div>
       </div>

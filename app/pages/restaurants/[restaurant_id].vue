@@ -1,21 +1,19 @@
 <script setup lang="ts">
-definePageMeta({
-  middleware: "auth",
-});
-
 import type { Restaurant } from "~~/app/types/Restaurant";
 import type { ApiResponse } from "~~/app/types/Utils";
 
 const route = useRoute();
-
 const restaurantId = route.params.restaurant_id;
 
 const { data: restaurantResponse, error } = await useAsyncData(
   `restaurant-${restaurantId}`,
-  () => $fetch<ApiResponse<Restaurant>>(`/api/restaurants/${restaurantId}`)
+  () => $fetch<ApiResponse<Restaurant>>(`/api/restaurants/${restaurantId}`),
+  {
+    server: true,
+  }
 );
 
-const restaurant = computed(() => restaurantResponse.value?.data);
+const restaurant = computed(() => restaurantResponse.value?.data || undefined);
 
 if (error.value) {
   throw createError({

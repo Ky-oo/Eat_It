@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { useCart } from "~/stores/Cart";
-
 definePageMeta({
   middleware: "auth",
+  ssr: false,
 });
+
+import { useCart } from "~/stores/Cart";
 
 const cart = useCart();
 </script>

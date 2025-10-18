@@ -1,8 +1,12 @@
 <script setup lang="ts">
-import type { MenuItem } from "~~/modules/restaurant/types";
+import type { MenuItem } from "~/types/Restaurant";
 import { useCart } from "~/stores/Cart";
+import { useAuth } from "~/stores/Auth";
 
+// Utilisation des stores et composables (useRouter auto-importé par Nuxt 3)
 const cart = useCart();
+const authStore = useAuth(); // Nom cohérent (camelCase)
+const router = useRouter(); // Auto-importé par Nuxt 3
 
 const emit = defineEmits<{
   close: [];
@@ -20,6 +24,15 @@ const addToCart = () => {
     cart.addItem(props.item, quantity.value);
     closeModal();
   }
+};
+
+const handleAddToCart = () => {
+  if (!authStore.isLogged) {
+    router.push("/login");
+    return;
+  }
+
+  addToCart();
 };
 
 const props = defineProps<{
@@ -174,7 +187,7 @@ onMounted(() => {
                     </div>
                   </div>
                   <button
-                    @click="addToCart"
+                    @click="handleAddToCart"
                     class="bg-orange-500 hover:bg-orange-600 text-white px-10 py-4 rounded-xl font-medium transition-colors duration-200 flex items-center text-lg whitespace-nowrap"
                   >
                     <svg
@@ -190,7 +203,11 @@ onMounted(() => {
                         d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
                       />
                     </svg>
-                    Ajouter au panier
+                    {{
+                      authStore.isLogged
+                        ? "Ajouter au panier"
+                        : "Se connecter pour commander"
+                    }}
                   </button>
                 </div>
               </div>

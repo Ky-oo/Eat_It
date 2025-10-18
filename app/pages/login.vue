@@ -1,4 +1,9 @@
 <script setup lang="ts">
+definePageMeta({
+  middleware: "guest",
+  ssr: false,
+});
+
 import type { UsersData } from "~~/app/types/User";
 import { useAuth } from "~~/app/stores/Auth";
 

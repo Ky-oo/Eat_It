@@ -1,4 +1,9 @@
 <script setup lang="ts">
+definePageMeta({
+  middleware: "guest",
+  ssr: false,
+});
+
 const firstName = ref("");
 const lastName = ref("");
 const email = ref("");

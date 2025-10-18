@@ -1,8 +1,4 @@
 <script setup lang="ts">
-definePageMeta({
-  middleware: "auth",
-});
-
 import type { Restaurant } from "~~/app/types/Restaurant";
 import type { ApiResponse } from "~~/app/types/Utils";
 
