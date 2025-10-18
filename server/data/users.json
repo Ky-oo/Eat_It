@@ -5,7 +5,14 @@
     "lastname": "Patry",
     "email": "kylian.patry@gmail.com",
     "password": "password",
-    "roles": ["Admin", "User"]
+    "roles": ["Admin", "User"],
+    "phone_number": "+33606060606",
+    "address": {
+      "city": "Paris",
+      "cp": "75000",
+      "address": "1 rue de la paix",
+      "details": "1er étage / interphone 103"
+    }
   },
   {
     "id": 2,
@@ -13,6 +20,13 @@
     "lastname": "Patry2",
     "email": "kylian.patry2@gmail.com",
     "password": "password",
-    "roles": ["User"]
+    "roles": ["User"],
+    "phone_number": "+33603040506",
+    "address": {
+      "city": "Annecy",
+      "cp": "74000",
+      "address": "2 rue du parmelant",
+      "details": "2er étage / interphone 218"
+    }
   }
 ]
