@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
+  modules: ["@pinia/nuxt", "nuxt-vue3-google-signin"],
 
   // Configuration SSR/ISR
   ssr: true,
@@ -43,7 +44,18 @@ export default defineNuxtConfig({
     plugins: [tailwindcss()],
   },
 
-  modules: ["@pinia/nuxt"],
+  googleSignIn: {
+    clientId: process.env.GOOGLE_CLIENT_ID,
+  },
+
+  runtimeConfig: {
+    public: {
+      googleClientId: process.env.GOOGLE_CLIENT_ID,
+      baseUrl: process.env.NUXT_PUBLIC_BASE_URL,
+    },
+    googleClientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    googleRedirectUri: process.env.GOOGLE_REDIRECT_URI,
+  },
 
   // Configuration Pinia pour la persistance
   pinia: {
