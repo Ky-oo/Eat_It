@@ -64,6 +64,7 @@ const handleAddToCart = () => {
 
       <div class="flex items-center justify-between mt-4">
         <QuantitySelector
+          v-if="authStore.isLogged"
           :quantity="quantity"
           @increase="quantity++"
           @decrease="
@@ -77,7 +78,7 @@ const handleAddToCart = () => {
           <button
             @click="item && $emit('showDetails', item)"
             :disabled="!item"
-            class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center"
+            class="bg-gray-200 cursor-pointer hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center"
           >
             <svg
               class="w-4 h-4 mr-2"
@@ -97,7 +98,7 @@ const handleAddToCart = () => {
           <button
             @click="handleAddToCart"
             :disabled="!item"
-            class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center"
+            class="bg-orange-500 cursor-pointer hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center"
           >
             <svg
               class="w-4 h-4 mr-2"

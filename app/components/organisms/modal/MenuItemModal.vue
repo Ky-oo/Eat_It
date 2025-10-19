@@ -160,7 +160,7 @@ onMounted(() => {
               <div
                 class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6"
               >
-                <div class="flex items-center space-x-6">
+                <div class="flex items-end space-x-6" v-if="authStore.isLogged">
                   <span
                     class="text-lg font-medium text-gray-900 whitespace-nowrap"
                     >Quantité :</span
@@ -188,7 +188,7 @@ onMounted(() => {
                   </div>
                   <button
                     @click="handleAddToCart"
-                    class="bg-orange-500 hover:bg-orange-600 text-white px-10 py-4 rounded-xl font-medium transition-colors duration-200 flex items-center text-lg whitespace-nowrap"
+                    class="bg-orange-500 cursor-pointer hover:bg-orange-600 text-white px-10 py-4 rounded-xl font-medium transition-colors duration-200 flex items-center text-lg whitespace-nowrap"
                   >
                     <svg
                       class="w-5 h-5 mr-3"

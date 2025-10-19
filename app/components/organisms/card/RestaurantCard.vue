@@ -117,7 +117,7 @@ defineProps<{
         <div class="flex-grow"></div>
 
         <button
-          class="w-full bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center mt-auto"
+          class="w-full cursor-pointer bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center mt-auto"
         >
           <svg
             class="w-5 h-5 mr-2"

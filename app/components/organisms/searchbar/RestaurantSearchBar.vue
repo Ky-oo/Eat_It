@@ -40,7 +40,7 @@ watch(query, () => {
 
         <button
           @click="emit('search', query)"
-          class="absolute right-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-2.5 rounded-lg font-medium transition-colors duration-200 flex items-center space-x-2"
+          class="absolute right-2 cursor-pointer bg-orange-500 hover:bg-orange-600 text-white px-6 py-2.5 rounded-lg font-medium transition-colors duration-200 flex items-center space-x-2"
         >
           <span>Rechercher</span>
         </button>
