@@ -16,7 +16,7 @@ const cart = useCart();
         <h1 class="text-3xl font-bold text-gray-900">Mon Panier</h1>
         <button
           @click="$router.back()"
-          class="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
+          class="flex items-center cursor-pointer hover:bg-orange-100 p-2 rounded-lg text-gray-600 hover:text-gray-900 transition-colors"
         >
           <svg
             class="w-5 h-5 mr-2"
@@ -116,29 +116,15 @@ const cart = useCart();
                   </div>
                 </div>
 
-                <div class="flex items-center space-x-2">
-                  <button
-                    @click="cart.removeOneItem(cartItem.item.id)"
-                    class="bg-orange-100 hover:bg-orange-200 text-orange-600 w-8 h-8 rounded-full flex items-center justify-center font-bold transition-colors"
-                  >
-                    <MinusIcon />
-                  </button>
-
-                  <span class="w-8 text-center font-semibold">
-                    {{ cartItem.quantity }}
-                  </span>
-
-                  <button
-                    @click="cart.addItem(cartItem.item, 1)"
-                    class="bg-orange-100 hover:bg-orange-200 text-orange-600 w-8 h-8 rounded-full flex items-center justify-center font-bold transition-colors"
-                  >
-                    <PlusIcon />
-                  </button>
-                </div>
+                <QuantitySelector
+                  :quantity="cart.getItemQuantity(cartItem.item.id)"
+                  @increase="cart.addItem(cartItem.item, 1)"
+                  @decrease="cart.removeOneItem(cartItem.item.id)"
+                />
 
                 <button
                   @click="cart.removeItem(cartItem.item.id)"
-                  class="text-red-500 hover:text-red-700 p-2 rounded-full hover:bg-red-50 transition-colors"
+                  class="text-red-500 hover:text-red-700 cursor-pointer p-2 rounded-full hover:bg-red-50 transition-colors"
                   title="Supprimer complètement"
                 >
                   <svg
@@ -184,14 +170,14 @@ const cart = useCart();
             </div>
 
             <button
-              class="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 px-4 rounded-lg font-semibold transition-colors duration-200 mb-3"
+              class="w-full cursor-pointer bg-orange-500 hover:bg-orange-600 text-white py-3 px-4 rounded-lg font-semibold transition-colors duration-200 mb-3"
             >
               Passer la commande
             </button>
 
             <button
               @click="navigateTo('/')"
-              class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 px-4 rounded-lg font-medium transition-colors duration-200"
+              class="w-full bg-gray-100 cursor-pointer hover:bg-gray-200 text-gray-700 py-3 px-4 rounded-lg font-medium transition-colors duration-200"
             >
               Continuer mes achats
             </button>

@@ -97,7 +97,7 @@ onMounted(() => {
 
             <button
               @click="closeModal"
-              class="absolute top-4 right-4 w-10 h-10 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full flex items-center justify-center text-gray-600 hover:text-gray-800 transition-all duration-200 shadow-lg"
+              class="absolute top-4 cursor-pointer right-4 w-10 h-10 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full flex items-center justify-center text-gray-600 hover:text-gray-800 transition-all duration-200 shadow-lg"
             >
               <svg
                 class="w-6 h-6"

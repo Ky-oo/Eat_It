@@ -103,7 +103,7 @@ const cart = useCart();
           </div>
           <button
             @click="navigateTo('/cart')"
-            class="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg font-medium transition-colors duration-200"
+            class="w-full bg-orange-500 cursor-pointer hover:bg-orange-600 text-white py-2 px-4 rounded-lg font-medium transition-colors duration-200"
           >
             Voir le panier
           </button>

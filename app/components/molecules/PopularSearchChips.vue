@@ -22,7 +22,7 @@ const emit = defineEmits<{
       )
     "
     :class="[
-      'px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 border',
+      'px-4 cursor-pointer py-2 rounded-full text-sm font-medium transition-colors duration-200 border',
       props.selected === props.PopularSearchChips.name
         ? 'bg-orange-100 text-orange-600 border-orange-200 shadow-md'
         : 'bg-gray-50 border-gray-300 hover:bg-orange-100 hover:text-orange-600 text-gray-600 hover:border-orange-200',

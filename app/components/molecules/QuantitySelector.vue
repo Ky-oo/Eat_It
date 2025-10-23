@@ -3,7 +3,7 @@
     <button
       @click="decrease"
       :disabled="quantity <= 0"
-      class="w-6 h-6 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 hover:bg-orange-200 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+      class="w-6 h-6 rounded-full cursor-pointer bg-orange-100 flex items-center justify-center text-orange-600 hover:bg-orange-200 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
     >
       <MinusIcon size="w-3 h-3" />
     </button>
@@ -14,7 +14,7 @@
 
     <button
       @click="increase"
-      class="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center text-white hover:bg-orange-600 transition-colors"
+      class="w-6 h-6 rounded-full cursor-pointer bg-orange-500 flex items-center justify-center text-white hover:bg-orange-600 transition-colors"
     >
       <PlusIcon size="w-3 h-3" />
     </button>
