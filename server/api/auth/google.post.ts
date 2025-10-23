@@ -7,13 +7,16 @@ import {
 import { useRuntimeConfig } from "#imports";
 
 export default defineEventHandler(async (event) => {
+  // Définir les headers CORS au début
+  setResponseHeaders(event, {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type, Authorization",
+    "Content-Type": "application/json",
+  });
+
   // Gérer les requêtes OPTIONS pour CORS
   if (event.node.req.method === "OPTIONS") {
-    setResponseHeaders(event, {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "POST, OPTIONS",
-      "Access-Control-Allow-Headers": "Content-Type, Authorization",
-    });
     return "";
   }
 
@@ -59,12 +62,6 @@ export default defineEventHandler(async (event) => {
         headers: { Authorization: `Bearer ${accessToken}` },
       }
     );
-
-    // Définir les headers CORS pour la réponse
-    setResponseHeaders(event, {
-      "Access-Control-Allow-Origin": "*",
-      "Content-Type": "application/json",
-    });
 
     return {
       access_token: accessToken,
