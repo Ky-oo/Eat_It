@@ -59,7 +59,7 @@ const handleImageChange = (event: Event) => {
       <button
         v-if="!isEditing"
         @click="isEditing = true"
-        class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-medium transition-colors"
+        class="bg-orange-500 hover:bg-orange-600 cursor-pointer text-white px-4 py-2 rounded-lg font-medium transition-colors"
       >
         Modifier
       </button>
@@ -184,14 +184,14 @@ const handleImageChange = (event: Event) => {
         <button
           type="submit"
           :disabled="isLoading"
-          class="flex-1 bg-orange-500 hover:bg-orange-600 text-white py-3 px-4 rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          class="flex-1 cursor-pointer bg-orange-500 hover:bg-orange-600 text-white py-3 px-4 rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
           {{ isLoading ? "Sauvegarde..." : "Sauvegarder" }}
         </button>
         <button
           type="button"
           @click="isEditing = false"
-          class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 py-3 px-4 rounded-lg font-medium transition-colors"
+          class="flex-1 cursor-pointer bg-gray-200 hover:bg-gray-300 text-gray-700 py-3 px-4 rounded-lg font-medium transition-colors"
         >
           Annuler
         </button>
