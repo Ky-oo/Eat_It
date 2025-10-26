@@ -65,17 +65,26 @@
           <h4 class="font-semibold mb-4">Suivez-nous</h4>
           <ul class="space-y-2 text-gray-300">
             <li>
-              <a href="#" class="hover:text-orange-400 transition-colors"
+              <a
+                href="https://www.facebook.com/CFPPA"
+                target="_blank"
+                class="hover:text-orange-400 transition-colors"
                 >Facebook</a
               >
             </li>
             <li>
-              <a href="#" class="hover:text-orange-400 transition-colors"
+              <a
+                href="https://x.com/FFLose"
+                target="_blank"
+                class="hover:text-orange-400 transition-colors"
                 >Twitter</a
               >
             </li>
             <li>
-              <a href="#" class="hover:text-orange-400 transition-colors"
+              <a
+                href="https://www.instagram.com/tonton_etchebest_"
+                target="_blank"
+                class="hover:text-orange-400 transition-colors"
                 >Instagram</a
               >
             </li>
