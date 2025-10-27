@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useCart } from "~/stores/Cart";
 
-const router = useRouter();
 const cart = useCart();
 </script>
 <template>
@@ -15,13 +14,13 @@ const cart = useCart();
           Informations personnelles
         </a>
         <button
-          @click="router.push('/orders')"
+          @click="navigateTo('/orders')"
           class="block w-full text-left px-4 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
         >
           Mes commandes
         </button>
         <button
-          @click="router.push('/cart')"
+          @click="navigateTo('/cart')"
           class="block w-full text-left px-4 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
         >
           Mon panier ({{ cart.getTotalItems }})

@@ -3,7 +3,6 @@ import { useAuth } from "~/stores/Auth";
 import { useRouter } from "vue-router";
 
 const authStore = useAuth();
-const router = useRouter();
 
 const isLoading = ref(false);
 const isEditing = ref(false);

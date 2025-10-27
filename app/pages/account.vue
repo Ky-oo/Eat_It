@@ -8,7 +8,6 @@ import { useCart } from "~/stores/Cart";
 
 const authStore = useAuth();
 const cart = useCart();
-const router = useRouter();
 
 const activeTab = ref("profile");
 
@@ -19,11 +18,11 @@ const setActiveTab = (tab: string) => {
 const handleLogout = () => {
   cart.clearCart();
   authStore.logout();
-  router.push("/");
+  navigateTo("/");
 };
 
 const goToCart = () => {
-  router.push("/cart");
+  navigateTo("/cart");
 };
 </script>
 

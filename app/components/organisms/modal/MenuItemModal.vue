@@ -3,11 +3,8 @@ import type { MenuItem } from "~/types/Restaurant";
 import { useCart } from "~/stores/Cart";
 import { useAuth } from "~/stores/Auth";
 
-// Utilisation des stores et composables (useRouter auto-importé par Nuxt 3)
 const cart = useCart();
-const authStore = useAuth(); // Nom cohérent (camelCase)
-const router = useRouter(); // Auto-importé par Nuxt 3
-
+const authStore = useAuth();
 const emit = defineEmits<{
   close: [];
 }>();
@@ -28,7 +25,7 @@ const addToCart = () => {
 
 const handleAddToCart = () => {
   if (!authStore.isLogged) {
-    router.push("/login");
+    navigateTo("/login");
     return;
   }
 

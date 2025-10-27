@@ -28,8 +28,8 @@ export const useAuth = defineStore("auth", {
         this.isLogged = true;
         const { password: userPassword, ...userWithoutPassword } = user;
         this.user = userWithoutPassword;
-        const router = useRouter();
-        router.push("/");
+
+        this.redirectAfterLogin();
       } catch (error: unknown) {
         const apiError: ApiError = {
           message:
@@ -41,6 +41,27 @@ export const useAuth = defineStore("auth", {
       }
     },
 
+    redirectAfterLogin() {
+      if (!this.isLogged) {
+        navigateTo("/login");
+        return;
+      }
+
+      const roles = this.user?.roles;
+
+      if (roles?.includes("backoffice")) {
+        navigateTo("/backoffice");
+        return;
+      }
+
+      if (roles?.includes("owner")) {
+        navigateTo("/owner");
+        return;
+      }
+
+      navigateTo("/");
+    },
+
     async googleLogin(googleResponse: GoogleAuthResponse) {
       try {
         this.tokens = {
@@ -48,21 +69,19 @@ export const useAuth = defineStore("auth", {
           refresh_token: googleResponse.refresh_token,
         };
 
-        const googleUser: UserWithoutPassword = {
-          id: parseInt(googleResponse.user.sub),
-          firstname: googleResponse.user.given_name,
-          lastname: googleResponse.user.family_name,
-          email: googleResponse.user.email,
-          roles: ["User"],
-          name: googleResponse.user.name,
-          picture: googleResponse.user.picture,
-        };
+        const response = await $fetch<ApiResponse<User>>(
+          `/api/users/google-auth/${googleResponse.user.sub}`
+        );
+        const user = response.data;
 
-        this.user = googleUser;
+        if (!user) {
+          throw new Error("Compte inconnu. Merci de créer un compte");
+        }
+
+        const { password: userPassword, ...userWithoutPassword } = user;
+        this.user = userWithoutPassword;
         this.isLogged = true;
-
-        const router = useRouter();
-        router.push("/");
+        this.redirectAfterLogin();
       } catch (error: unknown) {
         const apiError: ApiError = {
           message:
@@ -80,6 +99,7 @@ export const useAuth = defineStore("auth", {
       this.user = null;
       this.isLogged = false;
       this.tokens = null;
+      navigateTo("/");
     },
   },
 });
