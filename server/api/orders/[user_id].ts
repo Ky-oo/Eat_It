@@ -3,10 +3,10 @@ import orders from "../../data/orders.json";
 import type { Order } from "~~/app/types/Order";
 import type { ApiResponse } from "~~/app/types/Utils";
 
-export default defineEventHandler((event): ApiResponse<Order | []> => {
+export default defineEventHandler((event): ApiResponse<Order[] | []> => {
   const params = event.context.params;
   const userId = params?.user_id;
-  const userOrder = (orders as Order[])?.find?.(
+  const userOrder = (orders as Order[])?.filter?.(
     (order) => order.userId == userId
   );
 
