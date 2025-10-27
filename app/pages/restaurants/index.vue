@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import type { Restaurant } from "~~/app/types/Restaurant";
 import type { ApiResponse } from "~~/app/types/Utils";
+definePageMeta({
+  ssr: true,
+});
 
 const { data: restaurantsResponse, error } = await useAsyncData(
   "all-restaurants",

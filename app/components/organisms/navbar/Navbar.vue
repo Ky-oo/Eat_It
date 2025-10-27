@@ -49,6 +49,15 @@ const authStore = useAuth();
           </svg>
           Mon Compte
         </NuxtLink>
+        <NuxtLink
+          v-if="authStore.user?.roles.includes('backoffice')"
+          to="/backoffice"
+        >
+          Backoffice</NuxtLink
+        >
+        <NuxtLink v-if="authStore.user?.roles.includes('owner')" to="/owner">
+          OwnerPage</NuxtLink
+        >
 
         <button
           @click="authStore.logout"

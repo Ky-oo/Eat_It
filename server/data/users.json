@@ -5,7 +5,7 @@
     "lastname": "Patry",
     "email": "kylian.patry@gmail.com",
     "password": "password",
-    "roles": ["Admin", "User"],
+    "roles": ["backoffice", "user"],
     "phone_number": "+33606060606",
     "address": {
       "city": "Paris",
@@ -20,7 +20,23 @@
     "lastname": "Patry2",
     "email": "kylian.patry2@gmail.com",
     "password": "password",
-    "roles": ["User"],
+    "roles": ["user"],
+    "phone_number": "+33603040506",
+    "address": {
+      "city": "Annecy",
+      "cp": "74000",
+      "address": "2 rue du parmelant",
+      "details": "2er étage / interphone 218"
+    }
+  },
+  {
+    "id": 3,
+    "googleId": 107056822728405160000,
+    "firstname": "Kylian",
+    "lastname": "Patry",
+    "email": "kylian.patry@gmail.com",
+    "password": "password",
+    "roles": ["User", "backoffice", "owner"],
     "phone_number": "+33603040506",
     "address": {
       "city": "Annecy",
