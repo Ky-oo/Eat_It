@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "userId": "1",
+    "userId": "107056822728405160000",
     "date": "2024-01-15",
     "restaurant": "Pizza Palace",
     "total": 25.5,
@@ -13,7 +13,7 @@
   },
   {
     "id": "2",
-    "userId": "1",
+    "userId": "107056822728405160000",
     "date": "2024-01-10",
     "restaurant": "Burger House",
     "total": 18.9,
@@ -22,7 +22,7 @@
   },
   {
     "id": "3",
-    "userId": "1",
+    "userId": "107056822728405160000",
     "date": "2024-01-08",
     "restaurant": "Sushi Master",
     "total": 42.0,
@@ -31,7 +31,7 @@
   },
   {
     "id": "4",
-    "userId": "1",
+    "userId": "107056822728405160000",
     "date": "2025-01-05",
     "restaurant": "Taco Loco",
     "total": 15.8,
