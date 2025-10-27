@@ -19,6 +19,6 @@ export default defineEventHandler((event): ApiResponse<Restaurant> => {
   return {
     data: foundRestaurant,
     status: "success",
-    message: `Restaurant ${foundRestaurant.name} récupéré avec succès`,
+    message: `Restaurant ${foundRestaurant.id} récupéré avec succès`,
   };
 });

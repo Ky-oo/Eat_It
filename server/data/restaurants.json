@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+    "userId": 3,
     "name": "Pizza Palace",
     "description": "Pizzas italiennes authentiques",
     "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&h=400&fit=crop&crop=center",
@@ -35,6 +36,7 @@
   },
   {
     "id": 2,
+    "userId": 2,
     "name": "Burger House",
     "description": "Burgers gourmets aux ingrédients premium",
     "image": "https://images.unsplash.com/photo-1571091655789-405eb7a3a3a8?w=600&h=400&fit=crop&crop=center",
@@ -69,6 +71,7 @@
   },
   {
     "id": 3,
+    "userId": 2,
     "name": "Sushi Zen",
     "description": "Sushis frais et cuisine japonaise",
     "image": "https://images.unsplash.com/photo-1553621042-f6e147245754?w=600&h=400&fit=crop&crop=center",
@@ -96,6 +99,7 @@
   },
   {
     "id": 4,
+    "userId": 2,
     "name": "Le Petit Bistrot",
     "description": "Cuisine française traditionnelle et raffinée",
     "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop&crop=center",
@@ -123,6 +127,7 @@
   },
   {
     "id": 5,
+    "userId": 2,
     "name": "Taco Loco",
     "description": "Tacos authentiques et burritos savoureux",
     "image": "https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?w=600&h=400&fit=crop&crop=center",
@@ -150,6 +155,7 @@
   },
   {
     "id": 6,
+    "userId": 2,
     "name": "Dragon d'Or",
     "description": "Spécialités chinoises et plats wok",
     "image": "https://images.unsplash.com/photo-1526318896980-cf78c088247c?w=600&h=400&fit=crop&crop=center",
@@ -177,6 +183,7 @@
   },
   {
     "id": 7,
+    "userId": 2,
     "name": "Curry Palace",
     "description": "Cuisine indienne épicée et authentique",
     "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&h=400&fit=crop&crop=center",
@@ -204,6 +211,7 @@
   },
   {
     "id": 8,
+    "userId": 2,
     "name": "Mediterranean Delights",
     "description": "Saveurs méditerranéennes fraîches et saines",
     "image": "https://images.unsplash.com/photo-1544148103-0773bf10d330?w=600&h=400&fit=crop&crop=center",
@@ -231,6 +239,7 @@
   },
   {
     "id": 9,
+    "userId": 2,
     "name": "Bangkok Street",
     "description": "Street food thaïlandaise authentique",
     "image": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&h=400&fit=crop&crop=center",
@@ -258,6 +267,7 @@
   },
   {
     "id": 10,
+    "userId": 2,
     "name": "Healthy Bowl",
     "description": "Bowls healthy et salades fraîches",
     "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&h=400&fit=crop&crop=center",
@@ -285,6 +295,7 @@
   },
   {
     "id": 11,
+    "userId": 2,
     "name": "La Dolce Vita",
     "description": "Pâtes fraîches et spécialités italiennes",
     "image": "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=600&h=400&fit=crop&crop=center",
@@ -312,6 +323,7 @@
   },
   {
     "id": 12,
+    "userId": 2,
     "name": "Seoul Kitchen",
     "description": "BBQ coréen et plats traditionnels",
     "image": "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=600&h=400&fit=crop&crop=center",
@@ -339,6 +351,7 @@
   },
   {
     "id": 13,
+    "userId": 2,
     "name": "Fish & Chips Co.",
     "description": "Poissons frits et spécialités britanniques",
     "image": "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=600&h=400&fit=crop&crop=center",

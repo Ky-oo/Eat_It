@@ -8,6 +8,7 @@ export type MenuItem = {
 
 export type Restaurant = {
   id: number;
+  userId: number;
   name: string;
   description: string;
   image: string;
