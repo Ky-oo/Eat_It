@@ -72,15 +72,16 @@ export const useAuth = defineStore("auth", {
         const response = await $fetch<ApiResponse<User>>(
           `/api/users/google-auth/${googleResponse.user.sub}`
         );
-        const user = response.data;
+        const googleUser = response.data;
 
-        if (!user) {
+        if (!googleUser) {
           throw new Error("Compte inconnu. Merci de créer un compte");
         }
-
-        const { password: userPassword, ...userWithoutPassword } = user;
+        const { password: userPassword, ...userWithoutPassword } = googleUser;
         this.user = userWithoutPassword;
+        this.user.picture = googleResponse.user.picture;
         this.isLogged = true;
+
         this.redirectAfterLogin();
       } catch (error: unknown) {
         const apiError: ApiError = {

@@ -126,7 +126,6 @@ const deleteItem = async (itemId: number) => {
       </button>
     </div>
 
-    <!-- Formulaire d'ajout -->
     <div
       v-if="isAddingItem"
       class="bg-gray-50 rounded-lg p-6 mb-6 border-2 border-orange-200"
@@ -206,14 +205,12 @@ const deleteItem = async (itemId: number) => {
       </form>
     </div>
 
-    <!-- Liste des plats -->
     <div class="space-y-4">
       <div
         v-for="item in menuItems"
         :key="item.id"
         class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
       >
-        <!-- Mode lecture -->
         <div v-if="editingItemId !== item.id" class="flex items-start gap-4">
           <img
             :src="item.image"
@@ -280,7 +277,6 @@ const deleteItem = async (itemId: number) => {
           </div>
         </div>
 
-        <!-- Mode édition -->
         <form v-else @submit.prevent="saveItem(item)" class="space-y-4">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
@@ -351,7 +347,6 @@ const deleteItem = async (itemId: number) => {
         </form>
       </div>
 
-      <!-- Message si aucun plat -->
       <div
         v-if="menuItems.length === 0 && !isAddingItem"
         class="text-center py-12 text-gray-500"

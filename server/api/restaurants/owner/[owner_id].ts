@@ -6,7 +6,7 @@ import type { ApiResponse } from "~~/app/types/Utils";
 export default defineEventHandler((event): ApiResponse<Restaurant | null> => {
   const params = event.context.params;
   const ownerId = Number(params?.owner_id);
-  const foundRestaurant = (restaurants as Restaurant[])?.filter.(
+  const foundRestaurant = (restaurants as Restaurant[]).filter(
     (restaurant) => restaurant.userId == ownerId
   );
 

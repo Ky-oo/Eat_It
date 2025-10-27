@@ -39,13 +39,8 @@ const handleSave = async () => {
   }
 };
 
-// Fonction pour gérer le changement d'image (optionnel pour plus tard)
 const handleImageChange = (event: Event) => {
-  const file = (event.target as HTMLInputElement).files?.[0];
-  if (file) {
-    // Ici vous pourrez implémenter l'upload d'image plus tard
-    console.log("Nouvelle image sélectionnée:", file);
-  }
+  console.log("Change image");
 };
 </script>
 
@@ -65,7 +60,6 @@ const handleImageChange = (event: Event) => {
     </div>
 
     <form @submit.prevent="handleSave" class="space-y-6">
-      <!-- Section Photo de profil -->
       <div class="flex items-center space-x-6 pb-6 border-b border-gray-200">
         <div class="relative">
           <img

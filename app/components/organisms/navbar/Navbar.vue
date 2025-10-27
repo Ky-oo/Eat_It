@@ -29,7 +29,46 @@ const authStore = useAuth();
         </NuxtLink>
       </div>
       <div v-else class="flex items-center space-x-3">
-        <!-- Bouton Mon Compte -->
+        <NuxtLink
+          v-if="authStore.user?.roles.includes('backoffice')"
+          to="/backoffice"
+          class="flex items-center bg-orange-100 text-orange-700 px-4 py-2 rounded-2xl font-medium border border-orange-300 hover:bg-orange-500 hover:text-orange-50 transition-colors duration-200 cursor-pointer shadow"
+        >
+          <svg
+            class="w-5 h-5 mr-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 7h18M3 12h18M3 17h18"
+            />
+          </svg>
+          Backoffice
+        </NuxtLink>
+        <NuxtLink
+          v-if="authStore.user?.roles.includes('owner')"
+          to="/owner"
+          class="flex items-center bg-orange-100 text-orange-700 px-4 py-2 rounded-2xl font-medium border border-orange-300 hover:bg-orange-500 hover:text-orange-50 transition-colors duration-200 cursor-pointer shadow"
+        >
+          <svg
+            class="w-5 h-5 mr-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 17v-6a4 4 0 018 0v6M5 21h14a2 2 0 002-2v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7a2 2 0 002 2z"
+            />
+          </svg>
+          Gérer vos restaurants
+        </NuxtLink>
         <NuxtLink
           to="/account"
           class="flex items-center text-orange-500 bg-orange-50 px-4 py-2 rounded-2xl font-medium border-orange-50 border hover:bg-orange-500 hover:text-orange-50 transition-colors duration-200 cursor-pointer"
@@ -49,16 +88,6 @@ const authStore = useAuth();
           </svg>
           Mon Compte
         </NuxtLink>
-        <NuxtLink
-          v-if="authStore.user?.roles.includes('backoffice')"
-          to="/backoffice"
-        >
-          Backoffice</NuxtLink
-        >
-        <NuxtLink v-if="authStore.user?.roles.includes('owner')" to="/owner">
-          OwnerPage</NuxtLink
-        >
-
         <button
           @click="authStore.logout"
           class="flex items-center text-white px-4 py-2 rounded-2xl font-medium border-orange-50 border hover:bg-orange-50 hover:text-orange-500 transition-colors duration-200 cursor-pointer"

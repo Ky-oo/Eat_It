@@ -1,9 +1,25 @@
 [
   {
     "id": "1",
-    "userId": "107056822728405160000",
+    "user": {
+      "id": 2,
+      "googleId": 107056822728405160000,
+      "firstname": "Kylian",
+      "lastname": "Patry",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocJNxzwTsdjsd9h0Fx1e_GalJcApKZNtyrC8vYZ3PeB5G0HXVauM=s96-c",
+      "email": "kylian.patry@gmail.com",
+      "password": "password",
+      "roles": ["User", "backoffice", "owner"],
+      "phone_number": "+33603040506",
+      "address": {
+        "city": "Annecy",
+        "cp": "74000",
+        "address": "2 rue du parmelant",
+        "details": "2er étage / interphone 218"
+      }
+    },
     "date": "2024-01-15",
-    "restaurant": "Pizza Palace",
+    "restaurantId": "2",
     "total": 25.5,
     "status": "Livrée",
     "items": [
@@ -13,9 +29,24 @@
   },
   {
     "id": "2",
-    "userId": "107056822728405160000",
+    "user": {
+      "id": 2,
+      "googleId": 107056822728405160000,
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocJNxzwTsdjsd9h0Fx1e_GalJcApKZNtyrC8vYZ3PeB5G0HXVauM=s96-c",
+      "firstname": "Kylian",
+      "lastname": "Patry",
+      "email": "kylian.patry@gmail.com",
+      "roles": ["User", "backoffice", "owner"],
+      "phone_number": "+33603040506",
+      "address": {
+        "city": "Annecy",
+        "cp": "74000",
+        "address": "2 rue du parmelant",
+        "details": "2er étage / interphone 218"
+      }
+    },
     "date": "2024-01-10",
-    "restaurant": "Burger House",
+    "restaurantId": "2",
     "total": 18.9,
     "status": "Livrée",
     "items": [{ "name": "Burger Classic", "quantity": 2, "price": 9.45 }]
@@ -24,7 +55,7 @@
     "id": "3",
     "userId": "107056822728405160000",
     "date": "2024-01-08",
-    "restaurant": "Sushi Master",
+    "restaurantId": "3",
     "total": 42.0,
     "status": "Annulée",
     "items": [{ "name": "Menu Sushi", "quantity": 1, "price": 42.0 }]
@@ -33,7 +64,7 @@
     "id": "4",
     "userId": "107056822728405160000",
     "date": "2025-01-05",
-    "restaurant": "Taco Loco",
+    "restaurantId": "4",
     "total": 15.8,
     "status": "En cours",
     "items": [

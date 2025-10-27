@@ -1,19 +1,20 @@
 <script setup lang="ts">
 import { useCodeClient } from "vue3-google-signin";
 import { useAuth } from "~/stores/Auth";
+import type { GoogleUser } from "~/types/User";
 
 const authStore = useAuth();
 
 const handleSuccess = async (response: any) => {
   try {
-    const res = await $fetch("/api/auth/google", {
+    const res = (await $fetch("/api/auth/google", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
       body: JSON.stringify({ code: response.code }),
-    });
+    })) as { access_token: string; refresh_token: string; user: GoogleUser };
 
     if (res.access_token && res.user) {
       await authStore.googleLogin(res);

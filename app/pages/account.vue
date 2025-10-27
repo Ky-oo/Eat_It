@@ -31,7 +31,6 @@ const goToCart = () => {
     class="min-h-screen bg-gray-50 py-8 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
   >
     <div class="grid lg:grid-cols-3 gap-8">
-      <!-- Navigation latérale -->
       <div class="lg:col-span-1">
         <div class="bg-white rounded-xl shadow-lg p-6">
           <nav class="space-y-2">
@@ -67,15 +66,12 @@ const goToCart = () => {
         </div>
       </div>
 
-      <!-- Contenu principal -->
       <div class="lg:col-span-2">
-        <!-- Onglet Informations personnelles -->
         <div v-if="activeTab === 'profile'">
           <AccountUserDetailsCard />
           <AccountUserStatisticsCard />
         </div>
 
-        <!-- Onglet Mes commandes -->
         <div v-else-if="activeTab === 'orders'" class="space-y-6">
           <AccountOrdersCard />
         </div>

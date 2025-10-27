@@ -62,7 +62,6 @@ export default defineEventHandler(async (event) => {
         headers: { Authorization: `Bearer ${accessToken}` },
       }
     );
-
     return {
       access_token: accessToken,
       refresh_token: (tokenResponse as any).refresh_token,
