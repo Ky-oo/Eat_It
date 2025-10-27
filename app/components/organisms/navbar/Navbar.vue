@@ -32,7 +32,7 @@ const authStore = useAuth();
         <NuxtLink
           v-if="authStore.user?.roles.includes('backoffice')"
           to="/backoffice"
-          class="flex items-center bg-orange-100 text-orange-700 px-4 py-2 rounded-2xl font-medium border border-orange-300 hover:bg-orange-500 hover:text-orange-50 transition-colors duration-200 cursor-pointer shadow"
+          class="flex items-center bg-orange-50 text-orange-500 px-4 py-2 rounded-2xl font-medium border border-orange-300 hover:bg-orange-500 hover:text-orange-50 transition-colors duration-200 cursor-pointer shadow"
         >
           <svg
             class="w-5 h-5 mr-2"
@@ -52,7 +52,7 @@ const authStore = useAuth();
         <NuxtLink
           v-if="authStore.user?.roles.includes('owner')"
           to="/owner"
-          class="flex items-center bg-orange-100 text-orange-700 px-4 py-2 rounded-2xl font-medium border border-orange-300 hover:bg-orange-500 hover:text-orange-50 transition-colors duration-200 cursor-pointer shadow"
+          class="flex items-center bg-orange-50 text-orange-500 px-4 py-2 rounded-2xl font-medium border border-orange-300 hover:bg-orange-500 hover:text-orange-50 transition-colors duration-200 cursor-pointer shadow"
         >
           <svg
             class="w-5 h-5 mr-2"
