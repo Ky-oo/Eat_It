@@ -44,9 +44,9 @@ export default defineNuxtConfig({
     plugins: [tailwindcss()],
   },
 
-  googleSignIn: {
-    clientId: process.env.GOOGLE_CLIENT_ID,
-  },
+  // googleSignIn: {
+  //   clientId: process.env.GOOGLE_CLIENT_ID,
+  // },
 
   runtimeConfig: {
     public: {
