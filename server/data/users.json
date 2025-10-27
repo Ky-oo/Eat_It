@@ -16,11 +16,12 @@
   },
   {
     "id": 2,
-    "firstname": "Kylian2",
-    "lastname": "Patry2",
-    "email": "kylian.patry2@gmail.com",
+    "googleId": 107056822728405160000,
+    "firstname": "Kylian",
+    "lastname": "Patry",
+    "email": "kylian.patry@gmail.com",
     "password": "password",
-    "roles": ["user"],
+    "roles": ["User", "backoffice", "owner"],
     "phone_number": "+33603040506",
     "address": {
       "city": "Annecy",
@@ -30,13 +31,12 @@
     }
   },
   {
-    "id": 2,
-    "googleId": 107056822728405160000,
-    "firstname": "Kylian",
-    "lastname": "Patry",
-    "email": "kylian.patry@gmail.com",
+    "id": 3,
+    "firstname": "Kylian2",
+    "lastname": "Patry2",
+    "email": "kylian.patry2@gmail.com",
     "password": "password",
-    "roles": ["User", "backoffice", "owner"],
+    "roles": ["user"],
     "phone_number": "+33603040506",
     "address": {
       "city": "Annecy",

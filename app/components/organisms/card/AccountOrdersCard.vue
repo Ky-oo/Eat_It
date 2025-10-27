@@ -61,12 +61,7 @@ const getStatusColor = (status: string) => {
       </button>
     </div>
 
-    <div v-if="ordersLoading" class="text-center py-8">
-      <div
-        class="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-500 mx-auto mb-4"
-      ></div>
-      <p class="text-gray-600">Chargement des commandes...</p>
-    </div>
+    <Loader v-if="ordersLoading" />
 
     <div v-else-if="ordersError" class="text-center py-8">
       <div class="text-red-400 mb-4">
