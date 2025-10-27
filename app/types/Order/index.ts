@@ -1,7 +1,7 @@
 export type Order = {
   id: string;
   userId: string;
-  date: Date;
+  date: string;
   total: number;
   status: string;
   restaurant?: string;
