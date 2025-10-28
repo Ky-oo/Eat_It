@@ -108,7 +108,9 @@ const getStatusColor = (status: string) => {
             </h3>
             <p class="text-sm text-gray-600">
               {{ new Date(order.date).toLocaleDateString("fr-FR") }}
-              <span v-if="order.restaurant"> - {{ order.restaurant }} </span>
+              <span v-if="order.restaurantId">
+                - {{ order.restaurantId }}
+              </span>
             </p>
           </div>
           <div class="text-right">

@@ -10,7 +10,7 @@ const { t } = useI18n();
 
 const menuItems = ref<MenuItem[]>(props.restaurant?.menu || []);
 const isAddingItem = ref(false);
-const editingItemId = ref<number | null>(null);
+const editingItemId = ref<string | null>(null);
 
 const newItem = ref<Partial<MenuItem>>({
   name: "",
@@ -41,9 +41,8 @@ const cancelAddingItem = () => {
 
 const addItem = async () => {
   try {
-    // TODO: Implémenter l'API POST pour ajouter un plat
     const itemToAdd: MenuItem = {
-      id: Date.now(), // Génération temporaire d'ID
+      id: String(Date.now()), // Génération temporaire d'ID
       name: newItem.value.name || "",
       description: newItem.value.description || "",
       price: newItem.value.price || 0,
@@ -60,7 +59,7 @@ const addItem = async () => {
   }
 };
 
-const startEditingItem = (itemId: number) => {
+const startEditingItem = (itemId: string) => {
   editingItemId.value = itemId;
 };
 
@@ -82,7 +81,7 @@ const saveItem = async (item: MenuItem) => {
   }
 };
 
-const deleteItem = async (itemId: number) => {
+const deleteItem = async (itemId: string) => {
   if (!confirm("Êtes-vous sûr de vouloir supprimer ce plat ?")) {
     return;
   }

@@ -8,13 +8,20 @@ const { t } = useI18n();
 const route = useRoute();
 const restaurantId = route.params.restaurant_id;
 
-const { data: restaurantResponse, error } = await useAsyncData(
-  `restaurant-${restaurantId}`,
-  () => $fetch<ApiResponse<Restaurant>>(`/api/restaurants/${restaurantId}`),
-  {
-    server: true,
+import { onMounted, ref } from "vue";
+
+const restaurantResponse = ref<ApiResponse<Restaurant> | null>(null);
+const error = ref<any>(null);
+
+onMounted(async () => {
+  try {
+    restaurantResponse.value = await $fetch<ApiResponse<Restaurant>>(
+      `/api/restaurants/${restaurantId}`
+    );
+  } catch (err) {
+    error.value = err;
   }
-);
+});
 
 const restaurant = computed(() => restaurantResponse.value?.data || undefined);
 
@@ -48,8 +55,8 @@ if (error.value) {
     <HeroRestaurant :restaurant="restaurant" />
 
     <div class="relative -mt-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <RestaurantDescription :restaurant="restaurant" />
-      <RestaurantMenu :restaurant="restaurant" />
+      <LazyRestaurantDescription :restaurant="restaurant" />
+      <LazyRestaurantMenu :restaurant="restaurant" />
     </div>
   </div>
 </template>

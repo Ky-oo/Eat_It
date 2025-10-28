@@ -27,7 +27,7 @@ export const useCart = defineStore("cart", {
 
     getItemQuantity:
       (state) =>
-      (itemId: number): number => {
+      (itemId: string): number => {
         const cartItem = state.items.find(
           (cartItem) => cartItem.item.id === itemId
         );
@@ -50,7 +50,7 @@ export const useCart = defineStore("cart", {
       }
     },
 
-    removeOneItem(itemId: number) {
+    removeOneItem(itemId: string) {
       const existingItem = this.items.find(
         (cartItem) => cartItem.item.id === itemId
       );
@@ -66,11 +66,11 @@ export const useCart = defineStore("cart", {
       }
     },
 
-    removeItem(itemId: number) {
+    removeItem(itemId: string) {
       this.items = this.items.filter((cartItem) => cartItem.item.id !== itemId);
     },
 
-    updateQuantity(itemId: number, newQuantity: number) {
+    updateQuantity(itemId: string, newQuantity: number) {
       if (newQuantity <= 0) {
         this.removeItem(itemId);
         return;

@@ -18,7 +18,7 @@ onMounted(async () => {
 
     orders.value = OrderResponse.data;
   } catch (error) {
-    console.error(error);
+    alert(error);
   } finally {
     loading.value = false;
   }

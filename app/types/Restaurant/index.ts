@@ -1,5 +1,5 @@
 export type MenuItem = {
-  id: number;
+  id: string;
   name: string;
   description: string;
   price: number;
@@ -7,8 +7,8 @@ export type MenuItem = {
 };
 
 export type Restaurant = {
-  id: number;
-  userId: number;
+  id: string;
+  userId: string;
   name: string;
   description: string;
   image: string;

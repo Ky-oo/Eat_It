@@ -14,12 +14,22 @@ useSeoMeta({
   ogUrl: "https://kylian-patry.duckdns.org/eat-it/",
 });
 
-const { data: restaurantsResponse, error } = await useAsyncData(
-  "homepage-restaurants",
-  () => $fetch<ApiResponse<Restaurant[]>>("/api/restaurants")
-);
+const restaurantsResponse = ref<Restaurant[] | null>(null);
+const error = ref<any>(null);
 
-const restaurants = computed(() => restaurantsResponse.value?.data || []);
+onMounted(async () => {
+  try {
+    const response = await useAsyncData("homepage-restaurants", () =>
+      $fetch<ApiResponse<Restaurant[]>>("/api/restaurants")
+    );
+
+    restaurantsResponse.value = response.data.value?.data ?? [];
+  } catch (error) {
+    alert(error);
+  }
+});
+
+const restaurants = computed(() => restaurantsResponse.value || []);
 
 if (error.value) {
   throw createError({

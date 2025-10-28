@@ -8,8 +8,9 @@ const { t } = useI18n();
 
 const isLoading = ref(false);
 const isEditing = ref(false);
+const addressText = ref("");
 
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 
 const defaultAvatar =
   "https://images.unsplash.com/photo-1511367461989-f85a21fda167?w=150&h=150&fit=crop&crop=face";
@@ -20,7 +21,7 @@ const user = computed(
       firstname: "",
       lastname: "",
       email: "",
-      phone: "",
+      phone_number: "",
       address: "",
       picture: "",
     }
@@ -29,9 +30,57 @@ const user = computed(
 const userAvatar = computed(() => {
   return user.value.picture || defaultAvatar;
 });
+
+const displayAddress = computed(() => {
+  if (typeof user.value.address === "object" && user.value.address) {
+    return `${user.value.address.address}, ${user.value.address.cp} ${
+      user.value.address.city
+    }${user.value.address.details ? `, ${user.value.address.details}` : ""}`;
+  }
+  return typeof user.value.address === "string" ? user.value.address : "";
+});
+
+watch(
+  () => isEditing.value,
+  (editing) => {
+    if (
+      editing &&
+      user.value.address &&
+      typeof user.value.address === "object"
+    ) {
+      addressText.value = `${user.value.address.address}, ${
+        user.value.address.cp
+      } ${user.value.address.city}${
+        user.value.address.details ? `, ${user.value.address.details}` : ""
+      }`;
+    } else if (editing) {
+      addressText.value =
+        typeof user.value.address === "string" ? user.value.address : "";
+    }
+  }
+);
+const parseAddress = (text: string) => {
+  if (!text.trim()) return undefined;
+  const parts = text.split(",").map((s) => s.trim());
+  if (parts.length < 2) return undefined;
+  const address = parts[0];
+  if (!address) return undefined;
+  const cpCity = parts[1]!.split(" ");
+  if (cpCity.length < 2) return undefined;
+  const cp = cpCity[0];
+  const city = cpCity.slice(1).join(" ");
+  if (!cp || !city) return undefined;
+  const details = parts[2] || null;
+  return { address, cp, city, details };
+};
+
 const handleSave = async () => {
   isLoading.value = true;
   try {
+    const parsed = parseAddress(addressText.value);
+    if (parsed) {
+      authStore.user = { ...authStore.user!, address: parsed };
+    }
     await new Promise((resolve) => setTimeout(resolve, 1000));
     isEditing.value = false;
   } catch (error) {
@@ -72,7 +121,6 @@ const handleImageChange = (event: Event) => {
               })
             "
             class="w-24 h-24 rounded-full object-cover border-4 border-gray-200 shadow-lg"
-            @error="$event.target.src = defaultAvatar"
           />
           <div
             v-if="isEditing"
@@ -160,7 +208,7 @@ const handleImageChange = (event: Event) => {
           {{ t("account.userDetails.phone") }}
         </label>
         <input
-          v-model="user.phone"
+          v-model="user.phone_number"
           :disabled="!isEditing"
           type="tel"
           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 disabled:bg-gray-50 disabled:text-gray-500 transition-colors"
@@ -171,11 +219,12 @@ const handleImageChange = (event: Event) => {
         <label class="block text-sm font-medium text-gray-700 mb-2">
           {{ t("account.userDetails.address") }}
         </label>
+        <p v-if="!isEditing" class="text-gray-900">{{ displayAddress }}</p>
         <textarea
-          v-model="user.address"
-          :disabled="!isEditing"
+          v-else
+          v-model="addressText"
           rows="3"
-          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 disabled:bg-gray-50 disabled:text-gray-500 transition-colors resize-none"
+          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors resize-none"
         ></textarea>
       </div>
 

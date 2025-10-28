@@ -19,34 +19,40 @@ const selectCategory = (category: string | null) => {
 
 const data = [
   {
-    id: 1,
+    id: "1",
     name: "pizza",
     texteKey: "search.popular.pizza",
+    texte: t("search.popular.pizza"),
   },
   {
-    id: 2,
+    id: "2",
     name: "burger",
     texteKey: "search.popular.burger",
+    texte: t("search.popular.burger"),
   },
   {
-    id: 3,
+    id: "3",
     name: "sushi",
     texteKey: "search.popular.sushi",
+    texte: t("search.popular.sushi"),
   },
   {
-    id: 4,
+    id: "4",
     name: "mexicain",
     texteKey: "search.popular.mexican",
+    texte: t("search.popular.mexican"),
   },
   {
-    id: 5,
+    id: "5",
     name: "indien",
     texteKey: "search.popular.indian",
+    texte: t("search.popular.indian"),
   },
   {
-    id: 6,
+    id: "6",
     name: "healthy",
     texteKey: "search.popular.healthy",
+    texte: t("search.popular.healthy"),
   },
 ];
 </script>

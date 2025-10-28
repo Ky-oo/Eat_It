@@ -2,7 +2,7 @@
   {
     "id": "1",
     "user": {
-      "id": 2,
+      "id": "2",
       "googleId": 107056822728405160000,
       "firstname": "Kylian",
       "lastname": "Patry",
@@ -23,14 +23,14 @@
     "total": 25.5,
     "status": "Livrée",
     "items": [
-      { "name": "Pizza Margherita", "quantity": 1, "price": 12.0 },
-      { "name": "Pizza Pepperoni", "quantity": 1, "price": 13.5 }
+      { "id": "1", "name": "Pizza Margherita", "quantity": 1, "price": 12.0 },
+      { "id": "2", "name": "Pizza Pepperoni", "quantity": 1, "price": 13.5 }
     ]
   },
   {
     "id": "2",
     "user": {
-      "id": 2,
+      "id": "2",
       "googleId": 107056822728405160000,
       "picture": "https://lh3.googleusercontent.com/a/ACg8ocJNxzwTsdjsd9h0Fx1e_GalJcApKZNtyrC8vYZ3PeB5G0HXVauM=s96-c",
       "firstname": "Kylian",
@@ -49,7 +49,9 @@
     "restaurantId": "2",
     "total": 18.9,
     "status": "Livrée",
-    "items": [{ "name": "Burger Classic", "quantity": 2, "price": 9.45 }]
+    "items": [
+      { "id": "3", "name": "Burger Classic", "quantity": 2, "price": 9.45 }
+    ]
   },
   {
     "id": "3",
@@ -58,7 +60,7 @@
     "restaurantId": "3",
     "total": 42.0,
     "status": "Annulée",
-    "items": [{ "name": "Menu Sushi", "quantity": 1, "price": 42.0 }]
+    "items": [{ "id": "4", "name": "Menu Sushi", "quantity": 1, "price": 42.0 }]
   },
   {
     "id": "4",
@@ -68,8 +70,8 @@
     "total": 15.8,
     "status": "En cours",
     "items": [
-      { "name": "Tacos Poulet", "quantity": 3, "price": 4.5 },
-      { "name": "Nachos", "quantity": 1, "price": 2.3 }
+      { "id": "5", "name": "Tacos Poulet", "quantity": 3, "price": 4.5 },
+      { "id": "6", "name": "Nachos", "quantity": 1, "price": 2.3 }
     ]
   }
 ]

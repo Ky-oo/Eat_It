@@ -14,7 +14,3 @@ export type Order = {
     price: number;
   }[];
 };
-
-export type OrdersData = {
-  orders: Order[];
-};

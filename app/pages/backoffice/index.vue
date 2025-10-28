@@ -14,7 +14,7 @@ const users = ref<User[]>([]);
 const filteredUsers = ref<User[]>([]);
 const loading = ref(true);
 const error = ref<string | null>(null);
-const editingUserId = ref<number | null>(null);
+const editingUserId = ref<string | null>(null);
 const editedUser = ref<Partial<User>>({});
 
 const loadUsers = async () => {

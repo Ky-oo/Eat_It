@@ -14,13 +14,23 @@ const restaurantId = route.params.restaurant_id;
 
 const activeTab = ref<"settings" | "menu" | "orders">("settings");
 
-const { data: restaurantResponse, error } = await useAsyncData(
-  `owner-restaurant-${restaurantId}`,
-  () => $fetch<ApiResponse<Restaurant>>(`/api/restaurants/${restaurantId}`),
-  {
-    server: true,
+const restaurantResponse = ref<ApiResponse<Restaurant> | null>(null);
+const error = ref<any>(null);
+
+onMounted(async () => {
+  try {
+    const { data } = await useAsyncData(
+      `owner-restaurant-${restaurantId}`,
+      () => $fetch<ApiResponse<Restaurant>>(`/api/restaurants/${restaurantId}`),
+      {
+        server: true,
+      }
+    );
+    restaurantResponse.value = data.value ?? null;
+  } catch (err) {
+    error.value = err;
   }
-);
+});
 
 const restaurant = computed(() => restaurantResponse.value?.data);
 

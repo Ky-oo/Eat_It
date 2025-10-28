@@ -16,10 +16,20 @@ useSeoMeta({
   ogUrl: "https://kylian-patry.duckdns.org/eat-it/restaurants",
 });
 
-const { data: restaurantsResponse, error } = await useAsyncData(
-  "all-restaurants",
-  () => $fetch<ApiResponse<Restaurant[]>>("/api/restaurants")
-);
+import { ref, onMounted } from "vue";
+
+const restaurantsResponse = ref<ApiResponse<Restaurant[]> | null>(null);
+const error = ref<Error | null>(null);
+
+onMounted(async () => {
+  try {
+    restaurantsResponse.value = await $fetch<ApiResponse<Restaurant[]>>(
+      "/api/restaurants"
+    );
+  } catch (err: any) {
+    error.value = err;
+  }
+});
 
 const restaurants = computed(() => restaurantsResponse.value?.data || []);
 
@@ -47,7 +57,7 @@ if (error.value) {
       v-if="restaurants && restaurants.length > 0"
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
     >
-      <RestaurantCard
+      <LazyRestaurantCard
         v-for="restaurant in restaurants"
         :key="restaurant.id"
         :restaurant="restaurant"

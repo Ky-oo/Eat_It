@@ -1,5 +1,6 @@
 export interface PopularSearchChips {
-  id: number;
+  id: string;
   name: string;
   texte: string;
+  texteKey?: string;
 }
