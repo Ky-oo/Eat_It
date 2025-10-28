@@ -6,6 +6,9 @@ definePageMeta({
 import type { User } from "~/types/User";
 import type { ApiResponse } from "~/types/Utils";
 import UserSearchBar from "~/components/organisms/searchbar/UserSearchBar.vue";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 const users = ref<User[]>([]);
 const filteredUsers = ref<User[]>([]);
@@ -21,7 +24,7 @@ const loadUsers = async () => {
     const response = await $fetch<ApiResponse<User[]>>("/api/users");
     users.value = response.data;
   } catch (err: any) {
-    error.value = err.message || "Impossible de charger les utilisateurs";
+    error.value = err.message || t("backoffice.loadError");
   } finally {
     loading.value = false;
   }
@@ -48,7 +51,7 @@ const saveUser = async () => {
   <div class="min-h-screen bg-gray-50 py-8">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <h1 class="text-3xl font-bold text-gray-900 mb-8">
-        Backoffice - Utilisateurs
+        {{ t("backoffice.title") }}
       </h1>
 
       <Loader v-if="loading" />
@@ -62,7 +65,7 @@ const saveUser = async () => {
           @click="loadUsers"
           class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg"
         >
-          Réessayer
+          {{ t("backoffice.retry") }}
         </button>
       </div>
 
@@ -74,10 +77,18 @@ const saveUser = async () => {
         <table class="min-w-full bg-white rounded-xl shadow-lg overflow-hidden">
           <thead>
             <tr class="bg-orange-50 text-gray-700">
-              <th class="px-6 py-3 text-left font-semibold">Nom</th>
-              <th class="px-6 py-3 text-left font-semibold">Email</th>
-              <th class="px-6 py-3 text-left font-semibold">Rôles</th>
-              <th class="px-6 py-3 text-left font-semibold">Actions</th>
+              <th class="px-6 py-3 text-left font-semibold">
+                {{ t("backoffice.name") }}
+              </th>
+              <th class="px-6 py-3 text-left font-semibold">
+                {{ t("backoffice.email") }}
+              </th>
+              <th class="px-6 py-3 text-left font-semibold">
+                {{ t("backoffice.roles") }}
+              </th>
+              <th class="px-6 py-3 text-left font-semibold">
+                {{ t("backoffice.actions") }}
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -129,7 +140,7 @@ const saveUser = async () => {
                         value="user"
                         v-model="editedUser.roles"
                       />
-                      <span>User</span>
+                      <span>{{ t("backoffice.roleUser") }}</span>
                     </label>
                     <label class="flex items-center gap-1">
                       <input
@@ -137,7 +148,7 @@ const saveUser = async () => {
                         value="owner"
                         v-model="editedUser.roles"
                       />
-                      <span>Owner</span>
+                      <span>{{ t("backoffice.roleOwner") }}</span>
                     </label>
                     <label class="flex items-center gap-1">
                       <input
@@ -145,7 +156,7 @@ const saveUser = async () => {
                         value="admin"
                         v-model="editedUser.roles"
                       />
-                      <span>Admin</span>
+                      <span>{{ t("backoffice.roleAdmin") }}</span>
                     </label>
                   </div>
                 </div>
@@ -156,7 +167,7 @@ const saveUser = async () => {
                     @click="startEditing(user)"
                     class="bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded-lg mr-2"
                   >
-                    Modifier
+                    {{ t("backoffice.edit") }}
                   </button>
                 </div>
                 <div v-else>
@@ -164,13 +175,13 @@ const saveUser = async () => {
                     @click="saveUser"
                     class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-lg mr-2"
                   >
-                    Sauvegarder
+                    {{ t("backoffice.save") }}
                   </button>
                   <button
                     @click="cancelEditing"
                     class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-3 py-1 rounded-lg"
                   >
-                    Annuler
+                    {{ t("backoffice.cancel") }}
                   </button>
                 </div>
               </td>

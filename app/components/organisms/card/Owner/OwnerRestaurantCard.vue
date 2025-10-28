@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import type { Restaurant } from "~/types/Restaurant";
+import { useI18n } from "vue-i18n";
+
 const props = defineProps<{ restaurant: Restaurant }>();
+const { t } = useI18n();
 </script>
 
 <template>
@@ -56,14 +59,14 @@ const props = defineProps<{ restaurant: Restaurant }>();
               d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
             />
           </svg>
-          <span>{{ restaurant.menu?.length || 0 }} plats</span>
+          <span>{{ restaurant.menu?.length || 0 }} {{ t("owner.plats") }}</span>
         </div>
       </div>
 
       <button
         class="mt-4 w-full bg-orange-500 hover:bg-orange-600 cursor-pointer text-white py-2 rounded-lg font-medium transition-colors"
       >
-        Gérer ce restaurant
+        {{ t("owner.manageRestaurant") }}
       </button>
     </div>
   </NuxtLink>

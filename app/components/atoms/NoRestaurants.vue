@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
+</script>
 
 <template>
   <div class="text-center py-12">
@@ -16,10 +20,10 @@
       />
     </svg>
     <h3 class="text-xl font-medium text-gray-500 mb-2">
-      Aucun restaurant disponible
+      {{ t("owner.noRestaurant.title") }}
     </h3>
     <p class="text-gray-400">
-      Revenez plus tard pour découvrir nos restaurants partenaires.
+      {{ t("owner.noRestaurant.subtitle") }}
     </p>
   </div>
 </template>

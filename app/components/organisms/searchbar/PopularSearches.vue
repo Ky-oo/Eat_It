@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 const emit = defineEmits<{
   popularSearch: [popularSearch: string | null];
 }>();
@@ -18,41 +21,41 @@ const data = [
   {
     id: 1,
     name: "pizza",
-    texte: "🍕 Pizza",
+    texteKey: "search.popular.pizza",
   },
   {
     id: 2,
     name: "burger",
-    texte: "🍔 Burger",
+    texteKey: "search.popular.burger",
   },
   {
     id: 3,
     name: "sushi",
-    texte: "🍣 Sushi",
+    texteKey: "search.popular.sushi",
   },
   {
     id: 4,
     name: "mexicain",
-    texte: "🌮 Mexicain",
+    texteKey: "search.popular.mexican",
   },
   {
     id: 5,
     name: "indien",
-    texte: "🍛 Indien",
+    texteKey: "search.popular.indian",
   },
   {
     id: 6,
     name: "healthy",
-    texte: "🥗 Healthy",
+    texteKey: "search.popular.healthy",
   },
 ];
 </script>
 
 <template>
   <div class="mt-4 flex flex-wrap gap-3">
-    <span class="text-sm text-gray-500 font-medium py-2"
-      >Recherches populaires :</span
-    >
+    <span class="text-sm text-gray-500 font-medium py-2">{{
+      t("search.popular.title")
+    }}</span>
 
     <PopularSearchChips
       v-for="data in data"

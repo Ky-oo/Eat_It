@@ -1,44 +1,19 @@
 <script setup lang="ts">
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
+
 definePageMeta({
   middleware: "guest",
   ssr: false,
 });
 
-useHead({
-  title: "Eat It - Login",
-  meta: [
-    {
-      name: "description",
-      content:
-        "Découvrez les meilleurs restaurants loin de chez vous et faites-vous livrer le plus rapidement possible (on fait comme on peut) avec Eat It.",
-    },
-    {
-      name: "keywords",
-      content:
-        "livraison, restaurant, pizza, burger, sushi, eat it, commande, food, repas",
-    },
-    {
-      property: "og:title",
-      content: "Eat It",
-    },
-    {
-      property: "og:description",
-      content:
-        "Parcourez notre catalogue de restaurants et commandez vos plats préférés en ligne.",
-    },
-    {
-      property: "og:image",
-      content: "/logos/logo_entier.png",
-    },
-    {
-      property: "og:type",
-      content: "website",
-    },
-    {
-      property: "og:url",
-      content: "https://kylian-patry.duckdns.org/eat-it/login",
-    },
-  ],
+useSeoMeta({
+  title: t("login.pageTitle"),
+  description: t("homepage.description"),
+  ogTitle: "Eat It - Login",
+  ogDescription: t("homepage.ogDescription"),
+  ogImage: "/logos/logo_entier.png",
+  ogUrl: "https://kylian-patry.duckdns.org/eat-it/login",
 });
 
 import { useAuth } from "~~/app/stores/Auth";
@@ -76,15 +51,15 @@ function handleLogin() {
           />
         </NuxtLink>
         <h2 class="mt-6 text-3xl font-bold text-gray-900">
-          Connexion à votre compte
+          {{ t("login.signIn") }}
         </h2>
         <p class="mt-2 text-sm text-gray-600">
-          Ou
+          {{ t("login.or") }}
           <NuxtLink
             to="/register"
             class="font-medium text-orange-600 hover:text-orange-500 transition-colors"
           >
-            créez un nouveau compte
+            {{ t("login.createNewAccount") }}
           </NuxtLink>
         </p>
       </div>
@@ -96,7 +71,7 @@ function handleLogin() {
               for="email"
               class="block text-sm font-medium text-gray-700 mb-2"
             >
-              Adresse email
+              {{ t("login.email") }}
             </label>
             <div class="relative">
               <input
@@ -105,7 +80,7 @@ function handleLogin() {
                 autocomplete="username"
                 type="email"
                 required
-                placeholder="votre@email.com"
+                :placeholder="t('login.emailPlaceholder')"
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors placeholder-gray-400"
               />
               <div class="absolute inset-y-0 right-0 flex items-center pr-3">
@@ -131,7 +106,7 @@ function handleLogin() {
               for="password"
               class="block text-sm font-medium text-gray-700 mb-2"
             >
-              Mot de passe
+              {{ t("login.password") }}
             </label>
             <div class="relative">
               <input
@@ -173,7 +148,7 @@ function handleLogin() {
                 for="remember-me"
                 class="ml-2 block text-sm text-gray-700 cursor-pointer"
               >
-                Se souvenir de moi
+                {{ t("login.rememberMe") }}
               </label>
             </div>
 
@@ -181,7 +156,7 @@ function handleLogin() {
               <a
                 class="font-medium cursor-pointer text-orange-600 hover:text-orange-500 transition-colors"
               >
-                Mot de passe oublié ?
+                {{ t("login.forgotPassword") }}
               </a>
             </div>
           </div>
@@ -212,7 +187,7 @@ function handleLogin() {
                 d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
               ></path>
             </svg>
-            {{ isLoading ? "Connexion..." : "Se connecter" }}
+            {{ isLoading ? t("login.signingIn") : t("login.signInButton") }}
           </button>
         </form>
 
@@ -221,7 +196,9 @@ function handleLogin() {
             <div class="w-full border-t border-gray-300" />
           </div>
           <div class="relative flex justify-center text-sm">
-            <span class="px-2 bg-white text-gray-500">Ou continuer avec</span>
+            <span class="px-2 bg-white text-gray-500">{{
+              t("login.orContinueWith")
+            }}</span>
           </div>
         </div>
 
@@ -229,13 +206,13 @@ function handleLogin() {
       </div>
 
       <div class="text-center text-sm text-gray-600">
-        En vous connectant, vous acceptez nos
+        {{ t("login.agreeTo") }}
         <a href="#" class="text-orange-600 hover:text-orange-500 font-medium">
-          Conditions d'utilisation
+          {{ t("login.termsOfUse") }}
         </a>
-        et notre
+        {{ t("login.and") }}
         <a href="#" class="text-orange-600 hover:text-orange-500 font-medium">
-          Politique de confidentialité
+          {{ t("login.privacyPolicy") }}
         </a>
       </div>
     </div>

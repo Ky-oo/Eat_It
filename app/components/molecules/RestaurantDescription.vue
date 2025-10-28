@@ -1,5 +1,9 @@
 <script setup lang="ts">
+import { useI18n } from "vue-i18n";
+
 import type { Restaurant } from "~~/app/types/Restaurant";
+
+const { t } = useI18n();
 
 defineProps<{
   restaurant: Restaurant | undefined;
@@ -57,7 +61,7 @@ defineProps<{
               />
             </svg>
             <div>
-              <p class="text-sm text-gray-500">Temps de livraison</p>
+              <p class="text-sm text-gray-500">{{ t("owner.deliveryTime") }}</p>
               <p class="font-semibold text-gray-900">
                 {{ restaurant?.deliveryTime }}
               </p>
@@ -85,7 +89,7 @@ defineProps<{
               />
             </svg>
             <div>
-              <p class="text-sm text-gray-500">Distance</p>
+              <p class="text-sm text-gray-500">{{ t("owner.distance") }}</p>
               <p class="font-semibold text-gray-900">
                 {{ restaurant?.distance }}Km
               </p>
@@ -103,11 +107,17 @@ defineProps<{
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
               />
             </svg>
             <div>
-              <p class="text-sm text-gray-500">Frais de livraison</p>
+              <p class="text-sm text-gray-500">{{ t("owner.deliveryFee") }}</p>
               <p class="font-semibold text-gray-900">
                 {{ restaurant?.deliveryFee }}€
               </p>

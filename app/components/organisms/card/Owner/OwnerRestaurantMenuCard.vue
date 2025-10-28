@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import type { Restaurant, MenuItem } from "~/types/Restaurant";
+import { useI18n } from "vue-i18n";
 
 const props = defineProps<{
   restaurant: Restaurant | undefined;
 }>();
+
+const { t } = useI18n();
 
 const menuItems = ref<MenuItem[]>(props.restaurant?.menu || []);
 const isAddingItem = ref(false);
@@ -99,9 +102,11 @@ const deleteItem = async (itemId: number) => {
   <div class="bg-white rounded-xl shadow-lg p-6">
     <div class="flex items-center justify-between mb-6">
       <div>
-        <h2 class="text-xl font-semibold text-gray-900">Menu</h2>
+        <h2 class="text-xl font-semibold text-gray-900">
+          {{ t("menu.title") }}
+        </h2>
         <p class="text-gray-600 text-sm mt-1">
-          {{ menuItems.length }} plat(s) disponible(s)
+          {{ menuItems.length }} {{ t("menu.itemsAvailable") }}
         </p>
       </div>
       <button
@@ -122,7 +127,7 @@ const deleteItem = async (itemId: number) => {
             d="M12 6v6m0 0v6m0-6h6m-6 0H6"
           />
         </svg>
-        Ajouter un plat
+        {{ t("menu.addItem") }}
       </button>
     </div>
 
@@ -130,12 +135,14 @@ const deleteItem = async (itemId: number) => {
       v-if="isAddingItem"
       class="bg-gray-50 rounded-lg p-6 mb-6 border-2 border-orange-200"
     >
-      <h3 class="text-lg font-semibold text-gray-900 mb-4">Nouveau plat</h3>
+      <h3 class="text-lg font-semibold text-gray-900 mb-4">
+        {{ t("menu.newItem") }}
+      </h3>
       <form @submit.prevent="addItem" class="space-y-4">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-2">
-              Nom du plat *
+              {{ t("menu.itemName") }} *
             </label>
             <input
               v-model="newItem.name"
@@ -148,7 +155,7 @@ const deleteItem = async (itemId: number) => {
 
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-2">
-              Prix (€) *
+              {{ t("menu.itemPrice") }} *
             </label>
             <input
               v-model.number="newItem.price"
@@ -163,7 +170,7 @@ const deleteItem = async (itemId: number) => {
 
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-2">
-            Description *
+            {{ t("menu.itemDescription") }} *
           </label>
           <textarea
             v-model="newItem.description"
@@ -176,7 +183,7 @@ const deleteItem = async (itemId: number) => {
 
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-2">
-            URL de l'image *
+            {{ t("menu.itemImage") }} *
           </label>
           <input
             v-model="newItem.image"
@@ -193,13 +200,13 @@ const deleteItem = async (itemId: number) => {
             @click="cancelAddingItem"
             class="px-6 py-2 border cursor-pointer border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 font-medium transition-colors"
           >
-            Annuler
+            {{ t("common.cancel") }}
           </button>
           <button
             type="submit"
             class="px-6 py-2 bg-orange-500 cursor-pointer hover:bg-orange-600 text-white rounded-lg font-medium transition-colors"
           >
-            Ajouter
+            {{ t("common.add") }}
           </button>
         </div>
       </form>
@@ -281,7 +288,7 @@ const deleteItem = async (itemId: number) => {
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-2">
-                Nom du plat
+                {{ t("menu.itemName") }}
               </label>
               <input
                 v-model="item.name"
@@ -293,7 +300,7 @@ const deleteItem = async (itemId: number) => {
 
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-2">
-                Prix (€)
+                {{ t("menu.itemPrice") }}
               </label>
               <input
                 v-model.number="item.price"
@@ -307,7 +314,7 @@ const deleteItem = async (itemId: number) => {
 
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-2">
-              Description
+              {{ t("menu.itemDescription") }}
             </label>
             <textarea
               v-model="item.description"
@@ -319,7 +326,7 @@ const deleteItem = async (itemId: number) => {
 
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-2">
-              URL de l'image
+              {{ t("menu.itemImage") }}
             </label>
             <input
               v-model="item.image"
@@ -335,13 +342,13 @@ const deleteItem = async (itemId: number) => {
               @click="cancelEditingItem"
               class="px-6 py-2 border border-gray-300 cursor-pointer rounded-lg text-gray-700 hover:bg-gray-50 font-medium transition-colors"
             >
-              Annuler
+              {{ t("common.cancel") }}
             </button>
             <button
               type="submit"
               class="px-6 py-2 bg-orange-500 cursor-pointer hover:bg-orange-600 text-white rounded-lg font-medium transition-colors"
             >
-              Sauvegarder
+              {{ t("common.save") }}
             </button>
           </div>
         </form>
@@ -364,8 +371,8 @@ const deleteItem = async (itemId: number) => {
             d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
           />
         </svg>
-        <p>Aucun plat dans le menu</p>
-        <p class="text-sm mt-2">Commencez par ajouter votre premier plat</p>
+        <p>{{ t("menu.empty") }}</p>
+        <p class="text-sm mt-2">{{ t("menu.emptySubtitle") }}</p>
       </div>
     </div>
   </div>

@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import type { Restaurant, MenuItem } from "~~/app/types/Restaurant";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 defineProps<{
   restaurant: Restaurant | undefined;
@@ -22,7 +25,9 @@ const closeModal = () => {
 <template>
   <div class="bg-white rounded-2xl shadow-xl p-8">
     <div class="flex items-center justify-between mb-8">
-      <h2 class="text-3xl font-bold text-gray-900">Notre Menu</h2>
+      <h2 class="text-3xl font-bold text-gray-900">
+        {{ t("restaurant.menuTitle") }}
+      </h2>
       <div class="flex items-center text-gray-500">
         <svg
           class="w-5 h-5 mr-2"
@@ -37,7 +42,10 @@ const closeModal = () => {
             d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
           />
         </svg>
-        <span>{{ restaurant?.menu?.length }} plats disponibles</span>
+        <span
+          >{{ restaurant?.menu?.length }}
+          {{ t("restaurant.platsAvailable") }}</span
+        >
       </div>
     </div>
 

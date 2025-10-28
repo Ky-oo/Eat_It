@@ -1,6 +1,9 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed, watch } from "vue";
 import type { User } from "~/types/User";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 const props = defineProps<{ users: User[] }>();
 const search = ref("");
@@ -26,7 +29,7 @@ watch(filteredUsers, (val) => {
     <input
       v-model="search"
       type="text"
-      placeholder="Rechercher un utilisateur par prénom ou nom..."
+      :placeholder="t('search.userPlaceholder')"
       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
     />
   </div>

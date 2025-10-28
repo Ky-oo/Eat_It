@@ -2,7 +2,9 @@
 import type { MenuItem } from "~/types/Restaurant";
 import { useCart } from "~/stores/Cart";
 import { useAuth } from "~/stores/Auth";
+import { useI18n } from "vue-i18n";
 
+const { t } = useI18n();
 const cart = useCart();
 const authStore = useAuth();
 
@@ -91,7 +93,7 @@ const handleAddToCart = () => {
                 d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
               />
             </svg>
-            Détails
+            {{ t("common.details") }}
           </button>
           <button
             @click="handleAddToCart"
@@ -112,9 +114,7 @@ const handleAddToCart = () => {
               />
             </svg>
             {{
-              authStore.isLogged
-                ? "Ajouter au panier"
-                : "Se connecter pour commander"
+              authStore.isLogged ? t("cart.addToCart") : t("cart.loginToOrder")
             }}
           </button>
         </div>

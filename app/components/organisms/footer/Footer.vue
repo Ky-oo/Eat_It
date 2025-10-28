@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
+</script>
 
 <template>
   <footer class="bg-gray-900 text-white mt-16">
@@ -12,64 +16,67 @@
           />
           <h3 class="text-xl font-bold text-orange-400 mb-4"></h3>
           <p class="text-gray-300">
-            Votre application de livraison <br />
-            préférée.
+            {{ t("footer.slogan") }}
           </p>
         </div>
 
         <div>
-          <h4 class="font-semibold mb-4">Navigation</h4>
+          <h4 class="font-semibold mb-4">{{ t("footer.navigation") }}</h4>
           <ul class="space-y-2 text-gray-300">
             <li>
-              <NuxtLink to="/" class="hover:text-orange-400 transition-colors"
-                >Accueil</NuxtLink
+              <NuxtLink
+                to="/"
+                class="hover:text-orange-400 transition-colors"
+                >{{ t("navbar.home") }}</NuxtLink
               >
             </li>
             <li>
-              <NuxtLink to="/" class="hover:text-orange-400 transition-colors"
-                >Restaurants</NuxtLink
+              <NuxtLink
+                to="/"
+                class="hover:text-orange-400 transition-colors"
+                >{{ t("navbar.restaurants") }}</NuxtLink
               >
             </li>
             <li>
               <NuxtLink
                 to="/cart"
                 class="hover:text-orange-400 transition-colors"
-                >Panier</NuxtLink
+                >{{ t("navbar.cart") }}</NuxtLink
               >
             </li>
           </ul>
         </div>
 
         <div>
-          <h4 class="font-semibold mb-4">Support</h4>
+          <h4 class="font-semibold mb-4">{{ t("footer.support") }}</h4>
           <ul class="space-y-2 text-gray-300">
             <li>
-              <a href="#" class="hover:text-orange-400 transition-colors"
-                >Aide</a
-              >
+              <a href="#" class="hover:text-orange-400 transition-colors">{{
+                t("footer.help")
+              }}</a>
             </li>
             <li>
-              <a href="#" class="hover:text-orange-400 transition-colors"
-                >Contact</a
-              >
+              <a href="#" class="hover:text-orange-400 transition-colors">{{
+                t("footer.contact")
+              }}</a>
             </li>
             <li>
-              <a href="#" class="hover:text-orange-400 transition-colors"
-                >CGU</a
-              >
+              <a href="#" class="hover:text-orange-400 transition-colors">{{
+                t("footer.cgu")
+              }}</a>
             </li>
           </ul>
         </div>
 
         <div>
-          <h4 class="font-semibold mb-4">Suivez-nous</h4>
+          <h4 class="font-semibold mb-4">{{ t("footer.followUs") }}</h4>
           <ul class="space-y-2 text-gray-300">
             <li>
               <a
                 href="https://www.facebook.com/CFPPA"
                 target="_blank"
                 class="hover:text-orange-400 transition-colors"
-                >Facebook</a
+                >{{ t("footer.facebook") }}</a
               >
             </li>
             <li>
@@ -77,7 +84,7 @@
                 href="https://x.com/FFLose"
                 target="_blank"
                 class="hover:text-orange-400 transition-colors"
-                >Twitter</a
+                >{{ t("footer.twitter") }}</a
               >
             </li>
             <li>
@@ -85,7 +92,7 @@
                 href="https://www.instagram.com/tonton_etchebest_"
                 target="_blank"
                 class="hover:text-orange-400 transition-colors"
-                >Instagram</a
+                >{{ t("footer.instagram") }}</a
               >
             </li>
           </ul>
@@ -93,7 +100,7 @@
       </div>
 
       <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-        <p>&copy; 2025 Eat It. Tous droits réservés.</p>
+        <p>{{ t("footer.copyright") }}</p>
       </div>
     </div>
   </footer>

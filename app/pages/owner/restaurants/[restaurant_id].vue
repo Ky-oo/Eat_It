@@ -5,6 +5,9 @@ definePageMeta({
 
 import type { Restaurant } from "~/types/Restaurant";
 import type { ApiResponse } from "~/types/Utils";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 const route = useRoute();
 const restaurantId = route.params.restaurant_id;
@@ -24,7 +27,7 @@ const restaurant = computed(() => restaurantResponse.value?.data);
 if (error.value) {
   throw createError({
     statusCode: 404,
-    statusMessage: "Restaurant non trouvé",
+    statusMessage: t("restaurant.notFound"),
   });
 }
 
@@ -54,7 +57,7 @@ const setActiveTab = (tab: "settings" | "menu" | "orders") => {
               d="M15 19l-7-7 7-7"
             />
           </svg>
-          Retour à mes restaurants
+          {{ t("owner.backToRestaurants") }}
         </button>
 
         <div class="flex items-center justify-between">
@@ -99,7 +102,7 @@ const setActiveTab = (tab: "settings" | "menu" | "orders") => {
                     d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
                   />
                 </svg>
-                Paramètres
+                {{ t("owner.settingsTab") }}
               </div>
             </button>
 
@@ -126,7 +129,7 @@ const setActiveTab = (tab: "settings" | "menu" | "orders") => {
                     d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
                   />
                 </svg>
-                Menu
+                {{ t("owner.menuTab") }}
               </div>
             </button>
 
@@ -153,7 +156,7 @@ const setActiveTab = (tab: "settings" | "menu" | "orders") => {
                     d="M3 7h18M3 12h18M3 17h18"
                   />
                 </svg>
-                Commandes
+                {{ t("owner.ordersTab") }}
               </div>
             </button>
           </nav>

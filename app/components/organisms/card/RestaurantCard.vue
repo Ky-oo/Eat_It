@@ -4,6 +4,9 @@ import type { Restaurant } from "~~/app/types/Restaurant";
 defineProps<{
   restaurant: Restaurant;
 }>();
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 </script>
 
 <template>
@@ -132,7 +135,7 @@ defineProps<{
               d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
             />
           </svg>
-          Commander
+          {{ t("common.order") }}
         </button>
       </div>
     </div>

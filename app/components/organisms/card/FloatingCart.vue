@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { useCart } from "~/stores/Cart";
+import { useI18n } from "vue-i18n";
 
 const cart = useCart();
+const { t } = useI18n();
 </script>
 
 <template>
@@ -47,10 +49,11 @@ const cart = useCart();
       >
         <div class="p-4 border-b border-gray-100">
           <div class="flex items-center justify-between">
-            <h3 class="font-semibold text-gray-900">Votre panier</h3>
+            <h3 class="font-semibold text-gray-900">{{ t("cart.title") }}</h3>
             <span class="text-sm text-gray-500"
-              >{{ cart.getTotalItems }} article{{
-                cart.getTotalItems > 1 ? "s" : ""
+              >{{ cart.getTotalItems }}
+              {{
+                cart.getTotalItems > 1 ? t("cart.itemsPlural") : t("cart.item")
               }}</span
             >
           </div>
@@ -96,7 +99,9 @@ const cart = useCart();
 
         <div class="p-4 border-t border-gray-100 bg-gray-50 rounded-b-xl">
           <div class="flex items-center justify-between mb-3">
-            <span class="font-semibold text-gray-900">Total:</span>
+            <span class="font-semibold text-gray-900"
+              >{{ t("cart.summary") }}:</span
+            >
             <span class="font-bold text-orange-600 text-lg">
               {{ cart.getTotalPrice.toFixed(2) }}€
             </span>
@@ -105,7 +110,7 @@ const cart = useCart();
             @click="navigateTo('/cart')"
             class="w-full bg-orange-500 cursor-pointer hover:bg-orange-600 text-white py-2 px-4 rounded-lg font-medium transition-colors duration-200"
           >
-            Voir le panier
+            {{ t("cart.viewCart") }}
           </button>
         </div>
       </div>

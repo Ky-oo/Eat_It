@@ -4,44 +4,21 @@ definePageMeta({
   ssr: false,
 });
 
-useHead({
-  title: "Eat It - Cart",
-  meta: [
-    {
-      name: "description",
-      content:
-        "Découvrez les meilleurs restaurants loin de chez vous et faites-vous livrer le plus rapidement possible (on fait comme on peut) avec Eat It.",
-    },
-    {
-      name: "keywords",
-      content:
-        "livraison, restaurant, pizza, burger, sushi, eat it, commande, food, repas",
-    },
-    {
-      property: "og:title",
-      content: "Eat It",
-    },
-    {
-      property: "og:description",
-      content:
-        "Parcourez notre catalogue de restaurants et commandez vos plats préférés en ligne.",
-    },
-    {
-      property: "og:image",
-      content: "/logos/logo_entier.png",
-    },
-    {
-      property: "og:type",
-      content: "website",
-    },
-    {
-      property: "og:url",
-      content: "https://kylian-patry.duckdns.org/eat-it/cart",
-    },
-  ],
+useSeoMeta({
+  title: "Mon Panier - Eat It",
+  description:
+    "Découvrez les meilleurs restaurants loin de chez vous et faites-vous livrer le plus rapidement possible (on fait comme on peut) avec Eat It.",
+  ogTitle: "Eat It - Mon Panier",
+  ogDescription:
+    "Parcourez notre catalogue de restaurants et commandez vos plats préférés en ligne.",
+  ogImage: "/logos/logo_entier.png",
+  ogUrl: "https://kylian-patry.duckdns.org/eat-it/cart",
 });
 
 import { useCart } from "~/stores/Cart";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 const cart = useCart();
 </script>
@@ -50,7 +27,7 @@ const cart = useCart();
   <div class="min-h-screen bg-gray-50 py-8">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between mb-8">
-        <h1 class="text-3xl font-bold text-gray-900">Mon Panier</h1>
+        <h1 class="text-3xl font-bold text-gray-900">{{ t("cart.title") }}</h1>
         <button
           @click="$router.back()"
           class="flex items-center cursor-pointer hover:bg-orange-100 p-2 rounded-lg text-gray-600 hover:text-gray-900 transition-colors"
@@ -68,7 +45,7 @@ const cart = useCart();
               d="M15 19l-7-7 7-7"
             />
           </svg>
-          Retour
+          {{ t("cart.back") }}
         </button>
       </div>
 
@@ -87,16 +64,16 @@ const cart = useCart();
           />
         </svg>
         <h2 class="text-2xl font-semibold text-gray-500 mb-2">
-          Votre panier est vide
+          {{ t("cart.empty.title") }}
         </h2>
         <p class="text-gray-400 mb-6">
-          Ajoutez des plats délicieux à votre panier !
+          {{ t("cart.empty.subtitle") }}
         </p>
         <NuxtLink
           to="/"
           class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200"
         >
-          Voir les restaurants
+          {{ t("cart.seeRestaurants") }}
         </NuxtLink>
       </div>
 
@@ -105,7 +82,7 @@ const cart = useCart();
           <div class="bg-white rounded-xl shadow-lg overflow-hidden">
             <div class="p-6 border-b border-gray-100">
               <h2 class="text-xl font-semibold text-gray-900">
-                Articles ({{ cart.getItems.length }})
+                {{ t("cart.items") }} ({{ cart.getItems.length }})
               </h2>
             </div>
 
@@ -134,7 +111,7 @@ const cart = useCart();
                     <span
                       class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full flex-nowrap"
                     >
-                      Quantité: {{ cartItem.quantity }}
+                      {{ t("cart.quantity") }} {{ cartItem.quantity }}
                     </span>
                   </div>
                   <p class="text-gray-600 text-sm mt-1">
@@ -185,22 +162,27 @@ const cart = useCart();
 
         <div class="lg:col-span-1">
           <div class="bg-white rounded-xl shadow-lg p-6 sticky top-6">
-            <h2 class="text-xl font-semibold text-gray-900 mb-4">Résumé</h2>
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">
+              {{ t("cart.summary") }}
+            </h2>
 
             <div class="space-y-3 mb-6">
               <div class="flex justify-between text-gray-600">
-                <span>Sous-total ({{ cart.getTotalItems }} articles)</span>
+                <span
+                  >{{ t("cart.subtotal") }} ({{ cart.getTotalItems }}
+                  {{ t("cart.itemsPlural") }})</span
+                >
                 <span>{{ cart.getTotalPrice.toFixed(2) }}€</span>
               </div>
               <div class="flex justify-between text-gray-600">
-                <span>Frais de livraison</span>
+                <span>{{ t("cart.deliveryFee") }}</span>
                 <span>3.50€</span>
               </div>
               <div class="border-t border-gray-200 pt-3">
                 <div
                   class="flex justify-between text-lg font-bold text-gray-900"
                 >
-                  <span>Total</span>
+                  <span>{{ t("cart.total") }}</span>
                   <span>{{ (cart.getTotalPrice + 3.5).toFixed(2) }}€</span>
                 </div>
               </div>
@@ -209,14 +191,14 @@ const cart = useCart();
             <button
               class="w-full cursor-pointer bg-orange-500 hover:bg-orange-600 text-white py-3 px-4 rounded-lg font-semibold transition-colors duration-200 mb-3"
             >
-              Passer la commande
+              {{ t("cart.checkout") }}
             </button>
 
             <button
               @click="navigateTo('/')"
               class="w-full bg-gray-100 cursor-pointer hover:bg-gray-200 text-gray-700 py-3 px-4 rounded-lg font-medium transition-colors duration-200"
             >
-              Continuer mes achats
+              {{ t("cart.continueShopping") }}
             </button>
           </div>
         </div>

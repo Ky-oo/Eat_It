@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import type { Order } from "~/types/Order";
+import { useI18n } from "vue-i18n";
 
-defineProps<{ order: Order }>();
+const props = defineProps<{ order: Order }>();
+const { t, d } = useI18n();
 </script>
 
 <template>
@@ -10,22 +12,23 @@ defineProps<{ order: Order }>();
   >
     <img
       :src="order.user?.picture || '/default-profile.png'"
-      alt="Photo de profil"
+      :alt="t('orders.userPictureAlt')"
       class="w-14 h-14 rounded-full object-cover mr-4"
     />
 
     <div class="flex-1">
       <div class="font-semibold text-gray-800">
         {{
-          order.user?.firstname + " " + order.user?.lastname ||
-          "Utilisateur anonyme"
+          order.user?.firstname && order.user?.lastname
+            ? order.user.firstname + " " + order.user.lastname
+            : t("orders.anonymous")
         }}
       </div>
       <div class="text-gray-500 text-sm">
-        {{ new Date().toLocaleString("fr-FR") }}
+        {{ d(new Date(), { dateStyle: "short", timeStyle: "short" }) }}
       </div>
       <div class="text-gray-700 mt-1">
-        Montant :
+        {{ t("orders.amount") }} :
         <span class="font-bold">{{ order.total.toFixed(2) }} €</span>
       </div>
     </div>
@@ -42,7 +45,8 @@ defineProps<{ order: Order }>();
         <div class="text-right">
           <span class="text-gray-600">{{ item.price.toFixed(2) }} €</span>
           <span class="ml-2 font-semibold text-green-600">
-            Total: {{ (item.quantity * item.price).toFixed(2) }} €
+            {{ t("orders.itemTotal") }}:
+            {{ (item.quantity * item.price).toFixed(2) }} €
           </span>
         </div>
       </div>

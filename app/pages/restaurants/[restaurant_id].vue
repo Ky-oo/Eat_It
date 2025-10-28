@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import type { Restaurant } from "~~/app/types/Restaurant";
 import type { ApiResponse } from "~~/app/types/Utils";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 const route = useRoute();
 const restaurantId = route.params.restaurant_id;
@@ -15,46 +18,27 @@ const { data: restaurantResponse, error } = await useAsyncData(
 
 const restaurant = computed(() => restaurantResponse.value?.data || undefined);
 
-useHead({
-  title: `Eat It - ${restaurant.value?.name}`,
-  meta: [
-    {
-      name: "description",
-      content: restaurant.value?.description,
-    },
-    {
-      name: "keywords",
-      content:
-        "livraison, restaurant, eat it, commande, food, repas, " +
-        restaurant.value?.cuisine,
-    },
-    {
-      property: "og:title",
-      content: `Eat It - ${restaurant.value?.name}`,
-    },
-    {
-      property: "og:description",
-      content: restaurant.value?.description,
-    },
-    {
-      property: "og:image",
-      content: restaurant.value?.image,
-    },
-    {
-      property: "og:type",
-      content: "website",
-    },
-    {
-      property: "og:url",
-      content: `https://kylian-patry.duckdns.org/eat-it/restaurants/${restaurant.value?.id}`,
-    },
-  ],
+useSeoMeta({
+  title: restaurant.value
+    ? `Eat It - ${restaurant.value.name}`
+    : "Eat It - Restaurant",
+  description: restaurant.value
+    ? restaurant.value.description
+    : "Découvrez les meilleurs restaurants loin de chez vous et faites-vous livrer le plus rapidement possible (on fait comme on peut) avec Eat It.",
+  ogTitle: restaurant.value
+    ? `Eat It - ${restaurant.value.name}`
+    : "Eat It - Restaurant",
+  ogDescription: restaurant.value
+    ? restaurant.value.description
+    : "Parcourez notre catalogue de restaurants et commandez vos plats préférés en ligne.",
+  ogImage: restaurant.value ? restaurant.value.image : "/logos/logo_entier.png",
+  ogUrl: `https://kylian-patry.duckdns.org/eat-it/restaurants/${restaurantId}`,
 });
 
 if (error.value) {
   throw createError({
     statusCode: 404,
-    statusMessage: "Restaurant non trouvé",
+    statusMessage: t("restaurant.notFound"),
   });
 }
 </script>

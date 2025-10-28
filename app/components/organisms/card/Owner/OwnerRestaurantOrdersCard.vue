@@ -2,8 +2,10 @@
 import type { Order } from "~/types/Order";
 import type { Restaurant } from "~/types/Restaurant";
 import type { ApiResponse } from "~/types/Utils";
+import { useI18n } from "vue-i18n";
 
 const props = defineProps<{ restaurant: Restaurant | undefined }>();
+const { t } = useI18n();
 const orders = ref<Order[] | undefined>();
 const loading = ref<boolean>(false);
 
@@ -27,13 +29,15 @@ onMounted(async () => {
   <div class="bg-white rounded-xl shadow-lg p-6">
     <loader v-if="loading" />
     <div v-else-if="orders?.length === 0">
-      <strong>Aucune</strong> commandes n'a été faite dans votre restaurant.
+      {{ t("orders.none") }}
     </div>
     <div v-else>
       <div>
-        <h2 class="text-xl font-semibold text-gray-900">Menu</h2>
+        <h2 class="text-xl font-semibold text-gray-900">
+          {{ t("orders.title") }}
+        </h2>
         <p class="text-gray-600 text-sm mt-1">
-          {{ orders?.length }} commandes efféctué dans votre restaurant
+          {{ orders?.length }} {{ t("orders.count") }}
         </p>
       </div>
 

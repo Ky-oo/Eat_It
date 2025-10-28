@@ -7,6 +7,9 @@ import { useAuth } from "~/stores/Auth";
 import type { ApiResponse } from "~/types/Utils";
 import type { Restaurant } from "~/types/Restaurant";
 import { isArray } from "util";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 const authStore = useAuth();
 const restaurants = ref<Restaurant[]>([]);
@@ -31,7 +34,7 @@ const loadRestaurants = async () => {
       : [response.data];
   } catch (err: any) {
     console.error("Erreur lors du chargement des restaurants:", err);
-    error.value = err.message || "Impossible de charger les restaurants";
+    error.value = err.message || t("common.errorLoadingRestaurants");
   } finally {
     loading.value = false;
   }
@@ -43,9 +46,9 @@ const loadRestaurants = async () => {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-8">
         <h1 class="text-3xl font-bold text-gray-900 mb-2">
-          Gestion des restaurants
+          {{ t("owner.title") }}
         </h1>
-        <p class="text-gray-600">Gérez vos restaurants, menus et paramètres</p>
+        <p class="text-gray-600">{{ t("owner.subtitle") }}</p>
       </div>
 
       <loader v-if="loading" />
@@ -59,7 +62,7 @@ const loadRestaurants = async () => {
           @click="loadRestaurants"
           class="bg-red-500 cursor-pointer hover:bg-red-600 text-white px-4 py-2 rounded-lg"
         >
-          Réessayer
+          {{ t("common.retry") }}
         </button>
       </div>
 

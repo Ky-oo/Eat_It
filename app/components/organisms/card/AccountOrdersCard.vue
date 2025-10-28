@@ -2,11 +2,13 @@
 import type { Order } from "~/types/Order";
 import type { ApiResponse } from "~/types/Utils";
 import { useAuth } from "~/stores/Auth";
+import { useI18n } from "vue-i18n";
 
 const orders = ref<Order[]>([]);
 const ordersLoading = ref(false);
 const ordersError = ref<string | null>(null);
 const authStore = useAuth();
+const { t } = useI18n();
 
 onMounted(async () => {
   await loadOrders();
@@ -27,8 +29,8 @@ const loadOrders = async () => {
       );
     }
   } catch (error: any) {
-    console.error("Erreur lors du chargement des commandes:", error);
-    ordersError.value = error.message || "Impossible de charger les commandes";
+    console.error(t("orders.loadError"), error);
+    ordersError.value = error.message || t("orders.loadErrorFallback");
   } finally {
     ordersLoading.value = false;
   }
@@ -51,13 +53,15 @@ const getStatusColor = (status: string) => {
 <template>
   <div class="bg-white rounded-xl shadow-lg p-6">
     <div class="flex items-center justify-between mb-6">
-      <h2 class="text-xl font-semibold text-gray-900">Mes commandes</h2>
+      <h2 class="text-xl font-semibold text-gray-900">
+        {{ t("account.orders") }}
+      </h2>
       <button
         v-if="!ordersLoading"
         @click="loadOrders"
         class="bg-orange-500 cursor-pointer hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
       >
-        Actualiser
+        {{ t("common.refresh") }}
       </button>
     </div>
 
@@ -80,14 +84,14 @@ const getStatusColor = (status: string) => {
         </svg>
       </div>
       <h3 class="text-lg font-medium text-gray-900 mb-1">
-        Erreur de chargement
+        {{ t("common.errorLoading") }}
       </h3>
       <p class="text-gray-500 mb-4">{{ ordersError }}</p>
       <button
         @click="loadOrders"
         class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
       >
-        Réessayer
+        {{ t("common.retry") }}
       </button>
     </div>
 
@@ -100,7 +104,7 @@ const getStatusColor = (status: string) => {
         <div class="flex items-center justify-between mb-4">
           <div>
             <h3 class="text-lg font-medium text-gray-900">
-              Commande #{{ order.id }}
+              {{ t("orders.orderNumber") }}{{ order.id }}
             </h3>
             <p class="text-sm text-gray-600">
               {{ new Date(order.date).toLocaleDateString("fr-FR") }}
@@ -124,7 +128,7 @@ const getStatusColor = (status: string) => {
 
         <div class="border-t pt-3" v-if="Array.isArray(order.items)">
           <h4 class="text-sm font-medium text-gray-700 mb-2">
-            Articles commandés:
+            {{ t("orders.orderedItems") }}
           </h4>
           <ul class="space-y-1">
             <li
@@ -155,8 +159,10 @@ const getStatusColor = (status: string) => {
             />
           </svg>
         </div>
-        <h3 class="text-lg font-medium text-gray-900 mb-1">Aucune commande</h3>
-        <p class="text-gray-500">Vous n'avez pas encore passé de commande.</p>
+        <h3 class="text-lg font-medium text-gray-900 mb-1">
+          {{ t("orders.none") }}
+        </h3>
+        <p class="text-gray-500">{{ t("orders.noOrdersSubtitle") }}</p>
       </div>
     </div>
   </div>

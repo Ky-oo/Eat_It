@@ -2,8 +2,10 @@
 import { useCodeClient } from "vue3-google-signin";
 import { useAuth } from "~/stores/Auth";
 import type { GoogleUser } from "~/types/User";
+import { useI18n } from "vue-i18n";
 
 const authStore = useAuth();
+const { t } = useI18n();
 
 const handleSuccess = async (response: any) => {
   try {
@@ -20,14 +22,14 @@ const handleSuccess = async (response: any) => {
       await authStore.googleLogin(res);
     }
   } catch (error) {
-    console.error("Échec de la connexion Google :", error);
-    alert("Erreur lors de la connexion avec Google. Veuillez réessayer.");
+    console.error(t("google.consoleLoginFailed"), error);
+    alert(t("google.loginFailed"));
   }
 };
 
 const handleError = (error: any) => {
   console.error("Google Sign-In error:", error);
-  alert("Erreur lors de l'initialisation de Google Sign-In.");
+  alert(t("google.initError"));
 };
 
 const { isReady, login } = useCodeClient({
@@ -62,7 +64,7 @@ const { isReady, login } = useCodeClient({
       />
     </svg>
     <span class="ml-2 cursor-pointer">
-      {{ isReady ? "Se connecter avec Google" : "Chargement..." }}
+      {{ isReady ? t("google.continueWith") : t("google.loading") }}
     </span>
   </button>
 </template>

@@ -3,6 +3,8 @@ import type { MenuItem } from "~/types/Restaurant";
 import { useCart } from "~/stores/Cart";
 import { useAuth } from "~/stores/Auth";
 
+const { t } = useI18n();
+
 const cart = useCart();
 const authStore = useAuth();
 const emit = defineEmits<{
@@ -131,24 +133,51 @@ onMounted(() => {
 
             <div class="bg-gray-50 rounded-xl p-6 mb-8">
               <h3 class="text-lg font-semibold text-gray-900 mb-4">
-                Informations nutritionnelles
+                {{ t("menu.nutritionTitle") }}
               </h3>
               <div class="grid grid-cols-2 gap-4 text-sm">
                 <div class="flex justify-between">
-                  <span class="text-gray-600">Calories estimées :</span>
+                  <span class="text-gray-600">{{
+                    t("menu.estimatedCalories")
+                  }}</span>
                   <span class="font-medium">~350 kcal</span>
                 </div>
                 <div class="flex justify-between">
-                  <span class="text-gray-600">Temps de préparation :</span>
+                  <span class="text-gray-600">{{ t("menu.prepTime") }}</span>
                   <span class="font-medium">15-20 min</span>
                 </div>
                 <div class="flex justify-between">
-                  <span class="text-gray-600">Allergènes :</span>
+                  <span class="text-gray-600">{{ t("menu.allergens") }}</span>
                   <span class="font-medium">Gluten, Œufs</span>
                 </div>
                 <div class="flex justify-between">
-                  <span class="text-gray-600">Épices :</span>
-                  <span class="font-medium">🌶️ Doux</span>
+                  <span class="text-gray-600">{{ t("menu.spiciness") }}</span>
+                  <span class="font-medium">🌶️ {{ t("menu.mild") }}</span>
+                </div>
+              </div>
+            </div>
+            <div class="bg-gray-50 rounded-xl p-6 mb-8">
+              <h3 class="text-lg font-semibold text-gray-900 mb-4">
+                {{ t("menu.nutritionTitle") }}
+              </h3>
+              <div class="grid grid-cols-2 gap-4 text-sm">
+                <div class="flex justify-between">
+                  <span class="text-gray-600">{{
+                    t("menu.estimatedCalories")
+                  }}</span>
+                  <span class="font-medium">~350 kcal</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-600">{{ t("menu.prepTime") }}</span>
+                  <span class="font-medium">15-20 min</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-600">{{ t("menu.allergens") }}</span>
+                  <span class="font-medium">Gluten, Œufs</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-600">{{ t("menu.spiciness") }}</span>
+                  <span class="font-medium">🌶️ {{ t("menu.mild") }}</span>
                 </div>
               </div>
             </div>
@@ -160,7 +189,7 @@ onMounted(() => {
                 <div class="flex items-end space-x-6" v-if="authStore.isLogged">
                   <span
                     class="text-lg font-medium text-gray-900 whitespace-nowrap"
-                    >Quantité :</span
+                    >{{ t("cart.quantity") }}</span
                   >
                   <div class="flex items-center space-x-4">
                     <QuantitySelector
@@ -178,7 +207,9 @@ onMounted(() => {
 
                 <div class="flex items-center space-x-6">
                   <div class="text-right">
-                    <div class="text-sm text-gray-600">Total</div>
+                    <div class="text-sm text-gray-600">
+                      {{ t("cart.total") }}
+                    </div>
                     <div class="text-3xl font-bold text-orange-600">
                       {{ (item.price * quantity).toFixed(2) }}€
                     </div>
@@ -202,8 +233,8 @@ onMounted(() => {
                     </svg>
                     {{
                       authStore.isLogged
-                        ? "Ajouter au panier"
-                        : "Se connecter pour commander"
+                        ? t("cart.addToCart")
+                        : t("cart.loginToOrder")
                     }}
                   </button>
                 </div>

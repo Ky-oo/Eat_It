@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { useAuth } from "~/stores/Auth";
 import { useRouter } from "vue-router";
+import { useI18n } from "vue-i18n";
 
 const authStore = useAuth();
+const { t } = useI18n();
 
 const isLoading = ref(false);
 const isEditing = ref(false);
@@ -33,7 +35,7 @@ const handleSave = async () => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     isEditing.value = false;
   } catch (error) {
-    console.error("Erreur lors de la sauvegarde:", error);
+    console.error(t("account.userDetails.saveError"), error);
   } finally {
     isLoading.value = false;
   }
@@ -48,14 +50,14 @@ const handleImageChange = (event: Event) => {
   <div class="bg-white rounded-xl shadow-lg p-6">
     <div class="flex items-center justify-between mb-6">
       <h2 class="text-xl font-semibold text-gray-900">
-        Informations personnelles
+        {{ t("account.userDetails.title") }}
       </h2>
       <button
         v-if="!isEditing"
         @click="isEditing = true"
         class="bg-orange-500 hover:bg-orange-600 cursor-pointer text-white px-4 py-2 rounded-lg font-medium transition-colors"
       >
-        Modifier
+        {{ t("common.edit") }}
       </button>
     </div>
 
@@ -64,7 +66,11 @@ const handleImageChange = (event: Event) => {
         <div class="relative">
           <img
             :src="userAvatar"
-            :alt="`Photo de ${user.firstname || 'utilisateur'}`"
+            :alt="
+              t('account.userDetails.photoAlt', {
+                name: user.firstname || 'utilisateur',
+              })
+            "
             class="w-24 h-24 rounded-full object-cover border-4 border-gray-200 shadow-lg"
             @error="$event.target.src = defaultAvatar"
           />
@@ -106,7 +112,7 @@ const handleImageChange = (event: Event) => {
           </h3>
           <p class="text-gray-600">{{ user.email }}</p>
           <p v-if="isEditing" class="text-sm text-gray-500 mt-2">
-            Cliquez sur l'image pour changer votre photo de profil
+            {{ t("account.userDetails.changePhoto") }}
           </p>
         </div>
       </div>
@@ -114,7 +120,7 @@ const handleImageChange = (event: Event) => {
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-2">
-            Prénom
+            {{ t("account.userDetails.firstName") }}
           </label>
           <input
             v-model="user.firstname"
@@ -126,7 +132,7 @@ const handleImageChange = (event: Event) => {
 
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-2">
-            Nom
+            {{ t("account.userDetails.lastName") }}
           </label>
           <input
             v-model="user.lastname"
@@ -139,7 +145,7 @@ const handleImageChange = (event: Event) => {
 
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-2">
-          Email
+          {{ t("account.userDetails.email") }}
         </label>
         <input
           v-model="user.email"
@@ -151,7 +157,7 @@ const handleImageChange = (event: Event) => {
 
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-2">
-          Téléphone
+          {{ t("account.userDetails.phone") }}
         </label>
         <input
           v-model="user.phone"
@@ -163,7 +169,7 @@ const handleImageChange = (event: Event) => {
 
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-2">
-          Adresse
+          {{ t("account.userDetails.address") }}
         </label>
         <textarea
           v-model="user.address"
@@ -179,14 +185,14 @@ const handleImageChange = (event: Event) => {
           :disabled="isLoading"
           class="flex-1 cursor-pointer bg-orange-500 hover:bg-orange-600 text-white py-3 px-4 rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
-          {{ isLoading ? "Sauvegarde..." : "Sauvegarder" }}
+          {{ isLoading ? t("common.saving") : t("common.save") }}
         </button>
         <button
           type="button"
           @click="isEditing = false"
           class="flex-1 cursor-pointer bg-gray-200 hover:bg-gray-300 text-gray-700 py-3 px-4 rounded-lg font-medium transition-colors"
         >
-          Annuler
+          {{ t("common.cancel") }}
         </button>
       </div>
     </form>

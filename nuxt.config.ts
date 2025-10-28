@@ -16,8 +16,15 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
-  modules: ["@pinia/nuxt", "nuxt-vue3-google-signin"],
-
+  modules: ["@pinia/nuxt", "nuxt-vue3-google-signin", "@nuxtjs/i18n"],
+  i18n: {
+    strategy: "no_prefix",
+    defaultLocale: "fr",
+    locales: [
+      { code: "en", name: "English", file: "en.json" },
+      { code: "fr", name: "Francais", file: "fr.json" },
+    ],
+  },
   ssr: true,
 
   nitro: {

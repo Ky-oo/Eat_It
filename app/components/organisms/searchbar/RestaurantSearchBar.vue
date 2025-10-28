@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 const query = ref("");
 
 const emit = defineEmits<{
@@ -34,7 +37,7 @@ watch(query, () => {
         <input
           v-model="query"
           type="text"
-          placeholder="Rechercher un restaurant, une cuisine..."
+          :placeholder="t('search.placeholder')"
           class="w-full pl-12 pr-32 py-4 text-lg border border-gray-200 bg-gray-50 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent shadow-sm hover:shadow-md transition-shadow duration-200"
         />
 
@@ -42,7 +45,7 @@ watch(query, () => {
           @click="emit('search', query)"
           class="absolute right-2 cursor-pointer bg-orange-500 hover:bg-orange-600 text-white px-6 py-2.5 rounded-lg font-medium transition-colors duration-200 flex items-center space-x-2"
         >
-          <span>Rechercher</span>
+          <span>{{ t("search.button") }}</span>
         </button>
       </div>
     </div>

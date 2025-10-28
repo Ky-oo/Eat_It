@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import type { Restaurant } from "~/types/Restaurant";
+import { useI18n } from "vue-i18n";
 
 const props = defineProps<{
   restaurant: Restaurant | undefined;
 }>();
+
+const { t } = useI18n();
 
 const isEditing = ref(false);
 const editedRestaurant = ref<Partial<Restaurant>>({});
@@ -27,21 +30,21 @@ const saveChanges = async () => {
   <div class="bg-white rounded-xl shadow-lg p-6">
     <div class="flex items-center justify-between mb-6">
       <h2 class="text-xl font-semibold text-gray-900">
-        Informations du restaurant
+        {{ t("owner.informations") }}
       </h2>
       <button
         v-if="!isEditing"
         @click="startEditing"
         class="bg-orange-500 hover:bg-orange-600 cursor-pointer text-white px-4 py-2 rounded-lg font-medium transition-colors"
       >
-        Modifier
+        {{ t("common.edit") }}
       </button>
     </div>
 
     <form @submit.prevent="saveChanges" class="space-y-6">
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-2">
-          Image du restaurant
+          {{ t("owner.image") }}
         </label>
         <div class="flex items-center space-x-4">
           <img
@@ -66,7 +69,7 @@ const saveChanges = async () => {
 
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-2">
-          Nom du restaurant
+          {{ t("owner.name") }}
         </label>
         <input
           v-if="isEditing"
@@ -80,7 +83,7 @@ const saveChanges = async () => {
 
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-2">
-          Description
+          {{ t("owner.description") }}
         </label>
         <textarea
           v-if="isEditing"
@@ -94,7 +97,7 @@ const saveChanges = async () => {
 
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-2">
-          Type de cuisine
+          {{ t("owner.cuisineType") }}
         </label>
         <select
           v-if="isEditing"
@@ -121,7 +124,7 @@ const saveChanges = async () => {
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-2">
-            Temps de livraison (min)
+            {{ t("owner.deliveryTime") }}
           </label>
           <input
             v-if="isEditing"
@@ -136,7 +139,7 @@ const saveChanges = async () => {
 
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-2">
-            Frais de livraison (€)
+            {{ t("owner.deliveryFee") }}
           </label>
           <input
             v-if="isEditing"
@@ -151,7 +154,7 @@ const saveChanges = async () => {
 
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-2">
-            Distance (Km)
+            {{ t("owner.distance") }}
           </label>
           <input
             v-if="isEditing"
@@ -166,7 +169,7 @@ const saveChanges = async () => {
 
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-2">
-          Note moyenne
+          {{ t("owner.rating") }}
         </label>
         <div class="flex items-center">
           <svg
@@ -181,7 +184,7 @@ const saveChanges = async () => {
           <span class="text-gray-900 font-medium">{{
             restaurant?.rating
           }}</span>
-          <span class="text-gray-500 ml-2">(calculé automatiquement)</span>
+          <span class="text-gray-500 ml-2">{{ t("owner.ratingAuto") }}</span>
         </div>
       </div>
 
@@ -191,13 +194,13 @@ const saveChanges = async () => {
           @click="cancelEditing"
           class="px-6 py-2 border border-gray-300 rounded-lg cursor-pointer text-gray-700 hover:bg-gray-50 font-medium transition-colors"
         >
-          Annuler
+          {{ t("common.cancel") }}
         </button>
         <button
           type="submit"
           class="px-6 py-2 bg-orange-500 hover:bg-orange-600 cursor-pointer text-white rounded-lg font-medium transition-colors"
         >
-          Sauvegarder
+          {{ t("common.save") }}
         </button>
       </div>
     </form>

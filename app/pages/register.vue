@@ -1,44 +1,19 @@
 <script setup lang="ts">
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
+
 definePageMeta({
   middleware: "guest",
   ssr: false,
 });
 
-useHead({
-  title: "Eat It - Register",
-  meta: [
-    {
-      name: "description",
-      content:
-        "Découvrez les meilleurs restaurants loin de chez vous et faites-vous livrer le plus rapidement possible (on fait comme on peut) avec Eat It.",
-    },
-    {
-      name: "keywords",
-      content:
-        "livraison, restaurant, pizza, burger, sushi, eat it, commande, food, repas",
-    },
-    {
-      property: "og:title",
-      content: "Eat It",
-    },
-    {
-      property: "og:description",
-      content:
-        "Parcourez notre catalogue de restaurants et commandez vos plats préférés en ligne.",
-    },
-    {
-      property: "og:image",
-      content: "/logos/logo_entier.png",
-    },
-    {
-      property: "og:type",
-      content: "website",
-    },
-    {
-      property: "og:url",
-      content: "https://kylian-patry.duckdns.org/eat-it/register",
-    },
-  ],
+useSeoMeta({
+  title: t("register.pageTitle"),
+  description: t("homepage.description"),
+  ogTitle: "Eat It - Register",
+  ogDescription: t("homepage.ogDescription"),
+  ogImage: "/logos/logo_entier.png",
+  ogUrl: "https://kylian-patry.duckdns.org/eat-it/register",
 });
 
 const firstName = ref("");
@@ -55,9 +30,7 @@ const handleRegister = () => {
 
   if (!passwordRegex.test(password.value)) {
     isLoading.value = false;
-    alert(
-      "Le mot de passe doit contenir au moins 8 caractères, une majuscule et un chiffre."
-    );
+    alert(t("register.passwordValidation"));
     return;
   }
 
@@ -82,20 +55,20 @@ const handleRegister = () => {
         <NuxtLink to="/" class="inline-block">
           <img
             src="/logos/logo_white.png"
-            alt="Eat It Logo"
+            :alt="t('register.logoAlt')"
             class="mx-auto h-16 w-auto bg-orange-500 px-6 py-3 rounded-2xl shadow-lg"
           />
         </NuxtLink>
         <h2 class="mt-6 text-3xl font-bold text-gray-900">
-          Créer votre compte
+          {{ t("register.createAccount") }}
         </h2>
         <p class="mt-2 text-sm text-gray-600">
-          Ou
+          {{ t("register.or") }}
           <NuxtLink
             to="/login"
             class="font-medium text-orange-600 hover:text-orange-500 transition-colors"
           >
-            connectez-vous à votre compte existant
+            {{ t("register.loginToExisting") }}
           </NuxtLink>
         </p>
       </div>
@@ -108,14 +81,14 @@ const handleRegister = () => {
                 for="firstName"
                 class="block text-sm font-medium text-gray-700 mb-2"
               >
-                Prénom
+                {{ t("register.firstName") }}
               </label>
               <input
                 id="firstName"
                 v-model="firstName"
                 type="text"
                 required
-                placeholder="Jean"
+                :placeholder="t('register.firstNamePlaceholder')"
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors placeholder-gray-400"
               />
             </div>
@@ -124,14 +97,14 @@ const handleRegister = () => {
                 for="lastName"
                 class="block text-sm font-medium text-gray-700 mb-2"
               >
-                Nom
+                {{ t("register.lastName") }}
               </label>
               <input
                 id="lastName"
                 v-model="lastName"
                 type="text"
                 required
-                placeholder="Dupont"
+                :placeholder="t('register.lastNamePlaceholder')"
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors placeholder-gray-400"
               />
             </div>
@@ -142,7 +115,7 @@ const handleRegister = () => {
               for="email"
               class="block text-sm font-medium text-gray-700 mb-2"
             >
-              Adresse email
+              {{ t("register.email") }}
             </label>
             <div class="relative">
               <input
@@ -150,7 +123,7 @@ const handleRegister = () => {
                 v-model="email"
                 type="email"
                 required
-                placeholder="votre@email.com"
+                :placeholder="t('register.emailPlaceholder')"
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors placeholder-gray-400"
               />
               <div class="absolute inset-y-0 right-0 flex items-center pr-3">
@@ -176,7 +149,7 @@ const handleRegister = () => {
               for="password"
               class="block text-sm font-medium text-gray-700 mb-2"
             >
-              Mot de passe
+              {{ t("register.password") }}
             </label>
             <div class="relative">
               <input
@@ -204,7 +177,7 @@ const handleRegister = () => {
               </div>
             </div>
             <p class="mt-1 text-xs text-gray-500">
-              Minimum 8 caractères avec au moins une majuscule et un chiffre
+              {{ t("register.passwordHint") }}
             </p>
           </div>
 
@@ -213,7 +186,7 @@ const handleRegister = () => {
               for="confirmPassword"
               class="block text-sm font-medium text-gray-700 mb-2"
             >
-              Confirmer le mot de passe
+              {{ t("register.confirmPassword") }}
             </label>
             <div class="relative">
               <input
@@ -279,7 +252,7 @@ const handleRegister = () => {
               v-if="confirmPassword && password !== confirmPassword"
               class="mt-1 text-xs text-red-600"
             >
-              Les mots de passe ne correspondent pas
+              {{ t("register.passwordMismatch") }}
             </p>
           </div>
 
@@ -295,19 +268,19 @@ const handleRegister = () => {
             </div>
             <div class="ml-3 text-sm">
               <label for="acceptTerms" class="text-gray-700">
-                J'accepte les
+                {{ t("register.acceptTerms") }}
                 <a
                   href="#"
                   class="text-orange-600 hover:text-orange-500 font-medium"
                 >
-                  Conditions d'utilisation
+                  {{ t("register.termsOfUse") }}
                 </a>
-                et la
+                {{ t("register.and") }}
                 <a
                   href="#"
                   class="text-orange-600 hover:text-orange-500 font-medium"
                 >
-                  Politique de confidentialité
+                  {{ t("register.privacyPolicy") }}
                 </a>
               </label>
             </div>
@@ -343,7 +316,11 @@ const handleRegister = () => {
                 d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
               ></path>
             </svg>
-            {{ isLoading ? "Création..." : "Créer mon compte" }}
+            {{
+              isLoading
+                ? t("register.creating")
+                : t("register.createAccountButton")
+            }}
           </button>
         </form>
 
@@ -352,7 +329,9 @@ const handleRegister = () => {
             <div class="w-full border-t border-gray-300" />
           </div>
           <div class="relative flex justify-center text-sm">
-            <span class="px-2 bg-white text-gray-500">Ou s'inscrire avec</span>
+            <span class="px-2 bg-white text-gray-500">{{
+              t("register.orSignUpWith")
+            }}</span>
           </div>
         </div>
 

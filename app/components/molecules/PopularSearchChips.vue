@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import type { PopularSearchChips } from "../types/PopularSearchChips";
 
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
+
 const props = defineProps<{
   PopularSearchChips: PopularSearchChips;
   selected: string | null;
@@ -28,7 +32,11 @@ const emit = defineEmits<{
         : 'bg-gray-50 border-gray-300 hover:bg-orange-100 hover:text-orange-600 text-gray-600 hover:border-orange-200',
     ]"
   >
-    {{ props.PopularSearchChips.texte }}
+    {{
+      props.PopularSearchChips.texteKey
+        ? t(props.PopularSearchChips.texteKey)
+        : props.PopularSearchChips.texte
+    }}
   </button>
 </template>
 

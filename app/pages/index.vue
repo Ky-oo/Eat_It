@@ -1,43 +1,17 @@
 <script setup lang="ts">
-import { useHead } from "#imports";
+import { useI18n } from "vue-i18n";
 import type { Restaurant } from "~/types/Restaurant";
 import type { ApiResponse } from "~/types/Utils";
 
-useHead({
-  title: "Eat It",
-  meta: [
-    {
-      name: "description",
-      content:
-        "Découvrez les meilleurs restaurants loin de chez vous et faites-vous livrer le plus rapidement possible (on fait comme on peut) avec Eat It.",
-    },
-    {
-      name: "keywords",
-      content:
-        "livraison, restaurant, pizza, burger, sushi, eat it, commande, food, repas",
-    },
-    {
-      property: "og:title",
-      content: "Eat It",
-    },
-    {
-      property: "og:description",
-      content:
-        "Parcourez notre catalogue de restaurants et commandez vos plats préférés en ligne.",
-    },
-    {
-      property: "og:image",
-      content: "/logos/logo_entier.png",
-    },
-    {
-      property: "og:type",
-      content: "website",
-    },
-    {
-      property: "og:url",
-      content: "https://kylian-patry.duckdns.org/eat-it/",
-    },
-  ],
+const { t } = useI18n();
+
+useSeoMeta({
+  title: t("homepage.pageTitle"),
+  description: t("homepage.description"),
+  ogTitle: "Eat It",
+  ogDescription: t("homepage.ogDescription"),
+  ogImage: "/logos/logo_entier.png",
+  ogUrl: "https://kylian-patry.duckdns.org/eat-it/",
 });
 
 const { data: restaurantsResponse, error } = await useAsyncData(
@@ -50,7 +24,7 @@ const restaurants = computed(() => restaurantsResponse.value?.data || []);
 if (error.value) {
   throw createError({
     statusCode: 500,
-    statusMessage: "Erreur lors du chargement des restaurants",
+    statusMessage: t("common.errorLoadingRestaurants"),
   });
 }
 </script>

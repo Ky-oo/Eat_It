@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { useCart } from "~/stores/Cart";
+import { useI18n } from "vue-i18n";
 
 const cart = useCart();
+const { t } = useI18n();
 </script>
 <template>
   <div class="lg:col-span-1">
@@ -11,19 +13,19 @@ const cart = useCart();
           href="#profile"
           class="block px-4 py-2 text-gray-900 bg-orange-50 rounded-lg font-medium"
         >
-          Informations personnelles
+          {{ t("account.profile") }}
         </a>
         <button
           @click="navigateTo('/orders')"
           class="block w-full text-left px-4 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
         >
-          Mes commandes
+          {{ t("account.orders") }}
         </button>
         <button
           @click="navigateTo('/cart')"
           class="block w-full text-left px-4 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
         >
-          Mon panier ({{ cart.getTotalItems }})
+          {{ t("account.cart") }} ({{ cart.getTotalItems }})
         </button>
       </nav>
     </div>
