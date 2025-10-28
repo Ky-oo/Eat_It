@@ -9,10 +9,12 @@ const { t } = useI18n();
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div class="flex flex-col items-center text-center">
-          <img
-            src="/logos/logo_texte.png"
+          <NuxtImg
+            src="/logos/logo_texte.webp"
             alt="Logo Eat It"
             class="h-40 w-auto"
+            format="webp"
+            sizes="200px"
           />
           <h3 class="text-xl font-bold text-orange-400 mb-4"></h3>
           <p class="text-gray-300">

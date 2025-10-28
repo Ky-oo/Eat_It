@@ -183,6 +183,7 @@
   "orders.loadError": "Erreur lors du chargement des commandes",
   "orders.orderNumber": "Commande #",
   "orders.orderedItems": "Articles commandés:",
+  "owner.manageRestaurant": "Gérer ce restaurant",
   "orders.loadErrorFallback": "Impossible de charger les commandes",
   "orders.noOrdersSubtitle": "Vous n'avez pas encore passé de commande.",
   "orders.status": {

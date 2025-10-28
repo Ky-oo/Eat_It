@@ -86,10 +86,12 @@ onMounted(() => {
         >
           <div class="relative">
             <div class="h-64 w-full overflow-hidden rounded-t-2xl">
-              <img
+              <NuxtImg
                 :src="item.image"
                 :alt="item.name"
                 class="w-full h-full object-cover"
+                format="webp"
+                sizes="400px"
                 onerror="this.src='https://placehold.co/600x400/f3f4f6/9ca3af?text=Plat'"
               />
             </div>

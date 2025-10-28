@@ -8,7 +8,7 @@ export default defineNuxtConfig({
         lang: "fr",
       },
       link: [
-        { rel: "icon", type: "image/x-icon", href: "/logos/logo_entier.png" },
+        { rel: "icon", type: "image/x-icon", href: "/logos/logo_entier.webp" },
         { rel: "canonical", href: "https://kylian-patry.duckdns.org/eat-it" },
       ],
     },
@@ -16,7 +16,13 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
-  modules: ["@pinia/nuxt", "nuxt-vue3-google-signin", "@nuxtjs/i18n"],
+  modules: [
+    "@pinia/nuxt",
+    "nuxt-vue3-google-signin",
+    "@nuxtjs/i18n",
+    "@nuxt/image",
+    "@nuxtjs/pwa",
+  ],
   i18n: {
     strategy: "no_prefix",
     defaultLocale: "fr",
@@ -29,16 +35,16 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      routes: ["/"],
+      routes: ["/", "/offline"],
     },
     routeRules: {
       "/": {
         ssr: true,
         headers: { "Cache-Control": "s-maxage=60" },
       },
-      "/restaurants": {
+      "/offline": {
         ssr: true,
-        headers: { "Cache-Control": "s-maxage=300" }, // 5 minutes
+        headers: { "Cache-Control": "s-maxage=86400" }, // 24h
       },
       "/restaurants/**": {
         ssr: true,

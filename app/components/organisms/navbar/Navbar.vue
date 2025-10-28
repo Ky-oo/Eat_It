@@ -22,10 +22,12 @@ const changeLocale = (newLocale: "en" | "fr") => {
     class="px-4 py-3 bg-orange-500 flex items-center justify-between"
   >
     <NuxtLink to="/" class="inline-block">
-      <img
-        src="/logos/logo.png"
+      <NuxtImg
+        src="/logos/logo.webp"
         alt="Eat It Logo"
         class="mx-auto h-12 w-auto bg-orange-50 px-6 py-3 rounded-2xl shadow-lg"
+        format="webp"
+        sizes="50px"
       />
     </NuxtLink>
 

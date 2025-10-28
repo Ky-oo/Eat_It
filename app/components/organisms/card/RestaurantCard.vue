@@ -15,10 +15,12 @@ const { t } = useI18n();
       class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group cursor-pointer flex flex-col h-full"
     >
       <div class="relative h-48 overflow-hidden">
-        <img
+        <NuxtImg
           :src="restaurant.image"
           :alt="restaurant.name"
           class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          format="webp"
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
           onerror="this.src='https://via.placeholder.com/400x300/f3f4f6/9ca3af?text=Restaurant'"
         />
         <div class="absolute top-3 left-3">

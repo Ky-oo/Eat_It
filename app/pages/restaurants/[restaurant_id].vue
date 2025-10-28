@@ -38,7 +38,9 @@ useSeoMeta({
   ogDescription: restaurant.value
     ? restaurant.value.description
     : "Parcourez notre catalogue de restaurants et commandez vos plats préférés en ligne.",
-  ogImage: restaurant.value ? restaurant.value.image : "/logos/logo_entier.png",
+  ogImage: restaurant.value
+    ? restaurant.value.image
+    : "/logos/logo_entier.webp",
   ogUrl: `https://kylian-patry.duckdns.org/eat-it/restaurants/${restaurantId}`,
 });
 

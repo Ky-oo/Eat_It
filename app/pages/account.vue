@@ -10,7 +10,7 @@ useSeoMeta({
   ogTitle: "Eat It - Mon Compte",
   ogDescription:
     "Parcourez notre catalogue de restaurants et commandez vos plats préférés en ligne.",
-  ogImage: "/logos/logo_entier.png",
+  ogImage: "/logos/logo_entier.webp",
   ogUrl: "https://kylian-patry.duckdns.org/eat-it/account",
 });
 

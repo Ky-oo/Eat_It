@@ -8,10 +8,12 @@ defineProps<{
 
 <template>
   <div class="relative h-96 overflow-hidden">
-    <img
+    <NuxtImg
       :src="restaurant?.image"
       :alt="restaurant?.name"
       class="w-full h-full object-cover"
+      format="webp"
+      sizes="1200px"
       onerror="this.src='https://via.placeholder.com/1200x400/f3f4f6/9ca3af?text=Restaurant'"
     />
 

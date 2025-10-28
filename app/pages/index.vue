@@ -10,26 +10,16 @@ useSeoMeta({
   description: t("homepage.description"),
   ogTitle: "Eat It",
   ogDescription: t("homepage.ogDescription"),
-  ogImage: "/logos/logo_entier.png",
+  ogImage: "/logos/logo_entier.webp",
   ogUrl: "https://kylian-patry.duckdns.org/eat-it/",
 });
 
-const restaurantsResponse = ref<Restaurant[] | null>(null);
-const error = ref<any>(null);
+const { data: restaurantsData, error } = await useAsyncData(
+  "homepage-restaurants",
+  () => $fetch<ApiResponse<Restaurant[]>>("/api/restaurants")
+);
 
-onMounted(async () => {
-  try {
-    const response = await useAsyncData("homepage-restaurants", () =>
-      $fetch<ApiResponse<Restaurant[]>>("/api/restaurants")
-    );
-
-    restaurantsResponse.value = response.data.value?.data ?? [];
-  } catch (error) {
-    alert(error);
-  }
-});
-
-const restaurants = computed(() => restaurantsResponse.value || []);
+const restaurants = computed(() => restaurantsData.value?.data || []);
 
 if (error.value) {
   throw createError({

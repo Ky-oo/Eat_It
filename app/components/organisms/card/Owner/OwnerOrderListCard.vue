@@ -10,10 +10,12 @@ const { t, d } = useI18n();
   <div
     class="flex mt-6 space-y-4 items-center bg-gray-50 rounded-lg p-4 shadow-sm"
   >
-    <img
-      :src="order.user?.picture || '/default-profile.png'"
+    <NuxtImg
+      :src="order.user?.picture || '/default-profile.webp'"
       :alt="t('orders.userPictureAlt')"
       class="w-14 h-14 rounded-full object-cover mr-4"
+      format="webp"
+      sizes="60px"
     />
 
     <div class="flex-1">

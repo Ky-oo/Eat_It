@@ -37,10 +37,12 @@ const handleAddToCart = () => {
     class="flex items-center bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors duration-200"
   >
     <div class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0 mr-6">
-      <img
+      <NuxtImg
         :src="item?.image"
         :alt="item?.name"
         class="w-full h-full object-cover"
+        format="webp"
+        sizes="100px"
         onerror="this.src='https://placehold.co/150x150/f3f4f6/9ca3af?text=Plat'"
       />
     </div>

@@ -218,10 +218,12 @@ const deleteItem = async (itemId: string) => {
         class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
       >
         <div v-if="editingItemId !== item.id" class="flex items-start gap-4">
-          <img
+          <NuxtImg
             :src="item.image"
             :alt="item.name"
             class="w-24 h-24 rounded-lg object-cover flex-shrink-0"
+            format="webp"
+            sizes="100px"
           />
 
           <div class="flex-1 min-w-0">

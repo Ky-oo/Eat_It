@@ -47,7 +47,7 @@ const saveChanges = async () => {
           {{ t("owner.image") }}
         </label>
         <div class="flex items-center space-x-4">
-          <img
+          <NuxtImg
             :src="
               isEditing
                 ? editedRestaurant.image || restaurant?.image
@@ -55,6 +55,8 @@ const saveChanges = async () => {
             "
             alt="Restaurant"
             class="w-32 h-32 rounded-lg object-cover border-2 border-gray-200"
+            format="webp"
+            sizes="150px"
           />
           <div v-if="isEditing" class="flex-1">
             <input

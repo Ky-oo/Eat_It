@@ -113,7 +113,7 @@ const handleImageChange = (event: Event) => {
     <form @submit.prevent="handleSave" class="space-y-6">
       <div class="flex items-center space-x-6 pb-6 border-b border-gray-200">
         <div class="relative">
-          <img
+          <NuxtImg
             :src="userAvatar"
             :alt="
               t('account.userDetails.photoAlt', {
@@ -121,6 +121,8 @@ const handleImageChange = (event: Event) => {
               })
             "
             class="w-24 h-24 rounded-full object-cover border-4 border-gray-200 shadow-lg"
+            format="webp"
+            sizes="100px"
           />
           <div
             v-if="isEditing"

@@ -6,10 +6,12 @@ const { t } = useI18n();
 
 <template>
   <div class="text-center mb-9 items-center flex flex-col">
-    <img
-      src="/logos/logo_entier.png"
+    <NuxtImg
+      src="/logos/logo_entier.webp"
       :alt="t('logo.alt', 'Eat It')"
       class="h-55 w-auto mb-4"
+      format="webp"
+      sizes="300px"
     />
 
     <p class="text-xl text-gray-600">

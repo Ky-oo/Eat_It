@@ -12,7 +12,7 @@ useSeoMeta({
   description: t("homepage.description"),
   ogTitle: "Eat It - Login",
   ogDescription: t("homepage.ogDescription"),
-  ogImage: "/logos/logo_entier.png",
+  ogImage: "/logos/logo_entier.webp",
   ogUrl: "https://kylian-patry.duckdns.org/eat-it/login",
 });
 
@@ -44,10 +44,12 @@ function handleLogin() {
     <div class="max-w-md w-full space-y-8">
       <div class="text-center">
         <NuxtLink to="/" class="inline-block">
-          <img
-            src="/logos/logo_white.png"
+          <NuxtImg
+            src="/logos/logo_white.webp"
             alt="Eat It Logo"
             class="mx-auto h-16 w-auto bg-orange-500 px-6 py-3 rounded-2xl shadow-lg"
+            format="webp"
+            sizes="100px"
           />
         </NuxtLink>
         <h2 class="mt-6 text-3xl font-bold text-gray-900">

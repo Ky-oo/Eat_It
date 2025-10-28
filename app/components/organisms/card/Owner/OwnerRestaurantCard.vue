@@ -12,10 +12,12 @@ const { t } = useI18n();
     class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group cursor-pointer"
   >
     <div class="relative h-48 overflow-hidden">
-      <img
+      <NuxtImg
         :src="restaurant.image"
         :alt="restaurant.name"
         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        format="webp"
+        sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
       />
       <div
         class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"

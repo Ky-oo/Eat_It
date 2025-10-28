@@ -11,7 +11,7 @@ useSeoMeta({
   ogTitle: "Eat It - Mon Panier",
   ogDescription:
     "Parcourez notre catalogue de restaurants et commandez vos plats préférés en ligne.",
-  ogImage: "/logos/logo_entier.png",
+  ogImage: "/logos/logo_entier.webp",
   ogUrl: "https://kylian-patry.duckdns.org/eat-it/cart",
 });
 
@@ -93,13 +93,15 @@ const cart = useCart();
                 class="p-6 flex items-center space-x-4"
               >
                 <div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
-                  <img
+                  <NuxtImg
                     :src="
                       cartItem.item.image ||
                       'https://via.placeholder.com/150x150/f3f4f6/9ca3af?text=Plat'
                     "
                     :alt="cartItem.item.name"
                     class="w-full h-full object-cover"
+                    format="webp"
+                    sizes="80px"
                   />
                 </div>
 
