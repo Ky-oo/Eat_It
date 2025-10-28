@@ -21,7 +21,7 @@ export default defineNuxtConfig({
     "nuxt-vue3-google-signin",
     "@nuxtjs/i18n",
     "@nuxt/image",
-    "@nuxtjs/pwa",
+    "@vite-pwa/nuxt",
   ],
   i18n: {
     strategy: "no_prefix",
@@ -76,6 +76,72 @@ export default defineNuxtConfig({
 
   pinia: {
     storesDirs: ["./stores/**"],
+  },
+
+  pwa: {
+    registerType: "autoUpdate",
+    manifest: {
+      name: "Eat It - Commande de repas",
+      short_name: "Eat It",
+      description: "Application de livraison de repas en ligne",
+      theme_color: "#ea580c",
+      background_color: "#fef3c7",
+      display: "standalone",
+      orientation: "portrait",
+      scope: "/",
+      start_url: "/",
+      icons: [
+        {
+          src: "/logos/logo.webp",
+          sizes: "192x192",
+          type: "image/webp",
+        },
+        {
+          src: "/logos/logo.webp",
+          sizes: "512x512",
+          type: "image/webp",
+        },
+      ],
+    },
+    workbox: {
+      navigateFallback: "/offline",
+      globPatterns: ["**/*.{js,css,html,png,jpg,jpeg,svg,ico,webp}"],
+      runtimeCaching: [
+        {
+          urlPattern: /^https:\/\/images\.unsplash\.com\/.*/,
+          handler: "CacheFirst",
+          options: {
+            cacheName: "unsplash-images",
+            expiration: {
+              maxEntries: 50,
+              maxAgeSeconds: 60 * 60 * 24 * 30, // 30 jours
+            },
+          },
+        },
+        {
+          urlPattern: /^https:\/\/via\.placeholder\.com\/.*/,
+          handler: "CacheFirst",
+          options: {
+            cacheName: "placeholder-images",
+            expiration: {
+              maxEntries: 20,
+              maxAgeSeconds: 60 * 60 * 24 * 7, // 7 jours
+            },
+          },
+        },
+        {
+          urlPattern: "/api/.*",
+          handler: "NetworkFirst",
+          options: {
+            cacheName: "api-cache",
+            expiration: {
+              maxEntries: 100,
+              maxAgeSeconds: 60 * 60, // 1 heure
+            },
+          },
+        },
+      ],
+    },
   },
 
   components: [
