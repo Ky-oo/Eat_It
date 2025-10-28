@@ -1,6 +1,18 @@
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
+  app: {
+    head: {
+      title: "Eat It",
+      htmlAttrs: {
+        lang: "fr",
+      },
+      link: [
+        { rel: "icon", type: "image/x-icon", href: "/logos/logo_entier.png" },
+        { rel: "canonical", href: "https://kylian-patry.duckdns.org/eat-it" },
+      ],
+    },
+  },
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
@@ -55,19 +67,7 @@ export default defineNuxtConfig({
 
   components: [
     {
-      path: "~/components/atoms",
-      pathPrefix: false,
-    },
-    {
-      path: "~/components/molecules",
-      pathPrefix: false,
-    },
-    {
-      path: "~/components/organisms",
-      pathPrefix: false,
-    },
-    {
-      path: "~/components/atoms/icons",
+      path: "~/components",
       pathPrefix: false,
     },
   ],

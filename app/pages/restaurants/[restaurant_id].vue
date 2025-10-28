@@ -15,6 +15,42 @@ const { data: restaurantResponse, error } = await useAsyncData(
 
 const restaurant = computed(() => restaurantResponse.value?.data || undefined);
 
+useHead({
+  title: `Eat It - ${restaurant.value?.name}`,
+  meta: [
+    {
+      name: "description",
+      content: restaurant.value?.description,
+    },
+    {
+      name: "keywords",
+      content:
+        "livraison, restaurant, eat it, commande, food, repas, " +
+        restaurant.value?.cuisine,
+    },
+    {
+      property: "og:title",
+      content: `Eat It - ${restaurant.value?.name}`,
+    },
+    {
+      property: "og:description",
+      content: restaurant.value?.description,
+    },
+    {
+      property: "og:image",
+      content: restaurant.value?.image,
+    },
+    {
+      property: "og:type",
+      content: "website",
+    },
+    {
+      property: "og:url",
+      content: `https://kylian-patry.duckdns.org/eat-it/restaurants/${restaurant.value?.id}`,
+    },
+  ],
+});
+
 if (error.value) {
   throw createError({
     statusCode: 404,

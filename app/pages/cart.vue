@@ -4,6 +4,43 @@ definePageMeta({
   ssr: false,
 });
 
+useHead({
+  title: "Eat It - Cart",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Découvrez les meilleurs restaurants loin de chez vous et faites-vous livrer le plus rapidement possible (on fait comme on peut) avec Eat It.",
+    },
+    {
+      name: "keywords",
+      content:
+        "livraison, restaurant, pizza, burger, sushi, eat it, commande, food, repas",
+    },
+    {
+      property: "og:title",
+      content: "Eat It",
+    },
+    {
+      property: "og:description",
+      content:
+        "Parcourez notre catalogue de restaurants et commandez vos plats préférés en ligne.",
+    },
+    {
+      property: "og:image",
+      content: "/logos/logo_entier.png",
+    },
+    {
+      property: "og:type",
+      content: "website",
+    },
+    {
+      property: "og:url",
+      content: "https://kylian-patry.duckdns.org/eat-it/cart",
+    },
+  ],
+});
+
 import { useCart } from "~/stores/Cart";
 
 const cart = useCart();
