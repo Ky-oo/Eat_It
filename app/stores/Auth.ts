@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import { useRouter } from "#app";
 import type { User, UsersData, UserWithoutPassword } from "../types/User";
 import type { ApiError, ApiResponse, GoogleAuthResponse } from "../types/Utils";
 
