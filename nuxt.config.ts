@@ -22,6 +22,7 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
     "@nuxt/image",
     "@vite-pwa/nuxt",
+    "@nuxt/test-utils/module",
   ],
   i18n: {
     strategy: "no_prefix",
