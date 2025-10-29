@@ -111,7 +111,9 @@ const handleImageChange = (event: Event) => {
     </div>
 
     <form @submit.prevent="handleSave" class="space-y-6">
-      <div class="flex items-center space-x-4 sm:space-x-6 pb-6 border-b border-gray-200">
+      <div
+        class="flex items-center space-x-4 sm:space-x-6 pb-6 border-b border-gray-200"
+      >
         <div class="relative">
           <NuxtImg
             :src="userAvatar"

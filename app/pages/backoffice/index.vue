@@ -75,120 +75,122 @@ const saveUser = async () => {
           @update:filtered="filteredUsers = $event"
         />
         <div class="overflow-x-auto">
-        <table class="min-w-full bg-white rounded-xl shadow-lg overflow-hidden">
-          <thead>
-            <tr class="bg-orange-50 text-gray-700">
-              <th class="px-6 py-3 text-left font-semibold">
-                {{ t("backoffice.name") }}
-              </th>
-              <th class="px-6 py-3 text-left font-semibold">
-                {{ t("backoffice.email") }}
-              </th>
-              <th class="px-6 py-3 text-left font-semibold">
-                {{ t("backoffice.roles") }}
-              </th>
-              <th class="px-6 py-3 text-left font-semibold">
-                {{ t("backoffice.actions") }}
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              v-for="user in filteredUsers.length ? filteredUsers : users"
-              :key="user.id"
-              class="border-b"
-            >
-              <td class="px-6 py-4">
-                <div v-if="editingUserId !== user.id">
-                  {{ user.firstname }} {{ user.lastname }}
-                </div>
-                <div v-else>
-                  <input
-                    v-model="editedUser.firstname"
-                    type="text"
-                    class="border rounded px-2 py-1 w-24"
-                  />
-                  <input
-                    v-model="editedUser.lastname"
-                    type="text"
-                    class="border rounded px-2 py-1 w-24 ml-2"
-                  />
-                </div>
-              </td>
-              <td class="px-6 py-4">
-                <div v-if="editingUserId !== user.id">{{ user.email }}</div>
-                <div v-else>
-                  <input
-                    v-model="editedUser.email"
-                    type="email"
-                    class="border rounded px-2 py-1 w-48"
-                  />
-                </div>
-              </td>
-              <td class="px-6 py-4">
-                <div v-if="editingUserId !== user.id">
-                  {{
-                    Array.isArray(user.roles)
-                      ? user.roles.join(", ")
-                      : user.roles
-                  }}
-                </div>
-                <div v-else>
-                  <div class="flex gap-2">
-                    <label class="flex items-center gap-1">
-                      <input
-                        type="checkbox"
-                        value="user"
-                        v-model="editedUser.roles"
-                      />
-                      <span>{{ t("backoffice.roleUser") }}</span>
-                    </label>
-                    <label class="flex items-center gap-1">
-                      <input
-                        type="checkbox"
-                        value="owner"
-                        v-model="editedUser.roles"
-                      />
-                      <span>{{ t("backoffice.roleOwner") }}</span>
-                    </label>
-                    <label class="flex items-center gap-1">
-                      <input
-                        type="checkbox"
-                        value="admin"
-                        v-model="editedUser.roles"
-                      />
-                      <span>{{ t("backoffice.roleAdmin") }}</span>
-                    </label>
+          <table
+            class="min-w-full bg-white rounded-xl shadow-lg overflow-hidden"
+          >
+            <thead>
+              <tr class="bg-orange-50 text-gray-700">
+                <th class="px-6 py-3 text-left font-semibold">
+                  {{ t("backoffice.name") }}
+                </th>
+                <th class="px-6 py-3 text-left font-semibold">
+                  {{ t("backoffice.email") }}
+                </th>
+                <th class="px-6 py-3 text-left font-semibold">
+                  {{ t("backoffice.roles") }}
+                </th>
+                <th class="px-6 py-3 text-left font-semibold">
+                  {{ t("backoffice.actions") }}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="user in filteredUsers.length ? filteredUsers : users"
+                :key="user.id"
+                class="border-b"
+              >
+                <td class="px-6 py-4">
+                  <div v-if="editingUserId !== user.id">
+                    {{ user.firstname }} {{ user.lastname }}
                   </div>
-                </div>
-              </td>
-              <td class="px-6 py-4">
-                <div v-if="editingUserId !== user.id">
-                  <button
-                    @click="startEditing(user)"
-                    class="bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded-lg mr-2"
-                  >
-                    {{ t("backoffice.edit") }}
-                  </button>
-                </div>
-                <div v-else>
-                  <button
-                    @click="saveUser"
-                    class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-lg mr-2"
-                  >
-                    {{ t("backoffice.save") }}
-                  </button>
-                  <button
-                    @click="cancelEditing"
-                    class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-3 py-1 rounded-lg"
-                  >
-                    {{ t("backoffice.cancel") }}
-                  </button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                  <div v-else>
+                    <input
+                      v-model="editedUser.firstname"
+                      type="text"
+                      class="border rounded px-2 py-1 w-24"
+                    />
+                    <input
+                      v-model="editedUser.lastname"
+                      type="text"
+                      class="border rounded px-2 py-1 w-24 ml-2"
+                    />
+                  </div>
+                </td>
+                <td class="px-6 py-4">
+                  <div v-if="editingUserId !== user.id">{{ user.email }}</div>
+                  <div v-else>
+                    <input
+                      v-model="editedUser.email"
+                      type="email"
+                      class="border rounded px-2 py-1 w-48"
+                    />
+                  </div>
+                </td>
+                <td class="px-6 py-4">
+                  <div v-if="editingUserId !== user.id">
+                    {{
+                      Array.isArray(user.roles)
+                        ? user.roles.join(", ")
+                        : user.roles
+                    }}
+                  </div>
+                  <div v-else>
+                    <div class="flex gap-2">
+                      <label class="flex items-center gap-1">
+                        <input
+                          type="checkbox"
+                          value="user"
+                          v-model="editedUser.roles"
+                        />
+                        <span>{{ t("backoffice.roleUser") }}</span>
+                      </label>
+                      <label class="flex items-center gap-1">
+                        <input
+                          type="checkbox"
+                          value="owner"
+                          v-model="editedUser.roles"
+                        />
+                        <span>{{ t("backoffice.roleOwner") }}</span>
+                      </label>
+                      <label class="flex items-center gap-1">
+                        <input
+                          type="checkbox"
+                          value="admin"
+                          v-model="editedUser.roles"
+                        />
+                        <span>{{ t("backoffice.roleAdmin") }}</span>
+                      </label>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4">
+                  <div v-if="editingUserId !== user.id">
+                    <button
+                      @click="startEditing(user)"
+                      class="bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded-lg mr-2"
+                    >
+                      {{ t("backoffice.edit") }}
+                    </button>
+                  </div>
+                  <div v-else>
+                    <button
+                      @click="saveUser"
+                      class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-lg mr-2"
+                    >
+                      {{ t("backoffice.save") }}
+                    </button>
+                    <button
+                      @click="cancelEditing"
+                      class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-3 py-1 rounded-lg"
+                    >
+                      {{ t("backoffice.cancel") }}
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

@@ -36,7 +36,9 @@ const handleAddToCart = () => {
   <div
     class="flex flex-col sm:flex-row items-center bg-gray-50 rounded-xl p-4 sm:p-6 hover:bg-gray-100 transition-colors duration-200"
   >
-    <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden flex-shrink-0 mb-4 sm:mb-0 sm:mr-6">
+    <div
+      class="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden flex-shrink-0 mb-4 sm:mb-0 sm:mr-6"
+    >
       <NuxtImg
         :src="item?.image"
         :alt="item?.name"
@@ -64,7 +66,9 @@ const handleAddToCart = () => {
         </div>
       </div>
 
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-4 space-y-4 sm:space-y-0">
+      <div
+        class="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-4 space-y-4 sm:space-y-0"
+      >
         <QuantitySelector
           v-if="authStore.isLogged"
           :quantity="quantity"
@@ -76,7 +80,9 @@ const handleAddToCart = () => {
           "
         />
 
-        <div class="flex flex-col space-y-2 sm:flex-row sm:space-x-3 sm:space-y-0">
+        <div
+          class="flex flex-col space-y-2 sm:flex-row sm:space-x-3 sm:space-y-0"
+        >
           <button
             @click="item && $emit('showDetails', item)"
             :disabled="!item"

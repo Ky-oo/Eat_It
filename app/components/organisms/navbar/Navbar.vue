@@ -23,7 +23,10 @@ const changeLocale = (newLocale: "en" | "fr") => {
 
 <template>
   <nav
-    @click="isDropdownOpen = false; isMobileMenuOpen = false"
+    @click="
+      isDropdownOpen = false;
+      isMobileMenuOpen = false;
+    "
     class="px-4 py-3 bg-orange-500 flex items-center justify-between relative"
   >
     <NuxtLink to="/" class="inline-block">
@@ -164,9 +167,26 @@ const changeLocale = (newLocale: "en" | "fr") => {
         @click.stop="toggleMobileMenu"
         class="md:hidden text-white hover:text-orange-200 cursor-pointer transition-colors"
       >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path v-if="!isMobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            v-if="!isMobileMenuOpen"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+          <path
+            v-else
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
         </svg>
       </button>
     </div>
@@ -256,7 +276,10 @@ const changeLocale = (newLocale: "en" | "fr") => {
           {{ t("navbar.account") }}
         </NuxtLink>
         <button
-          @click="authStore.logout; isMobileMenuOpen = false"
+          @click="
+            authStore.logout;
+            isMobileMenuOpen = false;
+          "
           class="flex items-center justify-center text-white px-4 py-2 rounded-2xl font-medium border-orange-50 border hover:bg-orange-50 hover:text-orange-500 transition-colors duration-200 cursor-pointer"
         >
           <svg

@@ -97,7 +97,9 @@ const { t } = useI18n();
           </div>
         </div>
 
-        <div class="p-3 sm:p-4 border-t border-gray-100 bg-gray-50 rounded-b-xl">
+        <div
+          class="p-3 sm:p-4 border-t border-gray-100 bg-gray-50 rounded-b-xl"
+        >
           <div class="flex items-center justify-between mb-3">
             <span class="font-semibold text-gray-900"
               >{{ t("cart.summary") }}:</span
