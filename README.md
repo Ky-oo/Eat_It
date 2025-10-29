@@ -1,4 +1,10 @@
+[![Deployment Status](https://deploy-badge.vercel.app/?app=Eat-it&style=for-the-badge)](https://vercel.com/ky-oos-projects/eat-it)
+
+[![Playwright Tests](https://github.com/Ky-oo/Eat_It/actions/workflows/deploy.yaml/badge.svg)](https://github.com/Ky-oo/Eat_It/actions/workflows/deploy.yaml)
+
 # Eat It 🍕
+
+![Screenshot](./public/images/screenshot-homepage.png)
 
 Une application de livraison de nourriture moderne construite avec Nuxt 4, Vue 3 et Tailwind CSS.
 
