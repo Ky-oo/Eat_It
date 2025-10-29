@@ -59,5 +59,21 @@
       "address": "2 rue du parmelant",
       "details": "2er étage / interphone 218"
     }
+  },
+  {
+    "id": "2",
+    "googleId": "test_google_id",
+    "firstname": "Test",
+    "lastname": "Google",
+    "email": "testgoogle@gmail.com",
+    "password": "",
+    "roles": ["User", "backoffice", "owner"],
+    "phone_number": "",
+    "address": {
+      "city": "",
+      "cp": "",
+      "address": "",
+      "details": ""
+    }
   }
 ]

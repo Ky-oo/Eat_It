@@ -1,6 +1,6 @@
 export type User = {
   id: string;
-  googleId?: number;
+  googleId?: string;
   firstname: string;
   lastname: string;
   email: string;

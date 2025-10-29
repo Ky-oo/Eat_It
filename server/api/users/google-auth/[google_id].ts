@@ -5,7 +5,7 @@ import type { ApiResponse } from "~~/app/types/Utils";
 
 export default defineEventHandler((event): ApiResponse<User> => {
   const params = event.context.params;
-  const googleId = Number(params?.google_id);
+  const googleId = params?.google_id;
   const foundUser = (users as User[])?.find?.(
     (user) => user.googleId == googleId
   );
