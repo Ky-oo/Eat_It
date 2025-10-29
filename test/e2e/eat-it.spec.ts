@@ -86,7 +86,7 @@ test.describe("Eat It - Basic Tests", () => {
     await page.getByRole("button", { name: "Save" }).click();
     await page.getByRole("link", { name: "My Account" }).click();
     await page.getByRole("button", { name: "Logout" }).click();
-    await page.locator(".w-6").click();
+    await page.locator(".w-6").first().click();
     await expect(page.getByText("Sign in to your account")).toBeVisible();
   });
 });
