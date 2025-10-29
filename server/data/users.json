@@ -44,5 +44,20 @@
       "address": "2 rue du parmelant",
       "details": "2er étage / interphone 218"
     }
+  },
+  {
+    "id": "4",
+    "firstname": "func",
+    "lastname": "test",
+    "email": "functest@gmail.com",
+    "password": "password",
+    "roles": ["user"],
+    "phone_number": "+33603040506",
+    "address": {
+      "city": "Annecy",
+      "cp": "74000",
+      "address": "2 rue du parmelant",
+      "details": "2er étage / interphone 218"
+    }
   }
 ]
