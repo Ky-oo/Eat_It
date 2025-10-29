@@ -23,8 +23,13 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Launch App
-        run: npm run dev
+      - name: Build App
+        run: npm run build
+
+      - name: Start App
+        run: |
+          npm run preview &
+          npx wait-on http://localhost:3000 --timeout 60000
 
       - name: Run E2E Tests
         run: npm run test:e2e
