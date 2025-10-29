@@ -16,6 +16,8 @@
   "login.pageTitle": "Eat It - Connexion",
   "register.pageTitle": "Eat It - Inscription",
   "register.logoAlt": "logo",
+  "restaurant.menuTitle": "Menu",
+  "account.userDetails.address": "Adresse",
   "navbar.account": "Mon Compte",
   "navbar.logout": "Déconnexion",
   "search.button": "Rechercher",

@@ -62,6 +62,8 @@
   "cart.deliveryFee": "Delivery fee",
   "cart.checkout": "Checkout",
   "cart.seeRestaurants": "See restaurants",
+  "restaurant.menuTitle": "Menu",
+  "account.userDetails.address": "Address",
   "cart.items": "Items",
   "cart.continueShopping": "Continue shopping",
   "cart.summary": "Summary",
