@@ -23,9 +23,9 @@ const closeModal = () => {
 </script>
 
 <template>
-  <div class="bg-white rounded-2xl shadow-xl p-8">
+  <div class="bg-white rounded-2xl shadow-xl p-4 sm:p-8">
     <div class="flex items-center justify-between mb-8">
-      <h2 class="text-3xl font-bold text-gray-900">
+      <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">
         {{ t("restaurant.menuTitle") }}
       </h2>
       <div class="flex items-center text-gray-500">

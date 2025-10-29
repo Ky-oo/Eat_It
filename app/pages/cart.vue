@@ -111,7 +111,7 @@ const cart = useCart();
                       {{ cartItem.item.name }}
                     </h3>
                     <span
-                      class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full flex-nowrap"
+                      class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full flex-nowrap text-nowrap"
                     >
                       {{ t("cart.quantity") }} {{ cartItem.quantity }}
                     </span>

@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="relative h-96 overflow-hidden">
+  <div class="relative h-64 md:h-96 overflow-hidden">
     <NuxtImg
       :src="restaurant?.image"
       :alt="restaurant?.name"

@@ -34,9 +34,9 @@ const handleAddToCart = () => {
 
 <template>
   <div
-    class="flex items-center bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors duration-200"
+    class="flex flex-col sm:flex-row items-center bg-gray-50 rounded-xl p-4 sm:p-6 hover:bg-gray-100 transition-colors duration-200"
   >
-    <div class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0 mr-6">
+    <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden flex-shrink-0 mb-4 sm:mb-0 sm:mr-6">
       <NuxtImg
         :src="item?.image"
         :alt="item?.name"
@@ -48,7 +48,7 @@ const handleAddToCart = () => {
     </div>
 
     <div class="flex-1">
-      <div class="flex item?s-start justify-between">
+      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between">
         <div>
           <h3 class="text-xl font-bold text-gray-900 mb-2">
             {{ item?.name }}
@@ -57,14 +57,14 @@ const handleAddToCart = () => {
             {{ item?.description }}
           </p>
         </div>
-        <div class="text-right ml-4">
+        <div class="text-left sm:text-right sm:ml-4 mt-2 sm:mt-0">
           <p class="text-2xl font-bold text-orange-600">
             {{ item?.price.toFixed(2) }}€
           </p>
         </div>
       </div>
 
-      <div class="flex items-center justify-between mt-4">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-4 space-y-4 sm:space-y-0">
         <QuantitySelector
           v-if="authStore.isLogged"
           :quantity="quantity"
@@ -76,11 +76,11 @@ const handleAddToCart = () => {
           "
         />
 
-        <div class="flex space-x-3">
+        <div class="flex flex-col space-y-2 sm:flex-row sm:space-x-3 sm:space-y-0">
           <button
             @click="item && $emit('showDetails', item)"
             :disabled="!item"
-            class="bg-gray-200 cursor-pointer hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center"
+            class="bg-gray-200 cursor-pointer hover:bg-gray-300 text-gray-700 px-3 py-2 sm:px-4 sm:py-2 rounded-lg font-medium transition-colors duration-200 flex items-center"
           >
             <svg
               class="w-4 h-4 mr-2"
@@ -100,7 +100,7 @@ const handleAddToCart = () => {
           <button
             @click="handleAddToCart"
             :disabled="!item"
-            class="bg-orange-500 cursor-pointer hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center"
+            class="bg-orange-500 cursor-pointer hover:bg-orange-600 text-white px-4 py-2 sm:px-6 sm:py-2 rounded-lg font-medium transition-colors duration-200 flex items-center"
           >
             <svg
               class="w-4 h-4 mr-2"

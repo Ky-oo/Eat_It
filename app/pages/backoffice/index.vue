@@ -74,6 +74,7 @@ const saveUser = async () => {
           :users="users"
           @update:filtered="filteredUsers = $event"
         />
+        <div class="overflow-x-auto">
         <table class="min-w-full bg-white rounded-xl shadow-lg overflow-hidden">
           <thead>
             <tr class="bg-orange-50 text-gray-700">
@@ -188,6 +189,7 @@ const saveUser = async () => {
             </tr>
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   </div>

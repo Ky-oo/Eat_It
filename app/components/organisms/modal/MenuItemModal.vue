@@ -81,7 +81,7 @@ onMounted(() => {
       <Transition name="modal-content">
         <div
           v-if="isVisible && item"
-          class="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+          class="bg-white rounded-2xl shadow-2xl max-w-lg sm:max-w-4xl w-full max-h-[90vh] overflow-y-auto"
           @click.stop
         >
           <div class="relative">
@@ -116,7 +116,7 @@ onMounted(() => {
             </button>
           </div>
 
-          <div class="p-8">
+          <div class="p-4 sm:p-8">
             <div class="flex items-start justify-between mb-6">
               <div class="flex-1">
                 <h2 class="text-3xl font-bold text-gray-900 mb-2">
@@ -184,9 +184,9 @@ onMounted(() => {
               </div>
             </div>
 
-            <div class="bg-gray-50 rounded-xl p-8">
+            <div class="bg-gray-50 rounded-xl p-4 sm:p-8">
               <div
-                class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6"
+                class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6"
               >
                 <div class="flex items-end space-x-6" v-if="authStore.isLogged">
                   <span

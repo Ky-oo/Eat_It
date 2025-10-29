@@ -96,7 +96,7 @@ const handleImageChange = (event: Event) => {
 </script>
 
 <template>
-  <div class="bg-white rounded-xl shadow-lg p-6">
+  <div class="bg-white rounded-xl shadow-lg p-4 sm:p-6">
     <div class="flex items-center justify-between mb-6">
       <h2 class="text-xl font-semibold text-gray-900">
         {{ t("account.userDetails.title") }}
@@ -111,7 +111,7 @@ const handleImageChange = (event: Event) => {
     </div>
 
     <form @submit.prevent="handleSave" class="space-y-6">
-      <div class="flex items-center space-x-6 pb-6 border-b border-gray-200">
+      <div class="flex items-center space-x-4 sm:space-x-6 pb-6 border-b border-gray-200">
         <div class="relative">
           <NuxtImg
             :src="userAvatar"
@@ -120,7 +120,7 @@ const handleImageChange = (event: Event) => {
                 name: user.firstname || 'utilisateur',
               })
             "
-            class="w-24 h-24 rounded-full object-cover border-4 border-gray-200 shadow-lg"
+            class="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-4 border-gray-200 shadow-lg"
             format="webp"
             sizes="100px"
           />
@@ -176,7 +176,7 @@ const handleImageChange = (event: Event) => {
             v-model="user.firstname"
             :disabled="!isEditing"
             type="text"
-            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 disabled:bg-gray-50 disabled:text-gray-500 transition-colors"
+            class="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 disabled:bg-gray-50 disabled:text-gray-500 transition-colors"
           />
         </div>
 
@@ -188,7 +188,7 @@ const handleImageChange = (event: Event) => {
             v-model="user.lastname"
             :disabled="!isEditing"
             type="text"
-            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 disabled:bg-gray-50 disabled:text-gray-500 transition-colors"
+            class="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 disabled:bg-gray-50 disabled:text-gray-500 transition-colors"
           />
         </div>
       </div>
@@ -201,7 +201,7 @@ const handleImageChange = (event: Event) => {
           v-model="user.email"
           :disabled="!isEditing"
           type="email"
-          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 disabled:bg-gray-50 disabled:text-gray-500 transition-colors"
+          class="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 disabled:bg-gray-50 disabled:text-gray-500 transition-colors"
         />
       </div>
 
@@ -213,7 +213,7 @@ const handleImageChange = (event: Event) => {
           v-model="user.phone_number"
           :disabled="!isEditing"
           type="tel"
-          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 disabled:bg-gray-50 disabled:text-gray-500 transition-colors"
+          class="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 disabled:bg-gray-50 disabled:text-gray-500 transition-colors"
         />
       </div>
 
@@ -226,7 +226,7 @@ const handleImageChange = (event: Event) => {
           v-else
           v-model="addressText"
           rows="3"
-          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors resize-none"
+          class="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors resize-none"
         ></textarea>
       </div>
 
@@ -234,14 +234,14 @@ const handleImageChange = (event: Event) => {
         <button
           type="submit"
           :disabled="isLoading"
-          class="flex-1 cursor-pointer bg-orange-500 hover:bg-orange-600 text-white py-3 px-4 rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          class="flex-1 cursor-pointer bg-orange-500 hover:bg-orange-600 text-white py-2 px-3 sm:py-3 sm:px-4 rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
           {{ isLoading ? t("common.saving") : t("common.save") }}
         </button>
         <button
           type="button"
           @click="isEditing = false"
-          class="flex-1 cursor-pointer bg-gray-200 hover:bg-gray-300 text-gray-700 py-3 px-4 rounded-lg font-medium transition-colors"
+          class="flex-1 cursor-pointer bg-gray-200 hover:bg-gray-300 text-gray-700 py-2 px-3 sm:py-3 sm:px-4 rounded-lg font-medium transition-colors"
         >
           {{ t("common.cancel") }}
         </button>

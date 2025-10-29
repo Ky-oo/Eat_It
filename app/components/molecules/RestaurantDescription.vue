@@ -11,7 +11,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+  <div class="bg-white rounded-2xl shadow-xl p-4 sm:p-8 mb-8">
     <div
       class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6"
     >
@@ -38,15 +38,15 @@ defineProps<{
           </div>
         </div>
 
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        <h1 class="text-2xl sm:text-4xl font-bold text-gray-900 mb-4">
           {{ restaurant?.name }}
         </h1>
-        <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+        <p class="text-gray-600 text-base sm:text-lg mb-6 leading-relaxed">
           {{ restaurant?.description }}
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div class="flex items-center p-4 bg-gray-100 rounded-xl">
+          <div class="flex items-center p-3 sm:p-4 bg-gray-100 rounded-xl">
             <svg
               class="w-8 h-8 text-orange-500 mr-3"
               fill="none"
@@ -68,7 +68,7 @@ defineProps<{
             </div>
           </div>
 
-          <div class="flex items-center p-4 bg-gray-50 rounded-xl">
+          <div class="flex items-center p-3 sm:p-4 bg-gray-50 rounded-xl">
             <svg
               class="w-8 h-8 text-orange-500 mr-3"
               fill="none"
@@ -96,7 +96,7 @@ defineProps<{
             </div>
           </div>
 
-          <div class="flex items-center p-4 bg-gray-50 rounded-xl">
+          <div class="flex items-center p-3 sm:p-4 bg-gray-50 rounded-xl">
             <svg
               class="w-8 h-8 text-orange-500 mr-3"
               fill="none"
