@@ -8,22 +8,20 @@ const { t } = useI18n();
 const route = useRoute();
 const restaurantId = route.params.restaurant_id;
 
-import { onMounted, ref } from "vue";
-
-const restaurantResponse = ref<ApiResponse<Restaurant> | null>(null);
-const error = ref<any>(null);
-
-onMounted(async () => {
-  try {
-    restaurantResponse.value = await $fetch<ApiResponse<Restaurant>>(
-      `/api/restaurants/${restaurantId}`
-    );
-  } catch (err) {
-    error.value = err;
+const {
+  data: restaurantResponse,
+  pending,
+  refresh,
+  error,
+} = await useAsyncData<ApiResponse<Restaurant>>(
+  `restaurant-${restaurantId}`,
+  () => $fetch<ApiResponse<Restaurant>>(`/api/restaurants/${restaurantId}`),
+  {
+    server: true,
   }
-});
+);
 
-const restaurant = computed(() => restaurantResponse.value?.data || undefined);
+const restaurant = computed(() => restaurantResponse.value?.data);
 
 useSeoMeta({
   title: restaurant.value

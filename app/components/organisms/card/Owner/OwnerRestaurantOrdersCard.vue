@@ -6,23 +6,14 @@ import { useI18n } from "vue-i18n";
 
 const props = defineProps<{ restaurant: Restaurant | undefined }>();
 const { t } = useI18n();
-const orders = ref<Order[] | undefined>();
-const loading = ref<boolean>(false);
+const { data, pending, error } = await useAsyncData<ApiResponse<Order[]>>(
+  () => $fetch(`/api/orders/restaurant/${props.restaurant?.id}`),
+  { watch: [() => props.restaurant?.id], immediate: !!props.restaurant?.id }
+);
 
-onMounted(async () => {
-  loading.value = true;
-  try {
-    const OrderResponse = await $fetch<ApiResponse<Order[]>>(
-      `/api/orders/restaurant/${props.restaurant?.id}`
-    );
-
-    orders.value = OrderResponse.data;
-  } catch (error) {
-    alert(error);
-  } finally {
-    loading.value = false;
-  }
-});
+const orders = computed(() => data.value?.data);
+const loading = computed(() => pending.value);
+if (error.value) alert(error.value);
 </script>
 
 <template>

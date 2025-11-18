@@ -7,7 +7,7 @@ defineEmits<{
 <template>
   <button
     @click="$emit('close')"
-    class="absolute top-2 right-2 cursor-pointer text-gray-400 hover:text-gray-700 focus:outline-none z-10 bg-white rounded-full p-1 shadow-sm"
+    class="absolute top-2 right-2 cursor-pointer text-gray-400 hover:text-gray-700 focus:ring z-10 bg-white rounded-full p-1 shadow-sm"
     aria-label="Fermer les publicités"
   >
     <svg

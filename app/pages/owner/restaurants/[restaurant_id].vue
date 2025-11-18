@@ -13,20 +13,18 @@ const activeTab = ref<"settings" | "menu" | "orders">("settings");
 const restaurantResponse = ref<ApiResponse<Restaurant> | null>(null);
 const error = ref<any>(null);
 
-onMounted(async () => {
-  try {
-    const { data } = await useAsyncData(
-      `owner-restaurant-${restaurantId}`,
-      () => $fetch<ApiResponse<Restaurant>>(`/api/restaurants/${restaurantId}`),
-      {
-        server: true,
-      }
-    );
-    restaurantResponse.value = data.value ?? null;
-  } catch (err) {
-    error.value = err;
+const { data, error: fetchError } = await useAsyncData(
+  `owner-restaurant-${restaurantId}`,
+  () => $fetch<ApiResponse<Restaurant>>(`/api/restaurants/${restaurantId}`),
+  {
+    server: true,
   }
-});
+);
+
+restaurantResponse.value = data.value ?? null;
+if (fetchError.value) {
+  error.value = fetchError.value;
+}
 
 const restaurant = computed(() => restaurantResponse.value?.data);
 
