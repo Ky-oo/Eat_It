@@ -105,7 +105,8 @@ export default defineNuxtConfig({
       ],
     },
     workbox: {
-      navigateFallback: "/offline",
+      navigateFallback: "/",
+      navigateFallbackDenylist: [/^\/api\//, /^\/offline$/],
       globPatterns: ["**/*.{js,css,html,png,jpg,jpeg,svg,ico,webp}"],
       runtimeCaching: [
         {
@@ -115,7 +116,7 @@ export default defineNuxtConfig({
             cacheName: "unsplash-images",
             expiration: {
               maxEntries: 50,
-              maxAgeSeconds: 60 * 60 * 24 * 30, // 30 jours
+              maxAgeSeconds: 60 * 60 * 24 * 7, // 7 jours
             },
           },
         },
