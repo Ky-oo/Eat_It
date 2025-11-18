@@ -4,17 +4,6 @@ definePageMeta({
   ssr: false,
 });
 
-useSeoMeta({
-  title: "Mon Panier - Eat It",
-  description:
-    "Découvrez les meilleurs restaurants loin de chez vous et faites-vous livrer le plus rapidement possible (on fait comme on peut) avec Eat It.",
-  ogTitle: "Eat It - Mon Panier",
-  ogDescription:
-    "Parcourez notre catalogue de restaurants et commandez vos plats préférés en ligne.",
-  ogImage: "/logos/logo_entier.webp",
-  ogUrl: "https://kylian-patry.duckdns.org/eat-it/cart",
-});
-
 import { useCart } from "~/stores/Cart";
 import { useI18n } from "vue-i18n";
 

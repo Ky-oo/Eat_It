@@ -32,7 +32,7 @@ if (error.value) {
 <template>
   <div class="min-h-screen py-8 max-w-7xl mx-auto sm:px-6 lg:px-8">
     <PageTitle />
-    <RestaurantGrid :restaurants="restaurants" />
+    <LazyRestaurantGrid :restaurants="restaurants" />
   </div>
 </template>
 

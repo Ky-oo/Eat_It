@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
+
 definePageMeta({
   middleware: "auth",
 });
@@ -26,12 +30,6 @@ const setActiveTab = (tab: string) => {
   activeTab.value = tab;
 };
 
-const handleLogout = () => {
-  cart.clearCart();
-  authStore.logout();
-  navigateTo("/");
-};
-
 const goToCart = () => {
   navigateTo("/cart");
 };
@@ -54,7 +52,7 @@ const goToCart = () => {
                   : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50',
               ]"
             >
-              Informations personnelles
+              {{ t("account.personalInformation") }}
             </button>
             <button
               @click="setActiveTab('orders')"
@@ -65,13 +63,13 @@ const goToCart = () => {
                   : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50',
               ]"
             >
-              Mes commandes
+              {{ t("account.orders") }}
             </button>
             <button
               @click="goToCart"
               class="block w-full cursor-pointer text-left px-4 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
             >
-              Mon panier ({{ cart.getTotalItems }})
+              {{ t("navbar.cart") }} ({{ cart.getTotalItems }})
             </button>
           </nav>
         </div>

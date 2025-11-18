@@ -1,5 +1,20 @@
 import { test, expect } from "@playwright/test";
 
+test("should Login", async ({ page }) => {
+  await page.goto("http://localhost:3000");
+  await page.waitForLoadState("domcontentloaded", { timeout: 30000 });
+  await page.getByRole("link", { name: "Login" }).click();
+  await page.getByRole("textbox", { name: "Email address" }).click();
+  await page
+    .getByRole("textbox", { name: "Email address" })
+    .fill("functest@gmail.com");
+  await page.getByRole("textbox", { name: "Password" }).click();
+  await page.getByRole("textbox", { name: "Password" }).fill("password");
+  await page.getByRole("button", { name: "Sign in" }).click();
+  await expect(page).toHaveTitle(/Eat It/);
+  await expect(page.getByText("My Account")).toBeVisible();
+});
+
 test.describe("Eat It - Basic Tests", () => {
   test("should do an order and check Cart", async ({ page }) => {
     await page.goto("http://localhost:3000");
@@ -27,21 +42,6 @@ test.describe("Eat It - Basic Tests", () => {
     await expect(page.getByText("Quantity: 2")).toBeVisible();
     await expect(page.getByText("Frites").nth(0)).toBeVisible();
     await expect(page.getByText("Quantity: 1")).toBeVisible();
-  });
-
-  test("should Login", async ({ page }) => {
-    await page.goto("http://localhost:3000");
-    await page.waitForLoadState("domcontentloaded", { timeout: 30000 });
-    await page.getByRole("link", { name: "Login" }).click();
-    await page.getByRole("textbox", { name: "Email address" }).click();
-    await page
-      .getByRole("textbox", { name: "Email address" })
-      .fill("functest@gmail.com");
-    await page.getByRole("textbox", { name: "Password" }).click();
-    await page.getByRole("textbox", { name: "Password" }).fill("password");
-    await page.getByRole("button", { name: "Sign in" }).click();
-    await expect(page).toHaveTitle(/Eat It/);
-    await expect(page.getByText("My Account")).toBeVisible();
   });
 
   test("should do an order, delete items and logout", async ({ page }) => {

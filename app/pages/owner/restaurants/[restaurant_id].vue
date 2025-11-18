@@ -1,8 +1,4 @@
 <script setup lang="ts">
-definePageMeta({
-  middleware: "auth",
-});
-
 import type { Restaurant } from "~/types/Restaurant";
 import type { ApiResponse } from "~/types/Utils";
 import { useI18n } from "vue-i18n";

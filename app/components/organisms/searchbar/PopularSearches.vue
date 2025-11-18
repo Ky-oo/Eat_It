@@ -69,7 +69,7 @@ const data = [
       :PopularSearchChips="data"
       :selected="selected"
       @selectedSearch="
-        (selectedSearch) => {
+        (selectedSearch: string | null) => {
           selectCategory(selectedSearch);
         }
       "
