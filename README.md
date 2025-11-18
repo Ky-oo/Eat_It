@@ -1,3 +1,7 @@
+[![Deployment Status](https://deploy-badge.vercel.app/?app=Eat-it&style=for-the-badge)](https://vercel.com/ky-oos-projects/eat-it)
+
+[![Playwright Tests](https://github.com/Ky-oo/Eat_It/actions/workflows/deploy.yaml/badge.svg)](https://github.com/Ky-oo/Eat_It/actions/workflows/deploy.yaml)
+
 # Eat It 🍕
 
 Application moderne de livraison de nourriture — construite avec **Nuxt 4**, **Vue 3**, **TypeScript**, **TailwindCSS**, **Pinia**, **i18n**, **PWA**, **Playwright**, et **Google Auth**.
