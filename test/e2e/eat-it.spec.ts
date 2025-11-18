@@ -41,7 +41,7 @@ test.describe("Eat It - Basic Tests", () => {
     await expect(page.getByText("Classic Burger").nth(0)).toBeVisible();
 
     await expect(page.getByText("Frites").nth(0)).toBeVisible();
-    await expect(page.getByText("Quantity: 1")).count().toBe(2);
+    await expect(page.getByText("Quantity: 1")).toHaveCount(2);
   });
 
   test("should do an order, delete items and logout", async ({ page }) => {
