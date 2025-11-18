@@ -23,6 +23,7 @@ defineProps<{
 
     <button
       @click="$router.back()"
+      aria-label="Go back"
       class="absolute cursor-pointer top-6 left-6 bg-white/90 backdrop-blur-sm hover:bg-gray-300 hover:scale-105 text-gray-800 p-3 rounded-full shadow-lg transition-all duration-200"
     >
       <svg
